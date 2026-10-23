@@ -389,12 +389,12 @@ function roundView(){
   if(!R.rev){
     body=`<p class="hint">${n===1?"Choose <b>one</b> answer.":"Choose <b>"+n+"</b> answers, like a tick-box question in the exam."}</p>
     <div class="opts">${R.opts.map((o,i)=>`<button class="pt opt ${n===1?"single":""} ${R.sel.includes(i)?"on":""}" onclick="pick(${i})" aria-pressed="${R.sel.includes(i)}"><span class="box">${ICON.tick}</span><span>${o.h}</span></button>`).join("")}</div>
-    <div class="score"><span class="small">${R.sel.length} of ${n} chosen</span><button class="btn" ${R.sel.length?"":"disabled"} onclick="reveal()">Check my answer${n>1?"s":""}<span class="kbd">Space</span></button></div>`;
+    <div class="score"><span class="small">${R.sel.length} of ${n} chosen</span><button class="btn" ${R.sel.length?"":"disabled"} onclick="reveal()">Check my answer${n>1?"s":""}</button></div>`;
   }else{
     const earned=curScore(c);
     body=`${fbBanner(c,earned)}<div class="opts">${R.opts.map((o,i)=>{const p=R.sel.includes(i);const st=p?(o.ok?"right":"wrong"):(o.ok?"missed":"");const ic=st==="right"?ICON.tick:st==="wrong"?ICON.cross:st==="missed"?ICON.tick:"";const lab=st==="right"?"Correct":st==="wrong"?"Not quite":st==="missed"?"You missed this one":"";return `<div class="pt opt done ${n===1?"single":""} ${st}"><span class="box">${ic}</span><span>${o.h}${lab?`<small class="olab">${lab}</small>`:""}</span></div>`}).join("")}</div>
     <div class="ans"><h3>Full mark scheme</h3><div class="a">${c.a.map(x=>`<p>${x}</p>`).join("")}</div>
-    <div class="score"><div class="big">${earned} / ${c.m} ${c.m===1?"mark":"marks"}</div><button class="btn" id="nextbtn" onclick="next()">${R.i+1===R.cards.length?"Finish":"Next question"}<span class="kbd">Space</span></button></div></div>`;
+    <div class="score"><div class="big">${earned} / ${c.m} ${c.m===1?"mark":"marks"}</div><button class="btn" id="nextbtn" onclick="next()">${R.i+1===R.cards.length?"Finish":"Next question"}</button></div></div>`;
   }
   $("#app").innerHTML=`
   <div class="rhead"><button class="chip" onclick="if(confirm('Leave this round?'))go('home')">Quit</button><b>${R.label}</b><div class="seg">${R.cards.map((x,k)=>`<i class="${k<R.i?"d":k===R.i?"n":""}"></i>`).join("")}</div><span class="pill">${R.i+1} / ${R.cards.length}</span>${hearts}${R.combo>=2?`<span class="pill combo">${R.combo} in a row</span>`:""}<span class="pill">${R.earned} marks</span></div>
@@ -509,8 +509,7 @@ setTimeout(restore,900);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)restore()});
 render();
 </script>
-<a id="hubback" href="#" aria-label="Back to my dashboard">&lsaquo; Dashboard</a>
-<style>#hubback{position:fixed;left:max(12px,env(safe-area-inset-left));bottom:max(14px,calc(env(safe-area-inset-bottom) + 8px));z-index:60;display:inline-flex;align-items:center;gap:6px;padding:11px 16px;border-radius:99px;background:rgba(24,29,58,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--accent,#8b7bff);color:#eef0fb;font:700 .9rem "Segoe UI",system-ui,-apple-system,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(0,0,0,.6)}#hubback:active{transform:scale(.96)}@media print{#hubback{display:none}}</style>
-<script>document.getElementById("hubback").href=CFG.name.toLowerCase()+".html";</script>
+<style>#hubback{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:center;gap:9px;min-height:calc(46px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 16px 0;background:linear-gradient(90deg,var(--accent,#8b7bff),var(--accent2,#38d0f0));color:#10132a;font:800 1rem "Segoe UI",system-ui,-apple-system,sans-serif;text-decoration:none;letter-spacing:.2px}#hubback:active{filter:brightness(.92)}#hubback svg{flex:none}header.top{top:44px!important;padding-top:0!important}@supports(top:env(safe-area-inset-top)){header.top{top:calc(44px + env(safe-area-inset-top))!important}}@media print{#hubback{display:none}}</style>
+<script>(function(){var a=document.createElement("a");a.id="hubback";a.setAttribute("aria-label","Back to my dashboard");a.href=CFG.name.toLowerCase()+".html";a.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Back to dashboard';document.body.insertBefore(a,document.body.firstChild)})();</script>
 </body>
 </html>
