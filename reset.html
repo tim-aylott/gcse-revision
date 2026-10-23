@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reset this device</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0d1020;color:#eef0fb;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;text-align:center;padding:24px}main{max-width:420px}h1{margin:0 0 10px}p{color:#9ba4cc;line-height:1.5}button{font:800 1.05rem inherit;font-family:inherit;border:0;border-radius:99px;padding:15px 28px;margin-top:14px;color:#10132a;background:linear-gradient(90deg,#ff7a8a,#8b7bff,#38d0f0);cursor:pointer}.ok{color:#3ddc97;font-weight:700}</style></head>
+<body><main><h1>Fresh start</h1>
+<p>This clears the revision progress saved on <b>this device only</b>, so everything starts from zero. Use it once on each phone, iPad or computer.</p>
+<button id="b">Reset this device</button><p id="m"></p></main>
+<script>
+document.getElementById("b").onclick=function(){var n=0;try{n=localStorage.length;localStorage.clear()}catch(e){}try{sessionStorage.clear()}catch(e){}
+document.getElementById("m").innerHTML='<span class="ok">Done. This device is reset.</span><br><a style="color:#8b7bff" href="emma.html">Emma\'s dashboard</a> &nbsp;|&nbsp; <a style="color:#8b7bff" href="kayla.html">Kayla\'s dashboard</a>'};
+</script></body></html>
