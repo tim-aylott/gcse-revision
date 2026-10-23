@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Emma Revision">
+<meta name="theme-color" content="#0d1020">
+<title>Emma's Revision Hub | GCSE</title>
+<style>
+:root{--bg:#0d1020;--bg2:#161b3a;--panel:#181d3a;--panel2:#212750;--line:#2c3466;--text:#eef0fb;--muted:#9ba4cc;--a:#ff7a8a;--b:#ffb36b;--good:#3ddc97}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;min-height:100%}
+body{padding:env(safe-area-inset-top) 0 calc(40px + env(safe-area-inset-bottom));position:relative;overflow-x:hidden}
+.glow{position:fixed;inset:-20% -10% auto -10%;height:70vh;z-index:0;pointer-events:none;background:radial-gradient(600px 360px at 18% 20%,color-mix(in srgb,var(--a) 34%,transparent),transparent 70%),radial-gradient(640px 400px at 85% 8%,color-mix(in srgb,var(--b) 30%,transparent),transparent 70%);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(2%,4%,0) scale(1.06)}}
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left)) 0 max(18px,env(safe-area-inset-right))}
+.hero{padding-top:30px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.hi{font-size:clamp(1.9rem,6vw,3rem);line-height:1.05;margin:0;font-weight:800;letter-spacing:-.5px}
+.grad{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{margin:8px 0 0;color:var(--muted);font-size:1.02rem}
+.rank{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;padding:12px 16px;min-width:230px}
+.badge{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center;color:#10132a;flex:none}
+.badge svg{width:26px;height:26px}
+.rank b{display:block;font-size:1.05rem}
+.rank small{color:var(--muted);font-size:.78rem}
+.xpbar{height:7px;border-radius:99px;background:#0d1020;overflow:hidden;margin-top:6px}
+.xpbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));border-radius:99px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:22px}
+.stat{background:linear-gradient(160deg,var(--panel),#141936);border:1px solid var(--line);border-radius:18px;padding:14px 16px;position:relative;overflow:hidden}
+.stat .k{font-size:.74rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+.stat .v{font-size:1.9rem;font-weight:800;margin-top:2px;line-height:1.1}
+.stat .s{font-size:.78rem;color:var(--muted);margin-top:2px}
+.stat svg.ic{position:absolute;right:10px;top:10px;width:30px;height:30px;opacity:.22;color:var(--b)}
+.goal{margin-top:14px;background:linear-gradient(160deg,var(--panel),#141936);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.goal .row{display:flex;justify-content:space-between;gap:10px;font-size:.92rem;flex-wrap:wrap}
+.goal .row span:last-child{color:var(--muted)}
+.pbar{height:14px;border-radius:99px;background:#0d1020;overflow:hidden;margin-top:9px}
+.pbar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1s cubic-bezier(.2,.8,.2,1);position:relative}
+.pbar i::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);background-size:200% 100%;animation:shine 2.4s linear infinite}
+@keyframes shine{from{background-position:200% 0}to{background-position:-200% 0}}
+h2{font-size:1.2rem;margin:30px 0 4px;display:flex;align-items:center;gap:10px}
+.sync{font-size:.74rem;font-weight:500;color:var(--muted);background:var(--panel2);border:1px solid var(--line);padding:3px 10px;border-radius:99px}
+.sync.ok{color:var(--good)}
+.sub{color:var(--muted);margin:0 0 14px;font-size:.92rem}
+.tiles{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(235px,1fr))}
+a.tile{--h:0;--c1:hsl(var(--h) 85% 62%);--c2:hsl(calc(var(--h) + 38) 90% 66%);display:block;text-decoration:none;color:inherit;position:relative;border-radius:22px;padding:16px 16px 14px;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
+a.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(240px 130px at 100% 0,color-mix(in srgb,var(--c1) 26%,transparent),transparent 70%);pointer-events:none}
+a.tile:hover,a.tile:focus-visible{transform:translateY(-4px) rotate(-.4deg);border-color:var(--c1);box-shadow:0 14px 34px -14px var(--c1);outline:none}
+a.tile:active{transform:scale(.98)}
+.ti{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;color:#10132a;position:relative;transition:transform .25s}
+a.tile:hover .ti{transform:rotate(-8deg) scale(1.08)}
+.ti svg{width:30px;height:30px}
+.tn{font-size:1.18rem;font-weight:700;margin:12px 0 2px;position:relative}
+.tm{font-size:.8rem;color:var(--muted);position:relative}
+.tb{height:9px;border-radius:99px;background:#0d1020;overflow:hidden;margin:12px 0 7px;position:relative}
+.tb i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--c1),var(--c2));transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.tf{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;position:relative}
+.tf b{font-size:.95rem}
+.go{white-space:nowrap;display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--c1)}
+.pick{position:absolute;right:12px;top:12px;background:linear-gradient(90deg,var(--a),var(--b));color:#10132a;font-size:.68rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 9px;border-radius:99px;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.foot{margin:34px 0 0;color:var(--muted);font-size:.8rem;text-align:center;line-height:1.5}
+.foot a{color:var(--b)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:520px){.w{display:none}.tiles{grid-template-columns:repeat(2,1fr)}a.tile{padding:13px 12px}.tn{font-size:1.02rem}.ti{width:44px;height:44px}.ti svg{width:25px;height:25px}.pick{font-size:.6rem;right:8px;top:8px}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<main class="wrap">
+ <section class="hero">
+  <div>
+   <h1 class="hi" id="hi">Hi <span class="grad">Emma</span></h1>
+   <p class="tag" id="tag">Pick a subject and smash some marks.</p>
+  </div>
+  <div class="rank">
+   <div class="badge" id="rbadge"></div>
+   <div style="flex:1;min-width:0"><b id="rname">Observer</b><small id="rnext">Loading your points</small><div class="xpbar"><i id="rbar"></i></div></div>
+  </div>
+ </section>
+
+ <section class="stats">
+  <div class="stat"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.1 4.9 1.3 7L12 17.8 5.8 21.3l1.3-7L2 9.4l7-.9z"/></svg><div class="k">Total points</div><div class="v" id="sXp">0</div><div class="s" id="sXpS">across all subjects</div></div>
+  <div class="stat"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5.5 6 5.5 11a5.5 5.5 0 01-11 0c0-2.200 1-3.500 2.200-4.500.1 2 1 3 2 3C10.500 7 10.500 4.500 12 2z"/></svg><div class="k">Day streak</div><div class="v" id="sStreak">0</div><div class="s" id="sStreakS">days in a row</div></div>
+  <div class="stat"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg><div class="k">Cards mastered</div><div class="v" id="sMast">0</div><div class="s" id="sMastS">of 0 cards</div></div>
+  <div class="stat"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg><div class="k">Marks scored</div><div class="v" id="sMarks">0</div><div class="s" id="sMarksS">all time</div></div>
+ </section>
+
+ <section class="goal">
+  <div class="row"><span><b>Today's goal</b> <span id="gTxt">0 of 30 marks</span></span><span id="gMsg">Let's get started</span></div>
+  <div class="pbar"><i id="gBar"></i></div>
+ </section>
+
+ <h2>Your subjects <span class="sync" id="sync">Syncing</span></h2>
+ <p class="sub">Tap a subject to start. Use the Dashboard button inside to come back here.</p>
+ <section class="tiles" id="tiles"></section>
+
+ <p class="foot">Your progress is saved to your private tracker, so it follows you from phone to iPad. Bookmark this page.</p>
+</main>
+<script>
+const NAME="Emma",CHILD="Emma",LOGURL="https://script.google.com/macros/s/AKfycby17HD6voBTQOBC6yI4hlqeOS_kPINyHKXfXaxLomzcTqIC8sYMeOVgdH9I7zX8a8Ziow/exec",LOGKEY="zF0988a6v6_5vE_R",GOAL=30;
+const SUBJ=[{"key": "bio_emma_v2", "name": "Biology", "sheet": "Biology", "file": "emma-biology.html", "ic": "bio", "h": 145, "board": "AQA 8461", "n": 357}, {"key": "chem_emma_v1", "name": "Chemistry", "sheet": "Chemistry", "file": "emma-chemistry.html", "ic": "chem", "h": 285, "board": "AQA 8462", "n": 334}, {"key": "phys_emma_v1", "name": "Physics", "sheet": "Physics", "file": "emma-physics.html", "ic": "phys", "h": 205, "board": "AQA 8463", "n": 372}, {"key": "maths_emma_v1", "name": "Maths", "sheet": "Maths", "file": "emma-maths.html", "ic": "maths", "h": 35, "board": "AQA 8300", "n": 284}, {"key": "geog_emma_v1", "name": "Geography", "sheet": "Geography", "file": "emma-geography.html", "ic": "geog", "h": 170, "board": "Edexcel B 1GB0", "n": 246}, {"key": "biz_emma_v1", "name": "Business", "sheet": "Business Studies", "file": "emma-business.html", "ic": "biz", "h": 345, "board": "AQA 8132", "n": 165}, {"key": "eng_emma_v1", "name": "English", "sheet": "English", "file": "emma-english.html", "ic": "eng", "h": 8, "board": "Eduqas C700 and C720", "n": 180}, {"key": "food_emma_v1", "name": "Food Prep", "sheet": "Food Preparation", "file": "emma-food.html", "ic": "food", "h": 55, "board": "AQA 8585", "n": 193}];
+const RANKS=[[0,"Observer"],[200,"Technician"],[500,"Analyst"],[1000,"Researcher"],[1800,"Specialist"],[3000,"Consultant"],[5000,"Professor"]];
+const ICONS={
+bio:'<path d="M12 21c-5 0-8-3.500-8-8 0-5 4-8 15-9-1 11-3 17-7 17z"/><path d="M5 19C9 14 12 11 16 8"/>',
+chem:'<path d="M9 3h6M10 3v6L4.500 19a1.500 1.500 0 001.300 2h12.400a1.500 1.500 0 001.300-2L14 9V3"/><path d="M7.500 15h9"/>',
+phys:'<circle cx="12" cy="12" r="1.800" fill="currentColor"/><ellipse cx="12" cy="12" rx="9.500" ry="3.800"/><ellipse cx="12" cy="12" rx="9.500" ry="3.800" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.500" ry="3.800" transform="rotate(120 12 12)"/>',
+maths:'<path d="M5 8h6M8 5v6M13 8h6M5 17h6M13 14.500h6M13 18.500h6"/>',
+geog:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+biz:'<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>',
+eng:'<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19a2 2 0 012-2h13"/><path d="M9 8h6"/>',
+food:'<path d="M7 3v8a2 2 0 002 2v8M11 3v8M7 7h4"/><path d="M17 3c-2 2-3 5-3 8h3v10"/>'};
+const todayStr=()=>new Date().toLocaleDateString("en-CA");
+const dayN=s=>Math.round(Date.parse(s+"T00:00:00Z")/864e5);
+const CK="hub_"+CHILD.toLowerCase()+"_v1";
+let DATA={};   // subject key -> summary
+try{DATA=JSON.parse(localStorage.getItem(CK)||"{}")}catch(e){}
+const mastered=cards=>Object.keys(cards||{}).filter(k=>cards[k].box>=2).length;
+function local(s){try{const j=JSON.parse(localStorage.getItem(s.key)||"null");if(j&&j.xp>0)return j}catch(e){}return null}
+function summarise(s,st){return{xp:st.xp||0,marks:st.marks||0,m:mastered(st.cards),seen:Object.keys(st.cards||{}).length,hist:st.hist||{}}}
+function draw(){
+  const t=todayStr();let xp=0,marks=0,m=0,tot=0,today=0;const days={};
+  SUBJ.forEach(s=>{const d=DATA[s.key]||{xp:0,marks:0,m:0,seen:0,hist:{}};xp+=d.xp;marks+=d.marks;m+=d.m;tot+=s.n;today+=d.hist[t]||0;Object.keys(d.hist).forEach(k=>{if(d.hist[k]>0)days[k]=1})});
+  // streak: consecutive days with marks, still alive if last was today or yesterday
+  let streak=0,c=dayN(t);if(!days[t])c--;while(days[new Date(c*864e5).toISOString().slice(0,10)]){streak++;c--}
+  document.getElementById("sXp").textContent=xp.toLocaleString("en-GB");
+  document.getElementById("sStreak").textContent=streak;
+  document.getElementById("sStreakS").textContent=streak===1?"day, keep it going":streak?"days in a row":"start one today";
+  document.getElementById("sMast").textContent=m.toLocaleString("en-GB");
+  document.getElementById("sMastS").textContent="of "+tot.toLocaleString("en-GB")+" cards ("+Math.round(100*m/tot)+"%)";
+  document.getElementById("sMarks").textContent=marks.toLocaleString("en-GB");
+  document.getElementById("gTxt").textContent=today+" of "+GOAL+" marks";
+  document.getElementById("gBar").style.width=Math.min(100,100*today/GOAL)+"%";
+  document.getElementById("gMsg").textContent=today>=GOAL?"Goal smashed. Legend!":today>=GOAL*.6?"Nearly there":today>0?"Good start, keep going":"Let's get started";
+  let i=0;RANKS.forEach((r,k)=>{if(xp>=r[0])i=k});const lo=RANKS[i][0],hi=RANKS[i+1]?RANKS[i+1][0]:null;
+  document.getElementById("rname").textContent=RANKS[i][1];
+  document.getElementById("rnext").textContent=hi?(hi-xp).toLocaleString("en-GB")+" points to "+RANKS[i+1][1]:"Top rank reached";
+  document.getElementById("rbar").style.width=(hi?100*(xp-lo)/(hi-lo):100)+"%";
+  document.getElementById("rbadge").innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="6"/><path d="M8 3l4 6 4-6"/></svg>';
+  const hr=new Date().getHours();document.getElementById("hi").innerHTML=(hr<12?"Morning ":hr<18?"Hi ":"Evening ")+'<span class="grad">'+NAME+'</span>';
+  document.getElementById("tag").textContent=today>=GOAL?"Daily goal done. Anything extra is a bonus.":streak>1?streak+" days in a row. Don't break the chain.":"Pick a subject and smash some marks.";
+  // today's pick: lowest mastery %, least practised as tiebreak
+  let pick=null,best=9;SUBJ.forEach(s=>{const d=DATA[s.key]||{m:0};const r=d.m/s.n;if(r<best){best=r;pick=s.key}});
+  const box=document.getElementById("tiles");
+  box.innerHTML=SUBJ.map((s,k)=>{const d=DATA[s.key]||{xp:0,m:0,seen:0};const pc=Math.round(100*d.m/s.n);
+   const state=d.seen?"Continue":"Start";
+   return '<a class="tile" style="--h:'+s.h+'" href="'+s.file+'?from=hub" data-k="'+s.key+'">'+(s.key===pick?'<span class="pick">Try this</span>':'')+
+   '<div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round">'+ICONS[s.ic]+'</svg></div>'+
+   '<div class="tn">'+s.name+'</div><div class="tm">'+s.board+'</div>'+
+   '<div class="tb"><i data-w="'+pc+'" style="width:0"></i></div>'+
+   '<div class="tf"><span><b>'+d.m+'</b> / '+s.n+'<span class="w"> mastered</span></span><span class="go">'+state+' &rsaquo;</span></div></a>'}).join("");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll(".tb i").forEach(e=>e.style.width=e.dataset.w+"%")));
+}
+function save(){try{localStorage.setItem(CK,JSON.stringify(DATA))}catch(e){}}
+async function load(){
+  // instant paint from this device's own subject saves, then overlay the sheet (the master)
+  SUBJ.forEach(s=>{const l=local(s);if(l&&(!DATA[s.key]||l.xp>DATA[s.key].xp))DATA[s.key]=summarise(s,l)});
+  draw();
+  const el=document.getElementById("sync");let ok=0,fail=0;
+  await Promise.all(SUBJ.map(async s=>{
+    try{
+      const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),20000);
+      const r=await fetch(LOGURL+"?action=state&key="+encodeURIComponent(LOGKEY)+"&child="+encodeURIComponent(CHILD)+"&subject="+encodeURIComponent(s.sheet),{cache:"no-store",signal:ctl.signal});
+      clearTimeout(to);const j=await r.json();
+      if(j&&j.ok&&j.state){ok++;const sm=summarise(s,j.state);const l=local(s);
+        // sheet is master; keep a newer on-device figure only if it has not reached the sheet yet
+        DATA[s.key]=(l&&l.xp>sm.xp)?summarise(s,l):sm;save();draw()}else fail++;
+    }catch(e){fail++}
+  }));
+  if(ok===SUBJ.length){el.textContent="Up to date";el.className="sync ok"}else if(ok){el.textContent="Partly synced";el.className="sync"}else{el.textContent="Offline: showing saved";el.className="sync"}
+}
+draw();load();
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
+window.addEventListener("pageshow",e=>{if(e.persisted)load()});
+</script>
+</body>
+</html>
