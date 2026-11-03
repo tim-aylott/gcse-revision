@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Amelie German">
+<meta name="theme-color" content="#0d1020">
+<title>Amelie's German Lab | GCSE Higher revision</title>
+<style>
+:root{--bg:#0d1020;--bg2:#131730;--panel:#181d3a;--panel2:#212750;--line:#2c3466;--text:#eef0fb;--muted:#9ba4cc;--accent:#2fd3c4;--accent2:#ffd166;--good:#3ddc97;--warn:#ffb84d;--bad:#ff6b81;--r:18px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+button,summary,input,select{touch-action:manipulation}
+html,body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,var(--bg2),var(--bg));color:var(--text);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;min-height:100%}
+body{padding:0 0 calc(60px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left)) 0 max(18px,env(safe-area-inset-right))}
+header.top{padding-top:env(safe-area-inset-top);position:sticky;top:0;z-index:20;background:rgba(13,16,32,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;cursor:pointer;background:none;border:0;padding:0}
+.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center}
+.pill{padding:4px 10px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+.spacer{flex:1}
+.xpbox{min-width:170px}
+.xpbox .l{display:flex;justify-content:space-between;gap:10px;white-space:nowrap;font-size:.75rem;color:var(--muted);margin-bottom:4px}
+.bar{height:8px;border-radius:99px;background:var(--panel2);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s}
+.nav{display:flex;gap:6px}
+.nav button{background:none;border:1px solid transparent;padding:8px 12px;border-radius:10px;color:var(--muted)}
+.nav button.on,.nav button:hover{background:var(--panel2);color:var(--text);border-color:var(--line)}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin:26px 0 6px;line-height:1.1}
+h2{font-size:1.15rem;margin:30px 0 12px;letter-spacing:.2px}
+.sub{color:var(--muted);margin:0 0 18px}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid{display:grid;gap:14px}
+.stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.stat b{display:block;font-size:1.7rem}
+.stat span{color:var(--muted);font-size:.82rem}
+.ringwrap{display:flex;align-items:center;gap:14px}
+.modes{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.mode{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;transition:transform .15s,border-color .15s;position:relative;overflow:hidden}
+@media(hover:hover){.mode:hover{transform:translateY(-3px);border-color:var(--accent)}.tile:hover{transform:translateY(-3px)}.pt:hover{border-color:var(--accent)}.btn:hover{filter:brightness(1.08)}}
+.mode:active,.tile:active{transform:scale(.985)}
+.mode.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));border:0;color:#10122a}
+.mode.primary small{color:rgba(16,18,42,.75)}
+.mode b{display:block;font-size:1.05rem;margin-bottom:4px}
+.mode small{color:var(--muted)}
+.topics{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.tile{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:16px;position:relative;overflow:hidden;transition:transform .15s}
+.tile:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c)}
+.tile .n{font-size:.75rem;color:var(--muted)}
+.tile b{display:block;margin:2px 0 10px;font-size:1.02rem}
+.tile .bar>i{background:var(--c)}
+.tile .meta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-top:8px}
+.badges{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.badge{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+.badge .ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--panel2);color:var(--muted);flex:none}
+.badge.got .ic{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10122a}
+.badge.locked{opacity:.55}
+.badge b{font-size:.9rem;display:block}.badge small{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.chip{min-height:40px;border:1px solid var(--line);background:var(--panel);padding:8px 14px;border-radius:999px;font-size:.85rem;color:var(--muted)}
+.chip.on{background:var(--accent);color:#10122a;border-color:transparent;font-weight:600}
+.toggle{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:.9rem;margin-top:10px}
+/* round */
+.rhead{display:flex;align-items:center;gap:14px;margin:22px 0 14px;flex-wrap:wrap}
+.rhead .bar{flex:1;min-width:140px}
+.hearts{display:flex;gap:4px}
+.heart{width:20px;height:20px;color:var(--bad)}.heart.off{color:var(--line)}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--c)}
+.ctop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 16px}
+.id{font-weight:700;font-size:.95rem}
+.tag{padding:3px 10px;border-radius:999px;font-size:.75rem;border:1px solid var(--line);color:var(--muted)}
+.tag.c{background:var(--c);color:#10122a;border-color:transparent;font-weight:600}
+.tag.ht{background:#fff;color:#10122a;border-color:#fff;font-weight:700}
+.tag.m{color:var(--text)}
+.q{font-size:clamp(1.2rem,3.2vw,1.55rem);line-height:1.45;margin:0 0 6px}
+.q b{color:var(--accent)}
+.ans{margin-top:22px;border-top:1px dashed var(--line);padding-top:18px;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ans h3{margin:0 0 4px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+.hint{color:var(--muted);font-size:.88rem;margin:0 0 12px}
+.pt{min-height:52px;display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:8px 0;line-height:1.45;font-size:1.02rem}
+.pt .box{flex:none;width:24px;height:24px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;margin-top:1px;color:transparent;transition:.15s}
+.pt.on{border-color:var(--good);background:rgba(61,220,151,.1)}
+.pt.on .box{background:var(--good);border-color:var(--good);color:#06281a}
+.pt b{color:#fff}
+.note{margin:10px 2px;color:var(--muted);font-size:.95rem}
+.score{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;flex-wrap:wrap}
+.score .big{font-size:1.3rem;font-weight:700}
+.btn{min-height:50px;border:0;border-radius:14px;padding:13px 22px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10122a;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.btn.ghost{background:var(--panel2);color:var(--text);border:1px solid var(--line);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:default}
+.kbd{display:inline-block;padding:0 6px;border:1px solid var(--line);border-radius:6px;font-size:.72rem;color:var(--muted);margin-left:8px}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+/* result */
+.result{text-align:center;padding:34px 20px;margin-top:22px}
+.stars{display:flex;justify-content:center;gap:10px;margin:10px 0}
+.star{width:54px;height:54px;color:var(--line)}.star.on{color:var(--warn);filter:drop-shadow(0 0 12px rgba(255,184,77,.6));animation:pop .5s}
+.rstats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0}
+.rstats .stat{min-width:130px}
+.newb{margin:12px auto;max-width:460px}
+/* library */
+.lib input[type=search],.lib select{min-height:44px;font-size:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:10px 12px;font:inherit}
+.lib input[type=search]{flex:1;min-width:200px}
+details.item{background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:14px;margin:10px 0;padding:0}
+details.item summary{cursor:pointer;min-height:48px;padding:14px 16px;list-style:none;display:flex;gap:10px;align-items:flex-start}
+details.item summary::-webkit-details-marker{display:none}
+details.item .qs{flex:1}
+details.item .body{padding:0 16px 14px}
+details.item .a{border-top:1px dashed var(--line);padding-top:10px}
+details.item .a p{margin:6px 0}
+.small{font-size:.85rem;color:var(--muted)}
+footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--panel2);border:1px solid var(--accent);padding:12px 18px;border-radius:14px;z-index:50;animation:pop .3s}
+@media(max-width:820px){.xpbox{min-width:120px}.modes{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+@media(max-width:640px){
+ .top .wrap{height:auto;min-height:56px;padding-top:8px;padding-bottom:8px;gap:10px;flex-wrap:wrap}
+ .xpbox{display:block;order:5;flex:1 0 100%;min-width:0}
+ .top .pill{font-size:.72rem}
+ .nav button{padding:8px 10px;min-height:40px}
+ .logo{width:30px;height:30px}.brand span:last-child{display:none}
+ h1{margin-top:18px}
+ .stats{grid-template-columns:1fr 1fr}
+ .stat b{font-size:1.45rem}
+ .modes,.topics,.badges{grid-template-columns:1fr}
+ .card{padding:18px;border-radius:20px}
+ .rhead{gap:8px;margin-top:14px}.rhead .bar{order:9;flex:1 0 100%}
+ .score{flex-direction:column;align-items:stretch}.score .btn{width:100%}
+ .score .big{text-align:center}
+ .kbd{display:none}
+ .pt{font-size:1rem;padding:12px}
+ .ans{margin-top:16px}
+ .result{padding:22px 12px}.rstats .stat{min-width:100px;flex:1}
+ .star{width:46px;height:46px}
+ .lib .chips{gap:6px}
+ .toast{width:calc(100% - 32px);text-align:center;bottom:calc(20px + env(safe-area-inset-bottom))}
+}
+@media(min-width:641px) and (max-width:1100px){.q{font-size:1.45rem}.pt{font-size:1.1rem}.btn{font-size:1.05rem}}
+@media(orientation:landscape) and (max-height:500px){header.top{position:static}}
+
+.pt:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled{opacity:.4;cursor:not-allowed;filter:grayscale(.5)}
+.pt.opt{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pt.opt.done{cursor:default}
+.pt.opt.on{border-color:var(--accent);background:rgba(255,255,255,.06)}
+.pt.opt.on .box{background:var(--accent);border-color:var(--accent);color:#10122a}
+.pt.right{border-color:var(--good);background:rgba(61,220,151,.12)}
+.pt.right .box{background:var(--good);border-color:var(--good);color:#06281a}
+.pt.wrong{border-color:#ff6b7a;background:rgba(255,107,122,.12)}
+.pt.wrong .box{background:#ff6b7a;border-color:#ff6b7a;color:#2a0509}
+.pt.missed{border-color:#f5b94a;border-style:dashed;background:rgba(245,185,74,.08)}
+.pt.missed .box{border-color:#f5b94a;color:#f5b94a}
+.olab{display:block;margin-top:3px;font-size:.78rem;letter-spacing:.3px;color:var(--muted)}
+.opts{margin-top:14px}
+.ans .a p{margin:6px 0}
+
+/* v3 engagement */
+.hello{margin:22px 0 4px;color:var(--muted);font-size:.95rem}
+.hero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.02)),var(--panel);border:1px solid var(--line);border-radius:24px;padding:22px 24px;position:relative;overflow:hidden;margin:14px 0 8px}
+.hero:before{content:"";position:absolute;right:-70px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,var(--accent) 0,transparent 68%);opacity:.28;pointer-events:none}
+.hero .k{font-size:.74rem;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted)}
+.hero h2{margin:4px 0 6px;font-size:1.35rem;line-height:1.25}
+.hero p{margin:0 0 14px;color:var(--muted);max-width:56ch}
+.hero .btn{position:relative}
+.kpis{grid-template-columns:repeat(4,1fr);margin-top:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;gap:12px;align-items:center;min-width:0}
+.kpi b{display:block;font-size:1.55rem;line-height:1.1}
+.kpi span{color:var(--muted);font-size:.8rem}
+.kpi .fl{color:var(--warn);flex:none}
+.kpi .fl svg{width:34px;height:34px;filter:drop-shadow(0 0 10px rgba(255,184,77,.5))}
+.kpi .fl.off{color:var(--line);filter:none}.kpi .fl.off svg{filter:none}
+.mini{height:6px;margin-top:6px}
+.banner{display:flex;gap:12px;align-items:center;justify-content:space-between;background:rgba(255,184,77,.1);border:1px solid rgba(255,184,77,.4);border-radius:14px;padding:12px 14px;margin:14px 0;font-size:.92rem}
+.banner button{background:none;border:1px solid var(--line);border-radius:10px;padding:6px 12px;color:var(--text);flex:none}
+.fb{display:flex;flex-direction:column;gap:2px;border-radius:14px;padding:12px 16px;margin:8px 0 4px;border:1px solid var(--line);animation:pop .3s ease}
+.fb b{font-size:1.1rem}.fb span{color:var(--muted);font-size:.9rem}
+.fb.full{background:rgba(61,220,151,.12);border-color:var(--good)}.fb.full b{color:var(--good)}
+.fb.part{background:rgba(255,184,77,.1);border-color:var(--warn)}.fb.part b{color:var(--warn)}
+.fb.none{background:rgba(255,107,129,.1);border-color:var(--bad)}.fb.none b{color:var(--bad)}
+.pt.single .box{border-radius:50%}
+.pill.combo{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10122a;border:0;font-weight:700}
+.seg{display:flex;gap:4px;flex:1;min-width:140px}.seg i{flex:1;height:8px;border-radius:99px;background:var(--panel2)}.seg i.d{background:var(--accent)}.seg i.n{background:var(--text);opacity:.8}
+.bar.two{position:relative}.bar.two>i{position:absolute;left:0;top:0}.bar.two>i.s{opacity:.32}
+/* progress page */
+.pgrid{grid-template-columns:repeat(4,1fr)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px 20px}
+.panel h3{margin:0 0 12px;font-size:1rem}
+.trow{display:grid;grid-template-columns:minmax(120px,1.3fr) 2fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.trow:first-of-type{border-top:0}
+.trow b{font-size:.95rem}.trow small{color:var(--muted);display:block}
+.trow .bar{height:10px}.trow .bar>i{background:var(--c)}
+.pctl{font-weight:700;min-width:48px;text-align:right}
+.btn.sm{min-height:38px;padding:8px 14px;font-size:.85rem;border-radius:10px;box-shadow:none}
+.kbars{display:grid;gap:10px}
+.kb{display:grid;grid-template-columns:110px 1fr 44px;gap:10px;align-items:center;font-size:.88rem}
+.kb .bar{height:10px}
+.rrow{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:.92rem}
+.rrow:first-of-type{border-top:0}
+.rrow .st{color:var(--warn);letter-spacing:2px}
+.legend{color:var(--muted);font-size:.8rem;margin-top:6px}
+.conf{position:fixed;top:-12px;width:10px;height:14px;z-index:60;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(720deg);opacity:.9}}
+@media(prefers-reduced-motion:reduce){.conf{display:none}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.badge .ic svg{width:22px;height:22px}
+@media(max-width:700px){.hero{grid-template-columns:1fr}}@media(max-width:600px){.kpis,.pgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.trow{grid-template-columns:1fr auto}.trow .bar{grid-column:1/-1;order:3}.kb{grid-template-columns:90px 1fr 40px}.hero{padding:18px}.hero h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <button class="brand" onclick="go('home')" aria-label="Home"><span class="logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10122a" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v3M12 17v3M5 12h14"/><circle cx="12" cy="7" r="0.5"/><circle cx="12" cy="17" r="0.5"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span><span>German Lab</span></button>
+  <span class="pill">Amelie | Higher</span>
+  <span class="spacer"></span>
+  <div class="xpbox" id="xpbox"></div>
+  <nav class="nav"><button id="nav-home" onclick="go('home')">Home</button><button id="nav-progress" onclick="go('progress')">Progress</button><button id="nav-library" onclick="go('library')">Cards</button></nav>
+</div></header>
+<main class="wrap" id="app"></main>
+<div class="wrap"><footer>Based on the <span id="specline"></span> specification. Your answers are sent to a private progress sheet so your parents can see how revision is going, and your progress comes back from it on any device. Original questions written in GCSE mark-scheme style.</footer></div>
+<script>
+const DATA=[{"id": "GER-01-001", "t": 1, "s": "Spec", "k": "Recall", "m": 4, "ht": false, "q": "What are the <b>four papers<\/b> in Edexcel GCSE German and what does each assess?", "a": ["<b>Paper 1<\/b>: Listening (1)", "<b>Paper 2<\/b>: Speaking (1)", "<b>Paper 3<\/b>: Reading (1)", "<b>Paper 4<\/b>: Writing, each worth <b>25%<\/b> (1)"], "cp": ["Paper 1: Listening", "Paper 2: Speaking", "Paper 3: Reading", "Paper 4: Writing, each worth 25%"], "dp": ["Two papers worth 50% each", "Listening, reading and a project", "Writing 100%"], "mand": 0}, {"id": "GER-01-002", "t": 1, "s": "Spec", "k": "Recall", "m": 3, "ht": false, "q": "What are the <b>Higher tier timings<\/b> for Listening, Reading and Writing?", "a": ["<b>Listening<\/b>: 45 minutes including 5 minutes reading time (1)", "<b>Reading<\/b>: 1 hour (1)", "<b>Writing<\/b>: 1 hour 20 minutes (1)"], "cp": ["Listening: 45 minutes including 5 minutes reading time", "Reading: 1 hour", "Writing: 1 hour 20 minutes"], "dp": ["All three are 30 minutes", "Listening 2 hours", "Writing 20 minutes"], "mand": 0}, {"id": "GER-01-003", "t": 1, "s": "Spec", "k": "Recall", "m": 3, "ht": false, "q": "What are the <b>three Speaking tasks<\/b> at Higher tier?", "a": ["<b>Role play<\/b> (1)", "<b>Picture-based task<\/b> (1)", "<b>Conversation<\/b>, on two themes (1)"], "cp": ["Role play", "Picture-based task", "Conversation, on two themes"], "dp": ["Debate, essay, poster", "Presentation only", "Reading aloud only"], "mand": 0}, {"id": "GER-01-004", "t": 1, "s": "Spec", "k": "Recall", "m": 4, "ht": false, "q": "What are the <b>five themes<\/b> of the course?", "a": ["<b>Identity and culture<\/b> (1)", "<b>Local area, holiday and travel<\/b> (1)", "<b>School<\/b>, and <b>Future aspirations, study and work<\/b> (1)", "<b>International and global dimension<\/b> (1)"], "cp": ["Identity and culture", "Local area, holiday and travel", "School, and Future aspirations, study and work", "International and global dimension"], "dp": ["Sport, music, art, drama, film", "Home, food, clothes, pets, hobbies only", "Grammar, vocabulary, spelling, culture"], "mand": 0}, {"id": "GER-01-005", "t": 1, "s": "Spec", "k": "Process", "m": 3, "ht": false, "q": "What happens in the <b>role play<\/b>?", "a": ["You ask <b>two questions<\/b> in German (1)", "You answer an <b>unpredictable question<\/b> (1)", "One part needs a <b>past tense<\/b> (1)"], "cp": ["You ask two questions in German", "You answer an unpredictable question", "One part needs a past tense"], "dp": ["You read aloud a story", "Only the teacher speaks", "You write a letter"], "mand": 0}, {"id": "GER-01-006", "t": 1, "s": "Spec", "k": "Process", "m": 3, "ht": false, "q": "What is a good approach to the <b>picture-based task<\/b>?", "a": ["Use the <b>five bullet points<\/b> in order (1)", "Answer in <b>full sentences<\/b> with opinions and reasons (1)", "Stay calm for the <b>unpredictable final question<\/b> (1)"], "cp": ["Use the five bullet points in order", "Answer in full sentences with opinions and reasons", "Stay calm for the unpredictable final question"], "dp": ["Describe only the colours", "Answer with single words", "Stop after two points"], "mand": 0}, {"id": "GER-01-007", "t": 1, "s": "Spec", "k": "Process", "m": 3, "ht": false, "q": "How does the <b>conversation<\/b> work?", "a": ["<b>Part 1<\/b> is a topic you choose (1)", "<b>Part 2<\/b> is a theme set by Pearson (1)", "Expect <b>follow-up questions<\/b> and develop your answers (1)"], "cp": ["Part 1 is a topic you choose", "Part 2 is a theme set by Pearson", "Expect follow-up questions and develop your answers"], "dp": ["Only one theme, no choice", "It is a written task", "Questions are all spelt out in advance"], "mand": 0}, {"id": "GER-01-008", "t": 1, "s": "Spec", "k": "Process", "m": 3, "ht": false, "q": "How should you <b>extend an answer<\/b> in speaking?", "a": ["Give an <b>opinion<\/b> (1)", "Add a <b>reason<\/b> with weil or denn (1)", "Mention <b>another time<\/b> frame (past or future) (1)"], "cp": ["Give an opinion", "Add a reason with weil or denn", "Mention another time frame (past or future)"], "dp": ["Say 'ja' or 'nein' only", "Repeat the question", "Speak English"], "mand": 0}, {"id": "GER-01-009", "t": 1, "s": "Listening", "k": "Process", "m": 3, "ht": false, "q": "What is a good approach to <b>Listening Section B<\/b> (questions in English)?", "a": ["<b>Read the questions<\/b> in the 5 minutes (1)", "Listen for <b>numbers, negatives and tenses<\/b> (1)", "Write <b>short answers<\/b> and check the marks (1)"], "cp": ["Read the questions in the 5 minutes", "Listen for numbers, negatives and tenses", "Write short answers and check the marks"], "dp": ["Ignore the questions", "Write full paragraphs", "Skip every number"], "mand": 0}, {"id": "GER-01-010", "t": 1, "s": "Listening", "k": "Exam trap", "m": 2, "ht": false, "q": "What <b>common traps<\/b> appear in German listening and reading?", "a": ["<b>Negatives<\/b> such as nicht and kein (1)", "<b>Time words<\/b> and <b>tenses<\/b> that change the meaning (1)"], "cp": ["Negatives such as nicht and kein", "Time words and tenses that change the meaning"], "dp": ["Only the title matters", "Nothing changes the meaning", "Numbers never matter"], "mand": 0}, {"id": "GER-01-011", "t": 1, "s": "Reading", "k": "Process", "m": 3, "ht": false, "q": "What are the <b>steps for the translation<\/b> from German into English?", "a": ["Read the <b>whole sentence<\/b> first (1)", "Check the <b>tense and verb position<\/b> (1)", "Translate <b>meaning<\/b>, not word for word (1)"], "cp": ["Read the whole sentence first", "Check the tense and verb position", "Translate meaning, not word for word"], "dp": ["Translate every word literally", "Skip the verbs", "Guess"], "mand": 0}, {"id": "GER-01-012", "t": 1, "s": "Writing", "k": "Process", "m": 3, "ht": false, "q": "What are the <b>steps for the translation<\/b> from English into German?", "a": ["Identify the <b>tense<\/b> first (1)", "Get the <b>verb in the right place<\/b> (1)", "Check <b>spellings<\/b>, capitals on nouns and genders (1)"], "cp": ["Identify the tense first", "Get the verb in the right place", "Check spellings, capitals on nouns and genders"], "dp": ["Write in English word order", "Leave out the verbs", "Use no capital letters"], "mand": 0}, {"id": "GER-01-013", "t": 1, "s": "Writing", "k": "Recall", "m": 3, "ht": false, "q": "What are the <b>two types of writing tasks<\/b> at Higher?", "a": ["<b>Task 1<\/b>: informal, e.g. an email or blog (1)", "<b>Task 2<\/b>: formal, e.g. a letter or application (1)", "Task 3 is the <b>translation<\/b> into German (1)"], "cp": ["Task 1: informal, e.g. an email or blog", "Task 2: formal, e.g. a letter or application", "Task 3 is the translation into German"], "dp": ["Poem, story and diary", "Three essays", "Two translations only"], "mand": 0}, {"id": "GER-01-014", "t": 1, "s": "Writing", "k": "Process", "m": 4, "ht": false, "q": "How do you get a <b>high mark for the open writing tasks<\/b>?", "a": ["Cover <b>every bullet point<\/b> (1)", "Use <b>different tenses<\/b> (1)", "Add <b>opinions and reasons<\/b> (1)", "<b>Check accuracy<\/b> and word order (1)"], "cp": ["Cover every bullet point", "Use different tenses", "Add opinions and reasons", "Check accuracy and word order"], "dp": ["Write as fast as possible", "Use only present tense", "Skip bullet points"], "mand": 0}, {"id": "GER-01-015", "t": 1, "s": "Writing", "k": "Recall", "m": 4, "ht": false, "q": "Which <b>linking words<\/b> improve a German answer?", "a": ["<b>weil<\/b> (because) (1)", "<b>aber<\/b> (but) (1)", "<b>obwohl<\/b> (although) (1)", "<b>deshalb<\/b> (therefore) (1)"], "cp": ["weil (because)", "aber (but)", "obwohl (although)", "deshalb (therefore)"], "dp": ["und nur", "ja, nein, vielleicht, doch", "oder immer"], "mand": 0}, {"id": "GER-02-001", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "What is the <b>verb second rule<\/b>? Translate 'Today I play football.'", "a": ["In a main clause the <b>verb is the second idea<\/b> (1)", "<b>Heute spiele ich Fußball.<\/b> (1)", "The subject goes <b>after the verb<\/b> when something else starts the sentence (1)"], "cp": ["In a main clause the verb is the second idea", "Heute spiele ich Fußball", "The subject goes after the verb when something else starts the sentence"], "dp": ["Heute ich spiele Fußball.", "Ich heute spiele Fußball.", "Spiele heute ich Fußball."], "mand": 0}, {"id": "GER-02-002", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "What happens to the verb after <b>weil<\/b>? Translate 'I am tired because I work a lot.'", "a": ["The verb goes to the <b>end<\/b> of the clause (1)", "<b>Ich bin müde, weil ich viel arbeite.<\/b> (1)", "Always put a <b>comma<\/b> before weil (1)"], "cp": ["The verb goes to the end of the clause", "Ich bin müde, weil ich viel arbeite", "Always put a comma before weil"], "dp": ["Ich bin müde, weil arbeite ich viel.", "Ich bin müde weil ich arbeite viel.", "Ich bin müde, weil ich arbeite viel."], "mand": 0}, {"id": "GER-02-003", "t": 2, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four subordinating conjunctions<\/b> that send the verb to the end.", "a": ["<b>weil<\/b> (because) (1)", "<b>dass<\/b> (that) (1)", "<b>wenn<\/b> (if, when) (1)", "<b>obwohl<\/b> (although) (1)"], "cp": ["weil (because)", "dass (that)", "wenn (if, when)", "obwohl (although)"], "dp": ["und, aber, oder, denn", "deshalb, trotzdem, dann, danach", "ja, nein, doch, bitte"], "mand": 0}, {"id": "GER-02-004", "t": 2, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Which conjunctions <b>do not change word order<\/b>?", "a": ["<b>und<\/b> (and) (1)", "<b>aber<\/b> (but) (1)", "<b>oder<\/b> (or) (1)", "<b>denn<\/b> (because, for) (1)"], "cp": ["und (and)", "aber (but)", "oder (or)", "denn (because, for)"], "dp": ["weil, dass, wenn, obwohl", "deshalb, dann, trotzdem, danach", "ob, als, damit, bevor"], "mand": 0}, {"id": "GER-02-005", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you form the <b>perfect tense<\/b> with haben? Translate 'I played football.'", "a": ["<b>haben + past participle<\/b> at the end (1)", "<b>Ich habe Fußball gespielt.<\/b> (1)", "Regular participle: <b>ge + stem + t<\/b> (1)"], "cp": ["haben + past participle at the end", "Ich habe Fußball gespielt", "Regular participle: ge + stem + t"], "dp": ["Ich bin Fußball gespielt.", "Ich habe gespielen Fußball.", "Ich habe spielte Fußball."], "mand": 0}, {"id": "GER-02-006", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "When does the <b>perfect tense use sein<\/b>? Translate 'I went to Berlin.'", "a": ["For verbs of <b>movement or change of state<\/b> (1)", "<b>Ich bin nach Berlin gefahren.<\/b> (1)", "Also with <b>bleiben, werden, passieren<\/b> (1)"], "cp": ["For verbs of movement or change of state", "Ich bin nach Berlin gefahren", "Also with bleiben, werden, passieren"], "dp": ["Ich habe nach Berlin gefahren.", "Ich bin nach Berlin gefahrt.", "Ich war nach Berlin fahren."], "mand": 0}, {"id": "GER-02-007", "t": 2, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Give the <b>past participles<\/b>: sehen, essen, trinken, schreiben.", "a": ["<b>gesehen<\/b> (1)", "<b>gegessen<\/b> (1)", "<b>getrunken<\/b> (1)", "<b>geschrieben<\/b> (1)"], "cp": ["gesehen", "gegessen", "getrunken", "geschrieben"], "dp": ["gesehnt, geessen, getrinkt, geschreibt", "gesah, aß, trank, schrieb", "gesehen, geessen, getrinkt, geschreiben"], "mand": 0}, {"id": "GER-02-008", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you say <b>'I would like to travel'<\/b> and what is the structure?", "a": ["<b>Ich möchte reisen.<\/b> (1)", "<b>möchte + infinitive<\/b> at the end (1)", "Alternative: <b>ich würde gern reisen<\/b> (1)"], "cp": ["Ich möchte reisen", "möchte + infinitive at the end", "Alternative: ich würde gern reisen"], "dp": ["Ich möchte reise.", "Ich möchte gereist.", "Ich will reisen mich."], "mand": 0}, {"id": "GER-02-009", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you form the <b>future tense<\/b>? Translate 'I will study German.'", "a": ["<b>werden + infinitive<\/b> at the end (1)", "<b>Ich werde Deutsch lernen.<\/b> (1)", "You can also use the <b>present with a time word<\/b> (1)"], "cp": ["werden + infinitive at the end", "Ich werde Deutsch lernen", "You can also use the present with a time word"], "dp": ["Ich werde lerne Deutsch.", "Ich habe Deutsch lernen.", "Ich bin Deutsch gelernt."], "mand": 0}, {"id": "GER-02-010", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you form the <b>conditional<\/b>? Translate 'I would buy a car.'", "a": ["<b>würde + infinitive<\/b> at the end (1)", "<b>Ich würde ein Auto kaufen.<\/b> (1)", "Used for <b>'would'<\/b> and wishes (1)"], "cp": ["würde + infinitive at the end", "Ich würde ein Auto kaufen", "Used for 'would' and wishes"], "dp": ["Ich würde ein Auto gekauft.", "Ich werde ein Auto kaufen würde.", "Ich würde kaufe ein Auto."], "mand": 0}, {"id": "GER-02-011", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do <b>separable verbs<\/b> work? Translate 'I get up at seven.'", "a": ["The prefix goes to the <b>end<\/b> in the present tense (1)", "<b>Ich stehe um sieben Uhr auf.<\/b> (1)", "Other examples: <b>anrufen, einkaufen, fernsehen<\/b> (1)"], "cp": ["The prefix goes to the end in the present tense", "Ich stehe um sieben Uhr auf", "Other examples: anrufen, einkaufen, fernsehen"], "dp": ["Ich aufstehe um sieben Uhr.", "Ich stehe auf um sieben Uhr.", "Ich auf stehe um sieben Uhr."], "mand": 0}, {"id": "GER-02-012", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do <b>modal verbs<\/b> work? Translate 'I can swim.'", "a": ["The modal is the <b>second idea<\/b> (1)", "The other verb is an <b>infinitive at the end<\/b> (1)", "<b>Ich kann schwimmen.<\/b> (1)"], "cp": ["The modal is the second idea", "The other verb is an infinitive at the end", "Ich kann schwimmen"], "dp": ["Ich kann schwimme.", "Ich kann geschwommen.", "Ich schwimmen kann."], "mand": 0}, {"id": "GER-02-013", "t": 2, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Give the <b>meaning<\/b> of the modals: können, müssen, dürfen, wollen.", "a": ["<b>können<\/b>: can, to be able to (1)", "<b>müssen<\/b>: must, have to (1)", "<b>dürfen<\/b>: may, be allowed to (1)", "<b>wollen<\/b>: to want to (1)"], "cp": ["können: can, to be able to", "müssen: must, have to", "dürfen: may, be allowed to", "wollen: to want to"], "dp": ["can, must, may, will always the same", "have, be, do, go", "like, hate, love, want"], "mand": 0}, {"id": "GER-02-014", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you use the <b>imperfect<\/b> for sein and haben? Translate 'It was good. I had time.'", "a": ["<b>sein<\/b>: war (1)", "<b>haben<\/b>: hatte (1)", "<b>Es war gut. Ich hatte Zeit.<\/b> (1)"], "cp": ["sein: war", "haben: hatte", "Es war gut. Ich hatte Zeit"], "dp": ["Es wurde gut. Ich habe Zeit.", "Es ist gewesen gut.", "Es war guten. Ich hatte zeiten."], "mand": 0}, {"id": "GER-02-015", "t": 2, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you form the <b>reflexive verb<\/b> 'sich interessieren für'? Translate 'I am interested in music.'", "a": ["Use a <b>reflexive pronoun<\/b> mich, dich, sich (1)", "<b>Ich interessiere mich für Musik.<\/b> (1)", "The verb follows <b>verb second<\/b> (1)"], "cp": ["Use a reflexive pronoun mich, dich, sich", "Ich interessiere mich für Musik", "The verb follows verb second"], "dp": ["Ich interessiere für Musik.", "Ich mich interessiere Musik.", "Ich bin interessiert für Musik."], "mand": 0}, {"id": "GER-02-016", "t": 2, "s": "Grammar", "k": "Exam trap", "m": 2, "ht": false, "q": "Why do students <b>lose marks<\/b> by translating 'I am playing' as 'Ich bin spielen'?", "a": ["German has <b>no continuous tense<\/b> (1)", "Use <b>Ich spiele<\/b> for both 'I play' and 'I am playing' (1)"], "cp": ["German has no continuous tense", "Use Ich spiele for both 'I play' and 'I am playing'"], "dp": ["German always uses sein", "Spielen is the correct form", "Examiners accept both"], "mand": 0}, {"id": "GER-03-001", "t": 3, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Give the <b>definite articles<\/b> in the nominative: masculine, feminine, neuter, plural.", "a": ["<b>der<\/b> (masculine) (1)", "<b>die<\/b> (feminine) (1)", "<b>das<\/b> (neuter) (1)", "<b>die<\/b> (plural) (1)"], "cp": ["der (masculine)", "die (feminine)", "das (neuter)", "die (plural)"], "dp": ["die, der, den, dem", "den, die, das, die", "dem, der, dem, den"], "mand": 0}, {"id": "GER-03-002", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "What is the <b>accusative<\/b> and when do you use it? Change 'der Hund' to the accusative.", "a": ["The <b>direct object<\/b> and after certain prepositions (1)", "<b>Masculine der changes to den<\/b> (1)", "<b>Ich habe den Hund.<\/b> (1)"], "cp": ["The direct object and after certain prepositions", "Masculine der changes to den", "Ich habe den Hund"], "dp": ["Ich habe der Hund.", "Ich habe dem Hund.", "Ich habe des Hund."], "mand": 0}, {"id": "GER-03-003", "t": 3, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four accusative prepositions<\/b>.", "a": ["<b>durch<\/b> (through) (1)", "<b>für<\/b> (for) (1)", "<b>gegen<\/b> (against) (1)", "<b>ohne<\/b> (without), also um and bis (1)"], "cp": ["durch (through)", "für (for)", "gegen (against)", "ohne (without), also um and bis"], "dp": ["mit, nach, bei, von", "in, auf, an, über only", "zu, aus, seit, bei"], "mand": 0}, {"id": "GER-03-004", "t": 3, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four dative prepositions<\/b>.", "a": ["<b>mit<\/b> (with) (1)", "<b>nach<\/b> (after, to) (1)", "<b>bei<\/b> (at, with) (1)", "<b>von<\/b> (from, of), also zu, aus, seit (1)"], "cp": ["mit (with)", "nach (after, to)", "bei (at, with)", "von (from, of), also zu, aus, seit"], "dp": ["durch, für, gegen, ohne", "über, unter, neben, vor only", "bis, um, entlang, gegen"], "mand": 0}, {"id": "GER-03-005", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "What are the <b>dative articles<\/b> and an example?", "a": ["<b>dem<\/b> (masc and neut), <b>der<\/b> (fem), <b>den + n<\/b> (plural) (1)", "<b>Ich fahre mit dem Bus.<\/b> (1)", "Used for <b>indirect objects<\/b> too (1)"], "cp": ["dem (masc and neut), der (fem), den + n (plural)", "Ich fahre mit dem Bus", "Used for indirect objects too"], "dp": ["den, die, das always", "des, der, des, der", "dem always"], "mand": 0}, {"id": "GER-03-006", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "What are <b>two-way prepositions<\/b>? Compare 'in the room' and 'into the room'.", "a": ["<b>an, auf, in, neben, über, unter, vor, hinter, zwischen<\/b> (1)", "<b>Dative<\/b> for position: im Zimmer (1)", "<b>Accusative<\/b> for movement: ins Zimmer (1)"], "cp": ["an, auf, in, neben, über, unter, vor, hinter, zwischen", "Dative for position: im Zimmer", "Accusative for movement: ins Zimmer"], "dp": ["They never change", "Only dative", "Only accusative"], "mand": 0}, {"id": "GER-03-007", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you say <b>'my'<\/b> in German and how does it change?", "a": ["<b>mein, meine, mein, meine<\/b> (nominative) (1)", "It changes with <b>gender and case<\/b> (1)", "<b>Ich habe meinen Bruder<\/b> (accusative masculine) (1)"], "cp": ["mein, meine, mein, meine (nominative)", "It changes with gender and case", "Ich habe meinen Bruder (accusative masculine)"], "dp": ["It never changes", "Only plural changes", "Always meine"], "mand": 0}, {"id": "GER-03-008", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do <b>adjective endings<\/b> work with 'ein'? Translate 'a big house'.", "a": ["After <b>ein words<\/b> endings follow gender and case (1)", "<b>ein großes Haus<\/b> (neuter nominative) (1)", "<b>ein großer Hund<\/b> (masculine nominative) (1)"], "cp": ["After ein words endings follow gender and case", "ein großes Haus (neuter nominative)", "ein großer Hund (masculine nominative)"], "dp": ["ein groß Haus", "ein große Haus", "ein großen Haus"], "mand": 0}, {"id": "GER-03-009", "t": 3, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Give the <b>comparative and superlative<\/b> of 'gut', 'viel', 'gern' and 'hoch'.", "a": ["<b>gut<\/b>: besser, am besten (1)", "<b>viel<\/b>: mehr, am meisten (1)", "<b>gern<\/b>: lieber, am liebsten (1)", "<b>hoch<\/b>: höher, am höchsten (1)"], "cp": ["gut: besser, am besten", "viel: mehr, am meisten", "gern: lieber, am liebsten", "hoch: höher, am höchsten"], "dp": ["guter, vieler, gerner, hocher", "gutter, mehrer, lieber, höher", "gut, viel, gern, hoch"], "mand": 0}, {"id": "GER-03-010", "t": 3, "s": "Grammar", "k": "Recall", "m": 4, "ht": false, "q": "Translate <b>'I like playing football'<\/b> and say what <b>'am liebsten'<\/b> means.", "a": ["<b>Ich spiele gern Fußball.<\/b> (1)", "<b>Lieber<\/b> = prefer (1)", "<b>Am liebsten<\/b> = like best of all (1)", "<b>Ich spiele am liebsten Tennis.<\/b> (1)"], "cp": ["Ich spiele gern Fußball", "Lieber = prefer", "Am liebsten = like best of all", "Ich spiele am liebsten Tennis"], "dp": ["Ich gern spiele Fußball.", "Ich liebe spielen Fußball.", "Ich gern Fußball spielen."], "mand": 0}, {"id": "GER-03-011", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "What is <b>'man'<\/b> and how can you use it? Translate 'You can swim there.'", "a": ["<b>Man<\/b> means 'one' or 'you' in general (1)", "<b>Man kann dort schwimmen.<\/b> (1)", "It takes the <b>er / sie / es verb form<\/b> (1)"], "cp": ["Man means 'one' or 'you' in general", "Man kann dort schwimmen", "It takes the er / sie / es verb form"], "dp": ["Man is a person's name", "Man means 'many'", "Man kann dort geschwommen."], "mand": 0}, {"id": "GER-03-012", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you use <b>'um...zu'<\/b>? Translate 'I learn German to work abroad.'", "a": ["<b>um + clause + zu + infinitive<\/b> (1)", "<b>Ich lerne Deutsch, um im Ausland zu arbeiten.<\/b> (1)", "The infinitive goes to the <b>end<\/b> (1)"], "cp": ["um + clause + zu + infinitive", "Ich lerne Deutsch, um im Ausland zu arbeiten", "The infinitive goes to the end"], "dp": ["Ich lerne Deutsch um arbeite im Ausland.", "Ich lerne Deutsch zu arbeiten Ausland.", "Um Ausland arbeiten ich lerne Deutsch."], "mand": 0}, {"id": "GER-03-013", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you form <b>negatives<\/b> with 'nicht' and 'kein'?", "a": ["<b>Kein<\/b> + noun: Ich habe keinen Bruder. (1)", "<b>Nicht<\/b> with verbs, adjectives or adverbs (1)", "<b>Nie, niemand, nichts, nirgends<\/b> are other negatives (1)"], "cp": ["Kein + noun: Ich habe keinen Bruder", "Nicht with verbs, adjectives or adverbs", "Nie, niemand, nichts, nirgends are other negatives"], "dp": ["Always nicht before the noun", "Use nein anywhere", "Negatives are not used in German"], "mand": 0}, {"id": "GER-03-014", "t": 3, "s": "Grammar", "k": "Recall", "m": 3, "ht": false, "q": "How do you give <b>the time and date<\/b>? Translate 'On Monday at ten.'", "a": ["<b>Am Montag um zehn Uhr.<\/b> (1)", "<b>Um<\/b> + time, <b>am<\/b> + day (1)", "Months and seasons use <b>im<\/b>, e.g. im Juli (1)"], "cp": ["Am Montag um zehn Uhr", "Um + time, am + day", "Months and seasons use im, e.g. im Juli"], "dp": ["In Montag um zehn Uhr.", "Um Montag am zehn.", "Am Montag in zehn Uhr."], "mand": 0}, {"id": "GER-03-015", "t": 3, "s": "Grammar", "k": "Exam trap", "m": 2, "ht": false, "q": "Why do students lose marks by <b>forgetting capital letters<\/b> on nouns?", "a": ["<b>All German nouns<\/b> begin with a capital (1)", "Accuracy marks are lost in <b>writing and translation<\/b> (1)"], "cp": ["All German nouns begin with a capital", "Accuracy marks are lost in writing and translation"], "dp": ["Only names have capitals", "German has no capitals", "Capitals are optional"], "mand": 0}, {"id": "GER-04-001", "t": 4, "s": "Identity", "k": "Recall", "m": 4, "ht": false, "q": "Translate: <b>'My name is Anna, I am sixteen and I live in Oxford.'<\/b>", "a": ["<b>Ich heiße Anna<\/b> (1)", "<b>ich bin sechzehn Jahre alt<\/b> (1)", "<b>und ich wohne in Oxford.<\/b> (1)", "The verb stays <b>second<\/b> (1)"], "cp": ["Ich heiße Anna", "ich bin sechzehn Jahre alt", "und ich wohne in Oxford", "The verb stays second"], "dp": ["Ich Anna heiße, ich sechzehn bin", "Mein Name Anna ist, ich lebe sechzehn", "Ich heiße Anna ich bin sechzehn und wohne Oxford"], "mand": 0}, {"id": "GER-04-002", "t": 4, "s": "Identity", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four family members<\/b> in German.", "a": ["<b>die Mutter<\/b> (mother) (1)", "<b>der Vater<\/b> (father) (1)", "<b>die Schwester<\/b> (sister) (1)", "<b>der Bruder<\/b> (brother) (1)"], "cp": ["die Mutter (mother)", "der Vater (father)", "die Schwester (sister)", "der Bruder (brother)"], "dp": ["der Onkel, die Tante, der Opa, die Oma only", "die Katze, der Hund, das Pferd, der Fisch", "das Haus, die Wohnung, der Garten, das Zimmer"], "mand": 0}, {"id": "GER-04-003", "t": 4, "s": "Identity", "k": "Recall", "m": 4, "ht": false, "q": "Give the German for <b>four personality adjectives<\/b>.", "a": ["<b>freundlich<\/b> (friendly) (1)", "<b>lustig<\/b> (funny) (1)", "<b>ehrlich<\/b> (honest) (1)", "<b>geduldig<\/b> (patient) (1)"], "cp": ["freundlich (friendly)", "lustig (funny)", "ehrlich (honest)", "geduldig (patient)"], "dp": ["schwer, leicht, nass, kalt", "heiß, kalt, warm, kühl", "eng, weit, hoch, tief"], "mand": 0}, {"id": "GER-04-004", "t": 4, "s": "Identity", "k": "Explain", "m": 3, "ht": false, "q": "How do you say <b>what makes a good friend<\/b>? Translate 'A good friend must be honest.'", "a": ["<b>Ein guter Freund muss ehrlich sein.<\/b> (1)", "<b>Muss<\/b> goes second, <b>sein<\/b> at the end (1)", "Add a reason with <b>weil<\/b> (1)"], "cp": ["Ein guter Freund muss ehrlich sein", "Muss goes second, sein at the end", "Add a reason with weil"], "dp": ["Ein guter Freund ehrlich muss sein.", "Ein guter Freund muss sein ehrlich.", "Eine gute Freund muss ehrlich sein."], "mand": 0}, {"id": "GER-04-005", "t": 4, "s": "Identity", "k": "Recall", "m": 4, "ht": false, "q": "Give <b>four free-time activities<\/b> in German.", "a": ["<b>Fußball spielen<\/b> (1)", "<b>ins Kino gehen<\/b> (1)", "<b>Musik hören<\/b> (1)", "<b>im Internet surfen<\/b> (1)"], "cp": ["Fußball spielen", "ins Kino gehen", "Musik hören", "im Internet surfen"], "dp": ["Fußball spielst, Kino gegangen", "Rad fahrt, Buch lesend", "singen, tanzen, springen"], "mand": 0}, {"id": "GER-04-006", "t": 4, "s": "Identity", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'In my free time I like going to the cinema with friends.'<\/b>", "a": ["<b>In meiner Freizeit<\/b> (1)", "<b>gehe ich gern<\/b> (1)", "<b>mit Freunden ins Kino.<\/b> (1)"], "cp": ["In meiner Freizeit", "gehe ich gern", "mit Freunden ins Kino"], "dp": ["In meine Freizeit ich gehe gern Kino", "Meine Freizeit ich mag gehen", "Ich gerne mit Freunden Kino in meiner Freizeit gehen"], "mand": 0}, {"id": "GER-04-007", "t": 4, "s": "Identity", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four types of music or media<\/b> in German.", "a": ["<b>die Musik<\/b> (1)", "<b>der Film<\/b> (1)", "<b>das Buch<\/b> (1)", "<b>die Zeitung<\/b> (1)"], "cp": ["die Musik", "der Film", "das Buch", "die Zeitung"], "dp": ["der Tisch, der Stuhl, das Bett, der Schrank", "die Schule, die Klasse, der Lehrer, das Heft", "der Sommer, der Winter, der Herbst, der Frühling"], "mand": 0}, {"id": "GER-04-008", "t": 4, "s": "Identity", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Social media has advantages and disadvantages.'<\/b>", "a": ["<b>Soziale Medien<\/b> (1)", "<b>haben Vorteile<\/b> (1)", "<b>und Nachteile.<\/b> (1)"], "cp": ["Soziale Medien", "haben Vorteile", "und Nachteile"], "dp": ["Soziale Medien hat Vorteil", "Medien sozial haben Vorteile Nachteile", "Die soziale Medien haben Vorteil und Nachteil"], "mand": 0}, {"id": "GER-04-009", "t": 4, "s": "Identity", "k": "Recall", "m": 3, "ht": false, "q": "Give <b>advantages and disadvantages<\/b> of mobile phones in German.", "a": ["<b>Man kann schnell kommunizieren<\/b> (an advantage) (1)", "<b>Es kann süchtig machen<\/b> (a disadvantage) (1)", "<b>Cybermobbing ist ein Problem<\/b> (1)"], "cp": ["Man kann schnell kommunizieren (an advantage)", "Es kann süchtig machen (a disadvantage)", "Cybermobbing ist ein Problem"], "dp": ["Sie sind immer teuer", "Man kann nicht telefonieren", "Es gibt keine Nachteile"], "mand": 0}, {"id": "GER-04-010", "t": 4, "s": "Identity", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four meals or foods<\/b> in German.", "a": ["<b>das Frühstück<\/b> (breakfast) (1)", "<b>das Mittagessen<\/b> (lunch) (1)", "<b>das Abendessen<\/b> (dinner) (1)", "<b>das Brot<\/b> (bread) (1)"], "cp": ["das Frühstück (breakfast)", "das Mittagessen (lunch)", "das Abendessen (dinner)", "das Brot (bread)"], "dp": ["der Zug, das Flugzeug, das Auto, der Bus", "das Haus, die Straße, der Park, die Brücke", "der Hund, die Katze, das Pferd, der Vogel"], "mand": 0}, {"id": "GER-04-011", "t": 4, "s": "Identity", "k": "Recall", "m": 3, "ht": false, "q": "How do you say <b>you eat healthily<\/b>? Translate 'I try to eat healthily.'", "a": ["<b>Ich versuche, gesund zu essen.<\/b> (1)", "<b>zu + infinitive<\/b> at the end (1)", "Add <b>weil it is good for you<\/b> (1)"], "cp": ["Ich versuche, gesund zu essen", "zu + infinitive at the end", "Add weil it is good for you"], "dp": ["Ich versuche gesund essen.", "Ich versuche gesund zu essend.", "Ich essen versuche gesund."], "mand": 0}, {"id": "GER-04-012", "t": 4, "s": "Identity", "k": "Recall", "m": 3, "ht": false, "q": "Name <b>German festivals<\/b> and what happens.", "a": ["<b>Weihnachten<\/b>: Christmas, with markets and presents (1)", "<b>Ostern<\/b>: Easter (1)", "<b>Karneval<\/b> or <b>Oktoberfest<\/b>: festivals with parades or beer tents (1)"], "cp": ["Weihnachten: Christmas, with markets and presents", "Ostern: Easter", "Karneval or Oktoberfest: festivals with parades or beer tents"], "dp": ["Halloween only", "Ramadan only", "Diwali only"], "mand": 0}, {"id": "GER-04-013", "t": 4, "s": "Identity", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Last weekend I went to a concert.'<\/b>", "a": ["<b>Letztes Wochenende<\/b> (1)", "<b>bin ich<\/b> (1)", "<b>zu einem Konzert gegangen.<\/b> (1)"], "cp": ["Letztes Wochenende", "bin ich", "zu einem Konzert gegangen"], "dp": ["Letztes Wochenende ich gehe zu einem Konzert", "Letztes Wochenende habe ich gegangen Konzert", "Ich gegangen letztes Wochenende zu Konzert"], "mand": 0}, {"id": "GER-04-014", "t": 4, "s": "Identity", "k": "Recall", "m": 3, "ht": false, "q": "Give <b>opinion phrases<\/b> in German.", "a": ["<b>Ich finde, dass...<\/b> (1)", "<b>Meiner Meinung nach...<\/b> (1)", "<b>Ich glaube, dass...<\/b> (1)"], "cp": ["Ich finde, dass", "Meiner Meinung nach", "Ich glaube, dass"], "dp": ["Ich mag nicht", "Ich weiß nicht", "Das ist egal"], "mand": 0}, {"id": "GER-04-015", "t": 4, "s": "Identity", "k": "Exam trap", "m": 2, "ht": false, "q": "Why is <b>'ich finde, dass'<\/b> followed by the verb at the end?", "a": ["<b>dass<\/b> sends the verb to the end (1)", "<b>Ich finde, dass Sport wichtig ist.<\/b> (1)"], "cp": ["dass sends the verb to the end", "Ich finde, dass Sport wichtig ist"], "dp": ["Dass is a modal verb", "It is a question word", "It is not followed by a verb"], "mand": 0}, {"id": "GER-05-001", "t": 5, "s": "Local area", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four places in a town<\/b> in German.", "a": ["<b>der Bahnhof<\/b> (station) (1)", "<b>das Rathaus<\/b> (town hall) (1)", "<b>die Kirche<\/b> (church) (1)", "<b>das Schwimmbad<\/b> (swimming pool) (1)"], "cp": ["der Bahnhof (station)", "das Rathaus (town hall)", "die Kirche (church)", "das Schwimmbad (swimming pool)"], "dp": ["der Sommer, der Herbst, der Winter, der Frühling", "die Mutter, der Vater, die Schwester, der Bruder", "das Brot, der Käse, die Wurst, der Apfel"], "mand": 0}, {"id": "GER-05-002", "t": 5, "s": "Local area", "k": "Recall", "m": 3, "ht": false, "q": "Give <b>directions<\/b> in German: left, right and straight on.", "a": ["<b>links<\/b> (left) (1)", "<b>rechts<\/b> (right) (1)", "<b>geradeaus<\/b> (straight on) (1)"], "cp": ["links (left)", "rechts (right)", "geradeaus (straight on)"], "dp": ["oben, unten, neben", "vorne, hinten, hier", "gestern, heute, morgen"], "mand": 0}, {"id": "GER-05-003", "t": 5, "s": "Local area", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Go straight on and take the second street on the left.'<\/b>", "a": ["<b>Gehen Sie geradeaus<\/b> (1)", "<b>und nehmen Sie<\/b> (1)", "<b>die zweite Straße links.<\/b> (1)"], "cp": ["Gehen Sie geradeaus", "und nehmen Sie", "die zweite Straße links"], "dp": ["Gehst geradeaus und zweite Straße nimmt links", "Geradeaus gehen, zweiten links nimm Straße", "Fahren Sie hinten und nehmen die Zug"], "mand": 0}, {"id": "GER-05-004", "t": 5, "s": "Local area", "k": "Recall", "m": 3, "ht": false, "q": "Describe <b>your town<\/b>: translate 'There is a market and many shops, but no cinema.'", "a": ["<b>Es gibt einen Markt<\/b> (1)", "<b>und viele Geschäfte,<\/b> (1)", "<b>aber kein Kino.<\/b> (1)"], "cp": ["Es gibt einen Markt", "und viele Geschäfte,", "aber kein Kino"], "dp": ["Es gibt ein Markt und viele Geschäft aber nicht Kino", "Es ist einen Markt und viel Geschäfte kein Kino", "Gibt es Markt viele Geschäfte aber Kinos nicht"], "mand": 0}, {"id": "GER-05-005", "t": 5, "s": "Local area", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four types of transport<\/b> in German.", "a": ["<b>der Zug<\/b> (train) (1)", "<b>das Flugzeug<\/b> (plane) (1)", "<b>das Fahrrad<\/b> (bike) (1)", "<b>die Straßenbahn<\/b> (tram) (1)"], "cp": ["der Zug (train)", "das Flugzeug (plane)", "das Fahrrad (bike)", "die Straßenbahn (tram)"], "dp": ["der Tisch, der Stuhl, das Bett, der Schrank", "die Schule, die Klasse, der Lehrer, das Heft", "das Brot, das Wasser, der Saft, die Milch"], "mand": 0}, {"id": "GER-05-006", "t": 5, "s": "Travel", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'I am travelling by train because it is cheap.'<\/b>", "a": ["<b>Ich fahre mit dem Zug,<\/b> (1)", "<b>weil<\/b> (1)", "<b>er billig ist.<\/b> (1)"], "cp": ["Ich fahre mit dem Zug,", "weil", "er billig ist"], "dp": ["Ich fahre mit der Zug weil ist er billig", "Ich reise zug weil er billig ist", "Ich fahre durch den Zug, weil billig ist"], "mand": 0}, {"id": "GER-05-007", "t": 5, "s": "Holiday", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Last summer I went to Spain with my family.'<\/b>", "a": ["<b>Letzten Sommer<\/b> (1)", "<b>bin ich mit meiner Familie<\/b> (1)", "<b>nach Spanien gefahren.<\/b> (1)"], "cp": ["Letzten Sommer", "bin ich mit meiner Familie", "nach Spanien gefahren"], "dp": ["Letzten Sommer ich gehe nach Spanien mit Familie", "Letzten Sommer habe ich gefahren nach Spanien", "Ich bin gefahren Spanien letzten Sommer Familie"], "mand": 0}, {"id": "GER-05-008", "t": 5, "s": "Holiday", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four holiday words<\/b> in German.", "a": ["<b>der Urlaub<\/b> (holiday) (1)", "<b>der Strand<\/b> (beach) (1)", "<b>das Hotel<\/b> (hotel) (1)", "<b>das Meer<\/b> (sea) (1)"], "cp": ["der Urlaub (holiday)", "der Strand (beach)", "das Hotel (hotel)", "das Meer (sea)"], "dp": ["die Schule, das Heft, der Lehrer, das Zimmer", "der Hund, die Katze, das Pferd, der Vogel", "das Brot, der Käse, die Wurst, der Apfel"], "mand": 0}, {"id": "GER-05-009", "t": 5, "s": "Holiday", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Next year I will go to Austria and go skiing.'<\/b>", "a": ["<b>Nächstes Jahr werde ich<\/b> (1)", "<b>nach Österreich fahren<\/b> (1)", "<b>und Ski fahren.<\/b> (1)"], "cp": ["Nächstes Jahr werde ich", "nach Österreich fahren", "und Ski fahren"], "dp": ["Nächstes Jahr ich werde Österreich fahren Ski", "Nächstes Jahr bin ich gefahren nach Österreich", "Nächstes Jahr fahre Österreich Ski ich"], "mand": 0}, {"id": "GER-05-010", "t": 5, "s": "Holiday", "k": "Recall", "m": 3, "ht": false, "q": "How do you <b>book a hotel room<\/b>? Translate 'I would like a double room for three nights.'", "a": ["<b>Ich möchte ein Doppelzimmer<\/b> (1)", "<b>für drei Nächte<\/b> (1)", "<b>reservieren.<\/b> (1)"], "cp": ["Ich möchte ein Doppelzimmer", "für drei Nächte", "reservieren"], "dp": ["Ich will Doppelzimmer drei Tage", "Ich möchte Zimmer für drei Nacht haben", "Hotel drei Nächte mein Zimmer"], "mand": 0}, {"id": "GER-05-011", "t": 5, "s": "Holiday", "k": "Recall", "m": 3, "ht": false, "q": "What <b>problems<\/b> can you describe on holiday in German?", "a": ["<b>Das Zimmer war schmutzig.<\/b> (1)", "<b>Das Wetter war schlecht.<\/b> (1)", "<b>Es gab keinen Strom.<\/b> (1)"], "cp": ["Das Zimmer war schmutzig", "Das Wetter war schlecht", "Es gab keinen Strom"], "dp": ["Es war zu gut", "Alles war perfekt", "Ich war glücklich"], "mand": 0}, {"id": "GER-05-012", "t": 5, "s": "Holiday", "k": "Recall", "m": 4, "ht": false, "q": "Give the German for <b>four weather expressions<\/b>.", "a": ["<b>Es regnet.<\/b> (1)", "<b>Es schneit.<\/b> (1)", "<b>Die Sonne scheint.<\/b> (1)", "<b>Es ist windig.<\/b> (1)"], "cp": ["Es regnet", "Es schneit", "Die Sonne scheint", "Es ist windig"], "dp": ["Es isst, es trinkt, es schläft, es liest", "Ich bin kalt, ich bin warm", "Das Wetter ist grün"], "mand": 0}, {"id": "GER-05-013", "t": 5, "s": "Holiday", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'I would like a table for two, please.'<\/b>", "a": ["<b>Ich möchte einen Tisch<\/b> (1)", "<b>für zwei Personen<\/b> (1)", "<b>bitte.<\/b> (1)"], "cp": ["Ich möchte einen Tisch", "für zwei Personen", "bitte"], "dp": ["Ich möchte Tisch zwei bitte", "Ich will einen Tisch für zweien", "Zwei Tisch ich möchte"], "mand": 0}, {"id": "GER-05-014", "t": 5, "s": "Travel", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Where is the station? How much is a ticket to Hamburg?'<\/b>", "a": ["<b>Wo ist der Bahnhof?<\/b> (1)", "<b>Wie viel kostet<\/b> (1)", "<b>eine Fahrkarte nach Hamburg?<\/b> (1)"], "cp": ["Wo ist der Bahnhof?", "Wie viel kostet", "eine Fahrkarte nach Hamburg?"], "dp": ["Wo ist die Bahnhof? Wie viele kostet Fahrkarte Hamburg", "Wo Bahnhof ist? Was kostet nach Hamburg Fahrkarte", "Wo bist der Bahnhof"], "mand": 0}, {"id": "GER-05-015", "t": 5, "s": "Local area", "k": "Exam trap", "m": 2, "ht": false, "q": "Why do <b>'nach' and 'in'<\/b> cause errors with places?", "a": ["<b>nach<\/b> for towns and countries without article (1)", "<b>in die<\/b> or <b>in den<\/b> for countries with an article, e.g. in die Schweiz (1)"], "cp": ["nach for towns and countries without article", "in die or in den for countries with an article, e.g. in die Schweiz"], "dp": ["They always mean the same thing", "Use nach for every noun", "Never use in"], "mand": 0}, {"id": "GER-06-001", "t": 6, "s": "School", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four school subjects<\/b> in German.", "a": ["<b>Mathe<\/b> (maths) (1)", "<b>Erdkunde<\/b> (geography) (1)", "<b>Geschichte<\/b> (history) (1)", "<b>Sport<\/b> (PE) (1)"], "cp": ["Mathe (maths)", "Erdkunde (geography)", "Geschichte (history)", "Sport (PE)"], "dp": ["der Hund, die Katze, das Pferd, der Vogel", "der Zug, das Auto, der Bus, das Rad", "das Brot, die Wurst, der Käse, das Obst"], "mand": 0}, {"id": "GER-06-002", "t": 6, "s": "School", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'My favourite subject is German because the teacher is nice.'<\/b>", "a": ["<b>Mein Lieblingsfach ist Deutsch,<\/b> (1)", "<b>weil<\/b> (1)", "<b>der Lehrer nett ist.<\/b> (1)"], "cp": ["Mein Lieblingsfach ist Deutsch,", "weil", "der Lehrer nett ist"], "dp": ["Mein Lieblingsfach ist Deutsch weil ist der Lehrer nett", "Mein Lieblings Fach Deutsch weil Lehrer nett", "Ich liebe Fach weil Lehrer netten ist"], "mand": 0}, {"id": "GER-06-003", "t": 6, "s": "School", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'We have to wear a uniform.'<\/b>", "a": ["<b>Wir müssen<\/b> (1)", "<b>eine Schuluniform<\/b> (1)", "<b>tragen.<\/b> (1)"], "cp": ["Wir müssen", "eine Schuluniform", "tragen"], "dp": ["Wir müssen tragen Schuluniform", "Wir haben tragen eine Uniform", "Wir müssen eine Uniform trage"], "mand": 0}, {"id": "GER-06-004", "t": 6, "s": "School", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Our school has good facilities, but the lessons are too long.'<\/b>", "a": ["<b>Unsere Schule hat gute Einrichtungen,<\/b> (1)", "<b>aber<\/b> (1)", "<b>der Unterricht ist zu lang.<\/b> (1)"], "cp": ["Unsere Schule hat gute Einrichtungen,", "aber", "der Unterricht ist zu lang"], "dp": ["Unsere Schule haben gute Einrichtungen aber ist Unterricht lang", "Unsere Schule hat gut Einrichtung aber lang Unterricht ist", "Schule gute lang Unterricht aber"], "mand": 0}, {"id": "GER-06-005", "t": 6, "s": "School", "k": "Recall", "m": 3, "ht": false, "q": "Give <b>school problems<\/b> in German.", "a": ["<b>der Stress<\/b> (stress) (1)", "<b>die Hausaufgaben<\/b> (homework) (1)", "<b>das Mobbing<\/b> (bullying) (1)"], "cp": ["der Stress (stress)", "die Hausaufgaben (homework)", "das Mobbing (bullying)"], "dp": ["Das Frühstück, das Mittagessen, das Abendessen", "der Strand, das Meer, der Berg", "der Zug, der Bus, das Rad"], "mand": 0}, {"id": "GER-06-006", "t": 6, "s": "School", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'Yesterday we had a maths test and I got a good mark.'<\/b>", "a": ["<b>Gestern hatten wir<\/b> (1)", "<b>einen Mathetest<\/b> (1)", "<b>und ich habe eine gute Note bekommen.<\/b> (1)"], "cp": ["Gestern hatten wir", "einen Mathetest", "und ich habe eine gute Note bekommen"], "dp": ["Gestern wir hatten Mathe Test ich bekommen gute", "Gestern haben wir gehabt einen Test", "Gestern hatten Mathe ich eine Note"], "mand": 0}, {"id": "GER-06-007", "t": 6, "s": "Work", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four jobs<\/b> in German (masculine forms).", "a": ["<b>der Arzt<\/b> (doctor) (1)", "<b>der Lehrer<\/b> (teacher) (1)", "<b>der Ingenieur<\/b> (engineer) (1)", "<b>der Polizist<\/b> (police officer) (1)"], "cp": ["der Arzt (doctor)", "der Lehrer (teacher)", "der Ingenieur (engineer)", "der Polizist (police officer)"], "dp": ["der Hund, die Katze, das Pferd, der Vogel", "der Zug, das Auto, der Bus, das Rad", "das Brot, die Wurst, der Käse, das Obst"], "mand": 0}, {"id": "GER-06-008", "t": 6, "s": "Work", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'I would like to be a doctor because I want to help people.'<\/b>", "a": ["<b>Ich möchte Arzt werden,<\/b> (1)", "<b>weil ich<\/b> (1)", "<b>Menschen helfen will.<\/b> (1)"], "cp": ["Ich möchte Arzt werden,", "weil ich", "Menschen helfen will"], "dp": ["Ich möchte werden Arzt weil helfen will Menschen", "Ich würde Arzt sein weil ich helfen Menschen will", "Ich will Arzt weil Menschen helfen"], "mand": 0}, {"id": "GER-06-009", "t": 6, "s": "Work", "k": "Recall", "m": 3, "ht": false, "q": "What do you say about <b>work experience<\/b>? Translate 'I did work experience in an office.'", "a": ["<b>Ich habe ein Praktikum<\/b> (1)", "<b>in einem Büro<\/b> (1)", "<b>gemacht.<\/b> (1)"], "cp": ["Ich habe ein Praktikum", "in einem Büro", "gemacht"], "dp": ["Ich bin Praktikum Büro gemacht", "Ich habe Praktikum gemacht in Büro ich", "Ich habe gemachen Praktikum"], "mand": 0}, {"id": "GER-06-010", "t": 6, "s": "Work", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'I want to go to university and study languages.'<\/b>", "a": ["<b>Ich möchte<\/b> (1)", "<b>auf die Universität gehen<\/b> (1)", "<b>und Sprachen studieren.<\/b> (1)"], "cp": ["Ich möchte", "auf die Universität gehen", "und Sprachen studieren"], "dp": ["Ich möchte Universität und Sprachen studiere", "Ich will studieren gehen Universität Sprachen", "Ich möchte gehe Universität und studiert Sprachen"], "mand": 0}, {"id": "GER-06-011", "t": 6, "s": "Work", "k": "Recall", "m": 3, "ht": false, "q": "Why are <b>languages useful at work<\/b>? Give two German sentences.", "a": ["<b>Mit Fremdsprachen hat man bessere Chancen.<\/b> (1)", "<b>Man kann im Ausland arbeiten.<\/b> (1)", "<b>Das ist ein Vorteil bei Bewerbungen.<\/b> (1)"], "cp": ["Mit Fremdsprachen hat man bessere Chancen", "Man kann im Ausland arbeiten", "Das ist ein Vorteil bei Bewerbungen"], "dp": ["Sprachen sind nutzlos", "Man braucht nur Englisch", "Deutsch ist nicht wichtig"], "mand": 0}, {"id": "GER-06-012", "t": 6, "s": "Global", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four environmental words<\/b> in German.", "a": ["<b>die Umwelt<\/b> (environment) (1)", "<b>der Müll<\/b> (rubbish) (1)", "<b>der Klimawandel<\/b> (climate change) (1)", "<b>das Recycling<\/b> (1)"], "cp": ["die Umwelt (environment)", "der Müll (rubbish)", "der Klimawandel (climate change)", "das Recycling"], "dp": ["das Frühstück, das Mittagessen, das Abendessen, das Brot", "der Zug, der Bus, das Rad, das Auto", "die Schule, das Heft, der Lehrer, die Klasse"], "mand": 0}, {"id": "GER-06-013", "t": 6, "s": "Global", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'We should recycle more and use less plastic.'<\/b>", "a": ["<b>Wir sollten<\/b> (1)", "<b>mehr recyceln<\/b> (1)", "<b>und weniger Plastik benutzen.<\/b> (1)"], "cp": ["Wir sollten", "mehr recyceln", "und weniger Plastik benutzen"], "dp": ["Wir sollen recycle mehr und benutzen Plastik weniger", "Wir sollten mehr recyclen und weniger Plastik verbrauchen ist", "Wir sollten recyceln mehr weniger Plastik benutzt"], "mand": 0}, {"id": "GER-06-014", "t": 6, "s": "Global", "k": "Recall", "m": 3, "ht": false, "q": "Translate: <b>'I want to help charities and volunteer.'<\/b>", "a": ["<b>Ich möchte<\/b> (1)", "<b>Wohltätigkeitsorganisationen helfen<\/b> (1)", "<b>und ehrenamtlich arbeiten.<\/b> (1)"], "cp": ["Ich möchte", "Wohltätigkeitsorganisationen helfen", "und ehrenamtlich arbeiten"], "dp": ["Ich möchte Wohltätigkeit helfen und arbeit Ehrenamt", "Ich will helfen Spenden ehrenamtlich ich arbeiten", "Ich möchte helfe und arbeite ehrenamtlich"], "mand": 0}, {"id": "GER-06-015", "t": 6, "s": "Global", "k": "Recall", "m": 3, "ht": false, "q": "Name <b>global problems<\/b> in German.", "a": ["<b>die Armut<\/b> (poverty) (1)", "<b>der Hunger<\/b> (hunger) (1)", "<b>der Krieg<\/b> (war) (1)"], "cp": ["die Armut (poverty)", "der Hunger (hunger)", "der Krieg (war)"], "dp": ["der Sommer, der Winter, der Herbst", "der Bahnhof, der Zug, der Bus", "das Frühstück, das Mittagessen, das Abendessen"], "mand": 0}, {"id": "GER-06-016", "t": 6, "s": "Global", "k": "Recall", "m": 4, "ht": false, "q": "What are <b>international events<\/b> in German? Translate 'the Olympic Games' and 'the World Cup'.", "a": ["<b>die Olympischen Spiele<\/b> (1)", "<b>die Weltmeisterschaft<\/b> (1)", "<b>das Fest<\/b> (festival) (1)", "<b>die Veranstaltung<\/b> (event) (1)"], "cp": ["die Olympischen Spiele", "die Weltmeisterschaft", "das Fest (festival)", "die Veranstaltung (event)"], "dp": ["die Schule, das Heft, der Lehrer, die Klasse", "der Bahnhof, der Zug, der Bus, das Rad", "das Brot, die Wurst, der Käse, das Obst"], "mand": 0}];
+const CFG={"name": "Amelie", "tier": "Higher", "key": "german_amelie_v1", "accent": "#2fd3c4", "accent2": "#ffd166", "ht": false, "subject": "German", "spec": "Edexcel GCSE German (1GN0), Higher", "topics": [{"n": 1, "name": "Exam structure and skills", "c": "#5b9bff"}, {"n": 2, "name": "Grammar: verbs and word order", "c": "#ff9f43"}, {"n": 3, "name": "Grammar: cases, adjectives and more", "c": "#3ddc97"}, {"n": 4, "name": "Identity and culture", "c": "#ff6b81"}, {"n": 5, "name": "Local area, holiday and travel", "c": "#b58cff"}, {"n": 6, "name": "School, work and global issues", "c": "#38d0f0"}], "gate": "3b7ddff644610abe0d69acd881e063a48ad048be64549c41c2bb9b3943570883", "res": {"title": "About these cards", "intro": "Edexcel GCSE German, Higher tier, per the school's Year 11 exam board list. Cards cover the exam papers, grammar, and vocabulary across the five themes. Where a card shows a German sentence, say it aloud as well as reading it.", "modeText": "x", "modes": [], "given": ["Exam structure and skills, grammar (word order, tenses, cases) and vocabulary by theme"], "tips": ["Play a Quick round most days, then a topic round on anything in Weak spots.", "Say the German answers aloud to help with the speaking paper.", "Practise translations both ways, checking verb position and capital letters on nouns."], "links": [{"u": "https://qualifications.pearson.com/en/qualifications/edexcel-gcses/german-2016.html", "t": "Pearson Edexcel GCSE German", "d": "specification, past papers and mark schemes"}], "note": ""}};
+const LOGURL="https://script.google.com/macros/s/AKfycby17HD6voBTQOBC6yI4hlqeOS_kPINyHKXfXaxLomzcTqIC8sYMeOVgdH9I7zX8a8Ziow/exec",LOGKEY="zF0988a6v6_5vE_R";
+const plain=s=>String(s).replace(/<[^>]+>/g,"").replace(/\s+/g," ").trim();
+const DEV=/iPhone/.test(navigator.userAgent)?"iPhone":(/iPad/.test(navigator.userAgent)||(/Mac/.test(navigator.userAgent)&&navigator.maxTouchPoints>1))?"iPad":"Other";
+function qGet(){try{return JSON.parse(localStorage.getItem(CFG.key+"_q")||"[]")}catch(e){return[]}}
+function qSet(a){try{localStorage.setItem(CFG.key+"_q",JSON.stringify(a.slice(-500)))}catch(e){}}
+let flushing=false;
+function logEvent(rec){if(!LOGURL)return;rec.u=Date.now().toString(36)+Math.random().toString(36).slice(2,7);rec.child=CFG.name;rec.subject=CFG.subject;rec.dev=DEV;rec.ts=new Date().toISOString();const q=qGet();q.push(rec);qSet(q);flush()}
+function flush(){
+  if(!LOGURL||flushing)return;const q=qGet();if(!q.length)return;flushing=true;
+  try{fetch(LOGURL,{method:"POST",mode:"no-cors",keepalive:q.length<20,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({key:LOGKEY,rows:q})})
+   .then(()=>{qSet(qGet().slice(q.length));flushing=false;if(qGet().length)setTimeout(flush,300)}).catch(()=>{flushing=false;setTimeout(flush,20000)})}catch(e){flushing=false}
+}
+window.addEventListener("online",flush);document.addEventListener("visibilitychange",()=>{if(document.hidden)flush()});
+setTimeout(flush,1500);
+const TOPICS=[null].concat(CFG.topics);const TN=CFG.topics.map(x=>x.n);
+const RANKS=[[0,"Observer"],[200,"Technician"],[500,"Analyst"],[1000,"Researcher"],[1800,"Specialist"],[3000,"Consultant"],[5000,"Professor"]];
+const GOAL=30;
+const ICON={star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.1 4.9 1.3 7L12 17.8 5.8 21.3l1.3-7L2 9.4l7-.9z"/></svg>',
+ heart:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.7A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg>',
+ cross:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+ tick:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>',
+ medal:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="14" r="6"/><path d="M8 3l4 6 4-6"/></svg>',
+ flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5.500 6 5.500 11a5.500 5.500 0 01-11 0c0-2.200 1-3.500 2.200-4.500.1 2 1 3 2 3C10.500 7 10.500 4.500 12 2z"/></svg>',
+ bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>',
+ trophy:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v5a5 5 0 01-10 0zM4 4h3v2a2 2 0 01-2 2H4zM17 4h3v4h-1a2 2 0 01-2-2zM11 13h2v4h3v3H8v-3h3z"/></svg>',
+ target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.500" fill="currentColor"/></svg>',
+ shield:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 3v6c0 5-3.500 9-8 11-4.500-2-8-6-8-11V5z"/></svg>',
+ crown:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4.500 4L12 4l4.500 7L21 7l-2 12H5z"/></svg>',
+ flag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 22V3h13l-2.500 4.500L18 12H7v10z"/></svg>'};
+/* ---------- state ---------- */
+function fresh(){return {cards:{},xp:0,marks:0,perfect:0,rounds:0,streak:0,best:0,last:"",day:{d:"",m:0},badges:[],traps:0,survWins:0,incHT:true,tp:{},kp:{},hist:{},recent:[]}}
+let S=load();
+let STORE_OK=true;try{localStorage.setItem('_t','1');localStorage.removeItem('_t')}catch(e){STORE_OK=false}
+function load(){try{const s=localStorage.getItem(CFG.key);if(s)return Object.assign(fresh(),JSON.parse(s))}catch(e){}return fresh()}
+function save(){try{localStorage.setItem(CFG.key,JSON.stringify(S))}catch(e){}}
+const todayStr=()=>new Date().toLocaleDateString("en-CA");
+function marksToday(){return S.day.d===todayStr()?S.day.m:0}
+function rank(xp){let i=0;for(let k=0;k<RANKS.length;k++)if(xp>=RANKS[k][0])i=k;const lo=RANKS[i][0],hi=RANKS[i+1]?RANKS[i+1][0]:null;return {i,name:RANKS[i][1],lo,hi,next:RANKS[i+1]?RANKS[i+1][1]:null}}
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const pool=()=>DATA.filter(c=>S.incHT||!c.ht);
+const tc=t=>TOPICS[t].c;
+function mastered(id){const c=S.cards[id];return c&&c.box>=2}
+function topicStats(t){const p=pool().filter(c=>c.t===t);const m=p.filter(c=>mastered(c.id)).length;const seen=p.filter(c=>S.cards[c.id]).length;return {n:p.length,m,seen}}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+let view="home",R=null,LIB={t:0,k:"",q:""};
+function go(v){view=v;R=null;render();window.scrollTo(0,0)}
+function ring(p,size=84){const r=size/2-8,c=2*Math.PI*r;return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--panel2)" stroke-width="8"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="url(#g)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-Math.min(1,p))}" transform="rotate(-90 ${size/2} ${size/2})"/><defs><linearGradient id="g"><stop offset="0" stop-color="${CFG.accent}"/><stop offset="1" stop-color="${CFG.accent2}"/></linearGradient></defs><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" fill="#eef0fb" font-size="${size/4.2}" font-weight="700">${Math.round(Math.min(1,p)*100)}%</text></svg>`}
+/* ---------- badges ---------- */
+const BADGES=[
+ {id:"first",n:"First round",d:"Finish a round",i:"flag",t:()=>S.rounds>=1},
+ {id:"c100",n:"Century",d:"Earn 100 marks",i:"bolt",t:()=>S.marks>=100},
+ {id:"c500",n:"Five hundred",d:"Earn 500 marks",i:"trophy",t:()=>S.marks>=500},
+ {id:"p10",n:"Full marks x10",d:"10 cards with full marks",i:"star",t:()=>S.perfect>=10},
+ {id:"s3",n:"On a roll",d:"3 day streak",i:"flame",t:()=>S.streak>=3},
+ {id:"s7",n:"Week warrior",d:"7 day streak",i:"flame",t:()=>S.streak>=7},
+ {id:"trap",n:"Trap spotter",d:"10 exam traps with full marks",i:"target",t:()=>S.traps>=10},
+ {id:"surv",n:"Survivor",d:"Finish a Survival round",i:"shield",t:()=>S.survWins>=1},
+ ...TN.map(t=>({id:"m"+t,n:TOPICS[t].name+" master",d:"Master 80% of the topic",i:"crown",t:()=>{const s=topicStats(t);return s.n>0&&s.m/s.n>=.8}}))];
+function checkBadges(){const got=[];BADGES.forEach(b=>{if(!S.badges.includes(b.id)&&b.t()){S.badges.push(b.id);got.push(b)}});return got}
+/* ---------- render ---------- */
+function render(){
+  $("#nav-home").classList.toggle("on",view!=="library"&&view!=="progress");$("#nav-library").classList.toggle("on",view==="library");$("#nav-progress").classList.toggle("on",view==="progress");$("#specline").textContent=CFG.spec;
+  const r=rank(S.xp);$("#xpbox").innerHTML=`<div class="l"><span>${r.name}</span><span>${S.xp} pts${r.hi?" / "+r.hi:""}</span></div><div class="bar"><i style="width:${r.hi?Math.round((S.xp-r.lo)/(r.hi-r.lo)*100):100}%"></i></div>`;
+  if(view==="home")home();else if(view==="round")roundView();else if(view==="result")resultView();else if(view==="progress")progressView();else library();
+}
+function greet(){const h=new Date().getHours();return h<12?"Good morning":h<18?"Good afternoon":"Good evening"}
+function accOf(o){return o&&o.m?o.e/o.m:null}
+function focusPick(){
+  const arr=TN.map(t=>({t,acc:accOf(S.tp[t]),seen:topicStats(t).seen,n:topicStats(t).n}));
+  if(!S.rounds)return {h:"Start with a Quick round",p:"Ten mixed questions to find out where you stand. It takes about five minutes.",act:"start({n:10,label:'Quick round'})",btn:"Start now"};
+  const weak=arr.filter(a=>a.acc!==null&&a.acc<.7).sort((a,b)=>a.acc-b.acc)[0];
+  if(weak)return {h:"Focus on "+TOPICS[weak.t].name,p:"You are scoring "+Math.round(weak.acc*100)+"% here. A short round now is the quickest way to lift your overall score.",act:"start({n:10,topic:"+weak.t+",label:'"+TOPICS[weak.t].name.replace(/'/g,"")+"'})",btn:"Practise this topic"};
+  const un=arr.filter(a=>a.seen<a.n*.25).sort((a,b)=>a.seen-b.seen)[0];
+  if(un)return {h:"Explore "+TOPICS[un.t].name,p:"You have barely started this topic. Try ten questions to see what you already know.",act:"start({n:10,topic:"+un.t+",label:'"+TOPICS[un.t].name.replace(/'/g,"")+"'})",btn:"Try this topic"};
+  return {h:"Keep the streak going",p:"Your topics are looking strong. A quick round keeps everything fresh.",act:"start({n:10,label:'Quick round'})",btn:"Quick round"};
+}
+function dayMarks(n){const out=[];for(let i=n-1;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const k=d.toLocaleDateString("en-CA");out.push({k,d,m:(S.hist&&S.hist[k])||(S.day.d===k?S.day.m:0)})}return out}
+function barChart(days,goal){
+  const W=640,H=190,pl=30,pb=24,pt=12,bw=(W-pl)/days.length,max=Math.max(goal*1.25,...days.map(x=>x.m),10);
+  const y=v=>pt+(H-pt-pb)*(1-v/max);
+  const bars=days.map((x,i)=>{const h=(H-pt-pb)*(x.m/max),bx=pl+i*bw+bw*.18,w=bw*.64;const on=x.m>=goal;return `<rect x="${bx}" y="${H-pb-h}" width="${w}" height="${Math.max(h,x.m?3:0)}" rx="5" fill="${on?'var(--good)':'url(#bg)'}"/><text x="${bx+w/2}" y="${H-6}" text-anchor="middle" font-size="10" fill="#9ba4cc">${"SMTWTFS"[x.d.getDay()]}</text>${x.m?`<text x="${bx+w/2}" y="${H-pb-h-4}" text-anchor="middle" font-size="10" fill="#eef0fb">${x.m}</text>`:""}`}).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Marks per day for the last ${days.length} days"><defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${CFG.accent}"/><stop offset="1" stop-color="${CFG.accent2}"/></linearGradient></defs><line x1="${pl}" x2="${W}" y1="${y(goal)}" y2="${y(goal)}" stroke="#ffb84d" stroke-dasharray="5 5" stroke-width="1.500"/><text x="2" y="${y(goal)+4}" font-size="10" fill="#ffb84d">${goal}</text>${bars}</svg>`}
+function resPanel(){
+  const R=CFG.res; if(!R) return "";
+  const esc=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const li=R.links.map(l=>`<li><a style="color:var(--accent2);text-decoration:underline" href="${l.u}" target="_blank" rel="noopener noreferrer">${esc(l.t)}</a> <span class="small">${esc(l.d)}</span></li>`).join("");
+  const gi=R.given.map(x=>`<li>${esc(x)}</li>`).join("");
+  const ti=R.tips.map(x=>`<li>${esc(x)}</li>`).join("");
+  return `<h2>${esc(R.title)}</h2><div class="panel"><p class="small" style="margin-top:0">${esc(R.intro)}</p><h3 style="margin:14px 0 6px;font-size:1rem">What you have been given</h3><ul class="small" style="margin:0 0 8px 18px;line-height:1.6">${gi}</ul><h3 style="margin:14px 0 6px;font-size:1rem">How to use it with this dashboard</h3><ul class="small" style="margin:0 0 8px 18px;line-height:1.6">${ti}</ul><h3 style="margin:14px 0 6px;font-size:1rem">Websites and revision guides</h3><ul class="small" style="margin:0 0 4px 18px;line-height:1.7">${li}</ul>${R.note?`<p class="small" style="margin:10px 0 0">${esc(R.note)}</p>`:""}</div>`;
+}
+function home(){
+  const r=rank(S.xp),p=pool(),mastN=p.filter(c=>mastered(c.id)).length;
+  const hasWeak=p.filter(c=>S.cards[c.id]&&S.cards[c.id].box<=1).length;
+  const htN=DATA.filter(c=>c.ht).length,f=focusPick();
+  const xpPct=r.hi?Math.round((S.xp-r.lo)/(r.hi-r.lo)*100):100;
+  let hintOff=false;try{hintOff=localStorage.getItem(CFG.key+"_hint")==="1"}catch(e){}
+  const iosBrowser=(/iPhone|iPad/.test(navigator.userAgent)||(/Mac/.test(navigator.userAgent)&&navigator.maxTouchPoints>1)),standalone=navigator.standalone||(window.matchMedia&&matchMedia("(display-mode: standalone)").matches);
+  const banners=(!STORE_OK?`<div class="banner"><span>Progress cannot be saved in this browser (private browsing is on, or storage is blocked). Your answers are still sent to your parents' progress sheet.</span></div>`:"")+
+    (iosBrowser&&!standalone&&!hintOff&&location.protocol!=="file:"?`<div class="banner"><span>Tip: tap the Share button, then <b>Add to Home Screen</b>, to open this like an app.</span><button onclick="try{localStorage.setItem(CFG.key+'_hint','1')}catch(e){};this.parentNode.remove()">Got it</button></div>`:"");
+  $("#app").innerHTML=`
+  <p class="hello">${greet()}, ${CFG.name}.</p>
+  <h1 style="margin-top:0">${CFG.name}'s <span class="grad">${CFG.subject} Lab</span></h1>
+  ${banners}
+  <div class="hero"><div><div class="k">Your next best step</div><h2>${f.h}</h2><p>${f.p}</p><button class="btn" onclick="${f.act}">${f.btn}</button></div><div class="ringwrap">${ring(marksToday()/GOAL,104)}<div><b style="font-size:1rem">Today</b><br><span class="small">${marksToday()} of ${GOAL} marks</span></div></div></div>
+  <div class="grid kpis">
+    <div class="kpi"><span class="fl ${S.streak?"":"off"}">${ICON.flame}</span><div><b>${S.streak}</b><span>day streak${S.best>S.streak?" | best "+S.best:""}</span></div></div>
+    <div class="kpi"><div style="flex:1"><b>${r.name}</b><span>${S.xp} pts${r.next?" | next: "+r.next:" | top rank"}</span><div class="bar mini"><i style="width:${xpPct}%"></i></div></div></div>
+    <div class="kpi"><div><b>${S.marks}</b><span>marks earned</span></div></div>
+    <div class="kpi"><div style="flex:1"><b>${mastN}<small style="font-size:.9rem;color:var(--muted)"> / ${p.length}</small></b><span>cards mastered</span><div class="bar mini"><i style="width:${p.length?Math.round(mastN/p.length*100):0}%"></i></div></div></div>
+  </div>
+  <h2>Choose your challenge</h2>
+  <div class="grid modes">
+    <button class="mode primary" onclick="start({n:10,label:'Quick round'})"><b>Quick round</b><small>10 mixed questions, chosen to focus on what you know least.</small></button>
+    <button class="mode" onclick="start({n:15,survival:true,label:'Survival'})"><b>Survival</b><small>15 questions, 3 lives. Score under half marks and you lose one.</small></button>
+    <button class="mode" onclick="start({n:10,kind:'Exam trap',label:'Exam traps'})"><b>Exam traps</b><small>The mistakes examiners see again and again.</small></button>
+    <button class="mode" onclick="start({n:10,kind:'Practical',label:'Required practicals'})"><b>Required practicals</b><small>Methods, variables and results for all ten practicals.</small></button>
+    <button class="mode" onclick="start({n:10,kind:'Calculation',label:'Calculations'})"><b>Calculations</b><small>Pick the right method and the right answer.</small></button>
+    ${CFG.res?(CFG.res.modes||[{t:8,l:'Mock pack',s:CFG.res.modeText}]).map(m=>`<button class="mode" onclick="start({n:10,topic:${m.t},label:'${m.l}'})"><b>${m.l}</b><small>${m.s}</small></button>`).join(""):""}
+    <button class="mode" onclick="start({n:10,weak:true,label:'Weak spots'})" ${hasWeak?"":"disabled style='opacity:.5'"}><b>Weak spots</b><small>${hasWeak?hasWeak+" cards need another go.":"Appears once you have played a round."}</small></button>
+    ${CFG.ht?`<button class="mode" onclick="start({n:10,ht:true,label:'Higher-only'})" ${S.incHT?"":"disabled style='opacity:.5'"}><b>Higher-only</b><small>${htN} questions that only appear on the Higher paper.</small></button>`:""}
+  </div>
+  ${CFG.ht?`<label class="toggle"><input type="checkbox" ${S.incHT?"checked":""} onchange="S.incHT=this.checked;save();render()"> Include Higher-only cards in rounds</label>`:""}
+  <h2>Topics</h2>
+  <div class="grid topics">${TN.map(t=>{const s=topicStats(t),a=accOf(S.tp[t]);return `<button class="tile" style="--c:${tc(t)}" onclick="start({n:10,topic:${t},label:'${TOPICS[t].name.replace(/'/g,"")}'})"><span class="n">Topic ${t}${a!==null?" | scoring "+Math.round(a*100)+"%":""}</span><b>${TOPICS[t].name}</b><div class="bar two"><i class="s" style="width:${s.n?Math.round(s.seen/s.n*100):0}%"></i><i style="width:${s.n?Math.round(s.m/s.n*100):0}%"></i></div><div class="meta"><span>${s.seen} seen | ${s.m} mastered</span><span>${s.n} cards</span></div></button>`}).join("")}</div>
+  ${resPanel()}
+  <h2>Badges <span class="small">${S.badges.length} of ${BADGES.length}</span></h2>
+  <div class="grid badges">${BADGES.map(b=>{const g=S.badges.includes(b.id);return `<div class="badge ${g?"got":"locked"}"><span class="ic">${ICON[b.i]||ICON.medal}</span><div><b>${b.n}</b><small>${b.d}</small></div></div>`}).join("")}</div>
+  <p class="small" style="margin-top:26px"><button class="chip" onclick="if(confirm('Reset all progress on this device? Your parents keep the history in the progress sheet.')){S=fresh();save();render()}">Reset progress on this device</button></p>`;
+}
+function progressView(){
+  const p=pool(),seenN=p.filter(c=>S.cards[c.id]).length,mastN=p.filter(c=>mastered(c.id)).length;
+  const tm=Object.values(S.tp).reduce((a,x)=>a+x.m,0),te=Object.values(S.tp).reduce((a,x)=>a+x.e,0),acc=tm?Math.round(te/tm*100):0;
+  const days=dayMarks(14),active=days.filter(d=>d.m>0).length,total14=days.reduce((a,d)=>a+d.m,0);
+  const rows=TN.map(t=>{const s=topicStats(t),a=accOf(S.tp[t]);return `<div class="trow" style="--c:${tc(t)}"><div><b>${TOPICS[t].name}</b><small>${s.seen} of ${s.n} seen | ${s.m} mastered</small></div><div class="bar two"><i class="s" style="width:${s.n?Math.round(s.seen/s.n*100):0}%"></i><i style="width:${s.n?Math.round(s.m/s.n*100):0}%"></i></div><div style="display:flex;gap:10px;align-items:center"><span class="pctl">${a===null?"-":Math.round(a*100)+"%"}</span><button class="btn sm" onclick="start({n:10,topic:${t},label:'${TOPICS[t].name.replace(/'/g,"")}'})">Practise</button></div></div>`}).join("");
+  const kinds=Object.entries(S.kp).filter(([k,v])=>v.m>0).sort((a,b)=>a[1].e/a[1].m-b[1].e/b[1].m);
+  const kb=kinds.length?kinds.map(([k,v])=>{const a=v.e/v.m;return `<div class="kb"><span>${k}</span><div class="bar"><i style="width:${Math.round(a*100)}%;background:${a>=.8?'var(--good)':a>=.5?'var(--warn)':'var(--bad)'}"></i></div><b>${Math.round(a*100)}%</b></div>`}).join(""):`<p class="small">Play a round to see which question types you find hardest.</p>`;
+  const rec=S.recent.length?S.recent.map(x=>{const pc=x.m?x.e/x.m:0,st=pc>=.9?3:pc>=.7?2:pc>=.4?1:0;return `<div class="rrow"><span>${x.l} <span class="small">| ${x.d}</span></span><span><span class="st">${"*".repeat(st)||"-"}</span> <b>${x.e}/${x.m}</b></span></div>`}).join(""):`<p class="small">No rounds yet.</p>`;
+  $("#app").innerHTML=`<h1>Your <span class="grad">progress</span></h1><p class="sub">Everything you do is saved here, and your answers are also sent to your parents' progress sheet.</p>
+  <div class="grid pgrid"><div class="kpi"><div><b>${acc}%</b><span>accuracy overall</span></div></div><div class="kpi"><div><b>${S.marks}</b><span>marks earned</span></div></div><div class="kpi"><div><b>${S.rounds}</b><span>rounds played</span></div></div><div class="kpi"><div><b>${seenN}<small style="font-size:.9rem;color:var(--muted)"> / ${p.length}</small></b><span>cards seen | ${mastN} mastered</span></div></div></div>
+  <h2>Last 14 days</h2><div class="panel">${barChart(days,GOAL)}<div class="legend">Marks per day. Green bars hit the daily goal of ${GOAL}. ${active} active ${active===1?"day":"days"}, ${total14} marks in total.</div></div>
+  <h2>Topic by topic</h2><div class="panel">${rows}</div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:14px"><div class="panel"><h3>Question types, weakest first</h3><div class="kbars">${kb}</div></div><div class="panel"><h3>Recent rounds</h3>${rec}</div></div>
+  <h2>Badges <span class="small">${S.badges.length} of ${BADGES.length}</span></h2>
+  <div class="grid badges">${BADGES.map(b=>{const g=S.badges.includes(b.id);return `<div class="badge ${g?"got":"locked"}"><span class="ic">${ICON[b.i]||ICON.medal}</span><div><b>${b.n}</b><small>${b.d}</small></div></div>`}).join("")}</div>`;
+}
+/* ---------- rounds ---------- */
+function start(o){
+  let p=pool();
+  if(o.topic)p=p.filter(c=>c.t===o.topic);
+  if(o.kind)p=p.filter(c=>c.k===o.kind);
+  if(o.ht)p=p.filter(c=>c.ht);
+  if(o.weak)p=p.filter(c=>S.cards[c.id]&&S.cards[c.id].box<=1);
+  if(!p.length){toast("No cards match that choice yet.");return}
+  p=p.map(c=>({c,w:(S.cards[c.id]?S.cards[c.id].box:-1)+Math.random()*1.6})).sort((a,b)=>a.w-b.w).slice(0,o.n).map(x=>x.c);
+  R={cards:shuffle(p),i:0,earned:0,max:0,hearts:o.survival?3:null,survival:!!o.survival,label:o.label||"Round",rev:false,sel:[],log:[],over:false,lastFull:0};prep();
+  view="round";render();window.scrollTo(0,0);
+}
+function buildOpts(c){
+  const cor=c.cp.map(h=>({h,ok:1})),mand=c.mand||0;
+  const chosen=cor.slice(0,mand).concat(shuffle(cor.slice(mand)).slice(0,Math.max(0,c.m-mand)));
+  const wr=shuffle(c.dp.slice()).slice(0,c.m>=4?2:3).map(h=>({h,ok:0}));
+  return shuffle(chosen.concat(wr));
+}
+function prep(){R.rev=false;R.sel=[];R.opts=buildOpts(R.cards[R.i])}
+function roundView(){
+  const c=R.cards[R.i];const col=tc(c.t);const n=c.m;
+  const hearts=R.survival?`<div class="hearts" aria-label="Lives">${[0,1,2].map(i=>`<span class="heart ${i<R.hearts?"":"off"}">${ICON.heart}</span>`).join("")}</div>`:"";
+  let body="";
+  if(!R.rev){
+    body=`<p class="hint">${n===1?"Choose <b>one</b> answer.":"Choose <b>"+n+"</b> answers, like a tick-box question in the exam."}</p>
+    <div class="opts">${R.opts.map((o,i)=>`<button class="pt opt ${n===1?"single":""} ${R.sel.includes(i)?"on":""}" onclick="pick(${i})" aria-pressed="${R.sel.includes(i)}"><span class="box">${ICON.tick}</span><span>${o.h}</span></button>`).join("")}</div>
+    <div class="score"><span class="small">${R.sel.length} of ${n} chosen</span><button class="btn" ${R.sel.length?"":"disabled"} onclick="reveal()">Check my answer${n>1?"s":""}</button></div>`;
+  }else{
+    const earned=curScore(c);
+    body=`${fbBanner(c,earned)}<div class="opts">${R.opts.map((o,i)=>{const p=R.sel.includes(i);const st=p?(o.ok?"right":"wrong"):(o.ok?"missed":"");const ic=st==="right"?ICON.tick:st==="wrong"?ICON.cross:st==="missed"?ICON.tick:"";const lab=st==="right"?"Correct":st==="wrong"?"Not quite":st==="missed"?"You missed this one":"";return `<div class="pt opt done ${n===1?"single":""} ${st}"><span class="box">${ic}</span><span>${o.h}${lab?`<small class="olab">${lab}</small>`:""}</span></div>`}).join("")}</div>
+    <div class="ans"><h3>Full mark scheme</h3><div class="a">${c.a.map(x=>`<p>${x}</p>`).join("")}</div>
+    <div class="score"><div class="big">${earned} / ${c.m} ${c.m===1?"mark":"marks"}</div><button class="btn" id="nextbtn" onclick="next()">${R.i+1===R.cards.length?"Finish":"Next question"}</button></div></div>`;
+  }
+  $("#app").innerHTML=`
+  <div class="rhead"><button class="chip" onclick="if(confirm('Leave this round?'))go('home')">Quit</button><b>${R.label}</b><div class="seg">${R.cards.map((x,k)=>`<i class="${k<R.i?"d":k===R.i?"n":""}"></i>`).join("")}</div><span class="pill">${R.i+1} / ${R.cards.length}</span>${hearts}${R.combo>=2?`<span class="pill combo">${R.combo} in a row</span>`:""}<span class="pill">${R.earned} marks</span></div>
+  <div class="card" style="--c:${col}" id="card">
+    <div class="ctop"><span class="id">${c.id}</span><span class="tag c">${TOPICS[c.t].name}</span><span class="tag">${c.k}</span><span class="tag m">${c.m} ${c.m===1?"mark":"marks"}</span>${c.ht?'<span class="tag ht">Higher only</span>':""}<span class="tag">Spec ${c.s}</span></div>
+    <p class="q">${c.q}</p>
+    ${body}
+  </div>`;
+}
+function fbBanner(c,e){
+  const m=c.m,full=e===m,none=e===0;
+  const T=full?["Full marks.","Spot on.","Brilliant."]:none?["Not this time."]:["Nearly there."];
+  const h=T[(R.i+c.id.length)%T.length];
+  const s=full?(m>1?"Every mark secured.":"Correct."):none?"Read the mark scheme below and it will stick next time.":e+" of "+m+" marks. Check what you missed below.";
+  return `<div class="fb ${full?"full":none?"none":"part"}"><b>${h}</b><span>${s}</span></div>`}
+function curScore(c){let s=0;R.sel.forEach(i=>{if(R.opts[i]&&R.opts[i].ok)s++});return Math.min(s,c.m)}
+function reveal(){if(!R.sel.length||R.rev)return;R.rev=true;
+  {const c=R.cards[R.i];logEvent({t:"answer",id:c.id,topic:TOPICS[c.t].name,kind:c.k,marks:curScore(c),max:c.m,sel:R.sel.map(i=>plain(R.opts[i].h)).join(" | "),miss:R.opts.filter((o,i)=>o.ok&&!R.sel.includes(i)).map(o=>plain(o.h)).join(" | "),round:R.label})}
+  roundView();const a=document.querySelector(".opts");if(a)a.scrollIntoView({behavior:"smooth",block:"start"})}
+function pick(i){const n=R.cards[R.i].m;const k=R.sel.indexOf(i);
+  if(k>=0)R.sel.splice(k,1);else if(n===1)R.sel=[i];else if(R.sel.length<n)R.sel.push(i);else{toast("You have chosen "+n+". Untick one to change.");return}
+  const y=window.scrollY;roundView();window.scrollTo(0,y)}
+function next(){
+  const c=R.cards[R.i],e=curScore(c);
+  R.earned+=e;R.max+=c.m;R.log.push({c,e});R.combo=(e===c.m)?(R.combo||0)+1:0;
+  const st=S.cards[c.id]||(S.cards[c.id]={box:0,seen:0,best:0});
+  const ratio=e/c.m;st.seen++;st.best=Math.max(st.best,e);
+  if(ratio>=.8)st.box=Math.min(3,st.box+1);else if(ratio<.5)st.box=0;else st.box=Math.max(1,st.box);
+  let xp=e*10+(e===c.m?5:0);S.xp+=xp;S.marks+=e;
+  {const a=S.tp[c.t]||(S.tp[c.t]={e:0,m:0});a.e+=e;a.m+=c.m;const k=S.kp[c.k]||(S.kp[c.k]={e:0,m:0});k.e+=e;k.m+=c.m;S.hist[todayStr()]=(S.hist[todayStr()]||0)+e;const ks=Object.keys(S.hist).sort();while(ks.length>60)delete S.hist[ks.shift()]}
+  if(S.day.d!==todayStr())S.day={d:todayStr(),m:0};S.day.m+=e;
+  if(e===c.m){S.perfect++;if(c.k==="Exam trap")S.traps++}
+  let lost=false;
+  if(R.survival&&e<Math.ceil(c.m/2)){R.hearts--;lost=true;if(R.hearts<=0)R.over=true}
+  save();
+  if(R.over||R.i+1>=R.cards.length){finish();return}
+  R.i++;prep();roundView();window.scrollTo(0,0);
+  if(lost){const el=$("#card");el.classList.add("shake")}
+}
+function finish(){
+  S.rounds++;
+  const t=todayStr();
+  if(S.last!==t){const y=new Date();y.setDate(y.getDate()-1);S.streak=(S.last===y.toLocaleDateString("en-CA"))?S.streak+1:1;S.last=t}
+  if(S.streak>(S.best||0))S.best=S.streak;
+  if(R.survival&&!R.over)S.survWins++;
+  S.recent.unshift({d:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short'}),l:R.label,e:R.earned,m:R.max});S.recent=S.recent.slice(0,10);
+  logEvent({t:"round",round:R.label,marks:R.earned,max:R.max,xp:R.log.reduce((a,x)=>a+x.e*10+(x.e===x.c.m?5:0),0),totalxp:S.xp+0,cards:R.log.length,over:R.over?1:0});
+  R.newBadges=checkBadges();save();view="result";render();window.scrollTo(0,0);if(!R.over&&R.max&&R.earned/R.max>=.7)confetti();
+}
+function resultView(){
+  const pct=R.max?R.earned/R.max:0,stars=pct>=.9?3:pct>=.7?2:pct>=.4?1:0;
+  const msg=R.over?"Out of lives. Review the cards you missed and go again.":pct>=.9?"Outstanding. That is top-grade recall.":pct>=.7?"Strong round. A few marks to tidy up.":pct>=.4?"Good effort. The missed cards will come round again.":"Tough one. Read the mark schemes and try again.";
+  const missed=R.log.filter(x=>x.e<x.c.m).map(x=>x.c);
+  $("#app").innerHTML=`<div class="card result" style="--c:${CFG.accent}">
+   <h1 style="margin-top:0">${R.over?"Game over":"Round complete"}</h1><p class="sub">${msg}</p>
+   <div class="stars">${[0,1,2].map(i=>`<span class="star ${i<stars?"on":""}">${ICON.star}</span>`).join("")}</div>
+   <div class="rstats"><div class="stat"><b>${R.earned}/${R.max}</b><span>marks</span></div><div class="stat"><b>${Math.round(pct*100)}%</b><span>score</span></div><div class="stat"><b>+${R.log.reduce((a,x)=>a+x.e*10+(x.e===x.c.m?5:0),0)}</b><span>points</span></div></div>
+   ${R.newBadges&&R.newBadges.length?`<div class="newb">${R.newBadges.map(b=>`<div class="badge got" style="margin:8px 0"><span class="ic">${ICON.medal}</span><div><b>New badge: ${b.n}</b><small>${b.d}</small></div></div>`).join("")}</div>`:""}
+   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px">
+    ${missed.length?`<button class="btn" onclick="replay()">Retry ${missed.length} missed</button>`:""}
+    <button class="btn ghost" onclick="go('home')">Back to home</button></div>
+   ${missed.length?`<h2>Review</h2><div style="text-align:left">${missed.map(c=>`<details class="item" style="--c:${tc(c.t)}"><summary><span class="id">${c.id}</span><span class="qs">${c.q}</span></summary><div class="body"><div class="a">${c.a.map(x=>`<p>${x}</p>`).join("")}</div></div></details>`).join("")}</div>`:""}
+  </div>`;
+  R.missed=missed;
+}
+function confetti(){if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;const cols=[CFG.accent,CFG.accent2,"#ffb84d","#3ddc97","#ffffff"];for(let i=0;i<46;i++){const s=document.createElement("i");s.className="conf";s.style.left=Math.random()*100+"vw";s.style.background=cols[i%cols.length];s.style.setProperty("--dx",(Math.random()*160-80)+"px");s.style.animationDuration=(1.8+Math.random()*1.6)+"s";s.style.animationDelay=(Math.random()*.5)+"s";s.style.borderRadius=i%3?"2px":"50%";document.body.appendChild(s);setTimeout(()=>s.remove(),4200)}}
+function replay(){const m=R.missed;R={cards:shuffle(m.slice()),i:0,earned:0,max:0,hearts:null,survival:false,label:"Retry",rev:false,sel:[],log:[],over:false};prep();view="round";render();window.scrollTo(0,0)}
+function toast(t){const d=document.createElement("div");d.className="toast";d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+/* ---------- library ---------- */
+function library(){
+  const kinds=[...new Set(DATA.map(c=>c.k))].sort();
+  $("#app").innerHTML=`<div class="lib"><h1>Card <span class="grad">library</span></h1><p class="sub">Every question with its full mark scheme. Tap a card to open it.</p>
+  <div class="chips">${[0].concat(TN).map(t=>`<button class="chip ${LIB.t===t?"on":""}" onclick="LIB.t=${t};library()">${t?"Topic "+t:"All topics"}</button>`).join("")}</div>
+  <div class="chips"><input type="search" id="lq" placeholder="Search questions and answers" value="${LIB.q.replace(/"/g,"&quot;")}"><select id="lk"><option value="">All question types</option>${kinds.map(k=>`<option ${LIB.k===k?"selected":""}>${k}</option>`).join("")}</select><button class="chip" id="lo">Open all</button></div>
+  <div id="lres"></div></div>`;
+  const draw=()=>{
+    const q=LIB.q.toLowerCase();
+    const list=pool().filter(c=>(!LIB.t||c.t===LIB.t)&&(!LIB.k||c.k===LIB.k)&&(!q||(c.q+c.a.join(" ")+c.id).toLowerCase().includes(q)));
+    $("#lres").innerHTML=`<p class="small">${list.length} cards</p>`+list.map(c=>{const st=S.cards[c.id];return `<details class="item" style="--c:${tc(c.t)}"><summary><span class="id">${c.id}</span><span class="qs">${c.q}</span><span class="tag m">${c.m}m</span>${c.ht?'<span class="tag ht">H</span>':""}${st&&st.box>=2?'<span class="tag" style="color:var(--good)">mastered</span>':""}</summary><div class="body"><div class="small" style="margin-bottom:8px">${TOPICS[c.t].name} | ${c.k} | Spec ${c.s}</div><div class="a">${c.a.map(x=>`<p>${x}</p>`).join("")}</div></div></details>`}).join("");
+  };
+  $("#lq").oninput=e=>{LIB.q=e.target.value;draw()};$("#lk").onchange=e=>{LIB.k=e.target.value;draw()};
+  $("#lo").onclick=()=>{const ds=[...document.querySelectorAll("details.item")];const open=ds.some(d=>!d.open);ds.forEach(d=>d.open=open)};
+  draw();
+}
+/* ---------- keyboard ---------- */
+document.addEventListener("keydown",e=>{
+  if(view!=="round"||!R||/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName))return;
+  if(e.code==="Space"||e.key==="Enter"){e.preventDefault();if(!R.rev)reveal();else next()}
+  else if(!R.rev&&/^[1-9]$/.test(e.key)){const i=+e.key-1;if(R.opts[i])pick(i)}
+});
+/* ---------- restore progress from the sheet (any device) ---------- */
+let SYNCING=false;
+async function restore(){
+  if(!LOGURL||SYNCING||(view==="round"&&R&&!R.done))return;
+  SYNCING=true;
+  try{
+    if(qGet().length){flush();await new Promise(r=>setTimeout(r,2500));if(qGet().length)return}
+    const res=await fetch(LOGURL+"?action=state&key="+encodeURIComponent(LOGKEY)+"&child="+encodeURIComponent(CFG.name)+"&subject="+encodeURIComponent(CFG.subject),{cache:"no-store"});
+    const j=await res.json();
+    if(!j||!j.ok||!j.state)return;
+    const rs=j.state;
+    if(!(rs.xp>S.xp))return;
+    const tp={};Object.keys(rs.tpN).forEach(nm=>{const t=CFG.topics.find(x=>x.name===nm);if(t)tp[t.n]=rs.tpN[nm]});
+    const keep=S.incHT;
+    S=Object.assign(fresh(),{cards:rs.cards,xp:rs.xp,marks:rs.marks,perfect:rs.perfect,traps:rs.traps,rounds:rs.rounds,survWins:rs.survWins,streak:rs.streak,best:rs.best,last:rs.last,hist:rs.hist,recent:rs.recent,tp:tp,kp:rs.kp,badges:[],incHT:keep});
+    S.day={d:todayStr(),m:rs.hist[todayStr()]||0};
+    checkBadges();save();
+    if(view==="home"||view==="progress")render();
+  }catch(e){}finally{SYNCING=false}
+}
+setTimeout(restore,900);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)restore()});
+/* ---------- light passcode gate (only active when a hash is set) ---------- */
+async function gateHash(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function gateRun(who,hash,acc,acc2,go){
+  if(!hash){go();return}
+  const K="gcse_gate_"+who.toLowerCase();
+  try{if(localStorage.getItem(K)===hash){go();return}}catch(e){}
+  const o=document.createElement("div");
+  o.style.cssText="position:fixed;inset:0;z-index:99999;background:#0b0e1c;color:#f4f6ff;display:flex;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif";
+  o.innerHTML='<form style="width:100%;max-width:340px;text-align:center"><h1 style="margin:0 0 6px;font-size:1.6rem">Hi '+who+'</h1><p style="margin:0 0 18px;color:#aab0cc;font-size:.95rem">Enter your passcode to open your revision dashboard.</p><input id="gp" type="password" inputmode="numeric" autocomplete="off" placeholder="Passcode" style="width:100%;box-sizing:border-box;padding:14px 16px;border-radius:12px;border:2px solid #2b3050;background:#141831;color:#fff;font-size:1.1rem;text-align:center;outline:none"><button type="submit" style="margin-top:12px;width:100%;padding:14px;border:0;border-radius:12px;font-weight:800;font-size:1rem;color:#10132a;background:linear-gradient(90deg,'+acc+','+acc2+');cursor:pointer">Open</button><p id="gm" style="min-height:1.4em;margin:12px 0 0;color:#ff8a8a;font-size:.9rem"></p></form>';
+  document.body.appendChild(o);
+  const f=o.querySelector("form"),i=o.querySelector("#gp"),m=o.querySelector("#gm");
+  setTimeout(()=>{try{i.focus()}catch(e){}},50);
+  f.addEventListener("submit",async ev=>{ev.preventDefault();
+    const h=await gateHash(who.toLowerCase()+"|"+i.value.trim());
+    if(h===hash){try{localStorage.setItem(K,hash)}catch(e){}o.remove();go()}
+    else{m.textContent="That passcode is not right. Try again.";i.value="";i.focus()}});
+}
+gateRun(CFG.name,CFG.gate,CFG.accent,CFG.accent2,()=>render());
+</script>
+<style>#hubback{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:center;gap:9px;min-height:calc(46px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 16px 0;background:linear-gradient(90deg,var(--accent,#8b7bff),var(--accent2,#38d0f0));color:#10132a;font:800 1rem "Segoe UI",system-ui,-apple-system,sans-serif;text-decoration:none;letter-spacing:.2px}#hubback:active{filter:brightness(.92)}#hubback svg{flex:none}header.top{top:44px!important;padding-top:0!important}@supports(top:env(safe-area-inset-top)){header.top{top:calc(44px + env(safe-area-inset-top))!important}}@media print{#hubback{display:none}}</style>
+<script>(function(){var a=document.createElement("a");a.id="hubback";a.setAttribute("aria-label","Back to my dashboard");a.href=CFG.name.toLowerCase()+".html";a.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Back to dashboard';document.body.insertBefore(a,document.body.firstChild)})();</script>
+</body>
+</html>
