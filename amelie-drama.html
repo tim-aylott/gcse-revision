@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Amelie Drama">
+<meta name="theme-color" content="#0d1020">
+<title>Amelie's Drama Lab | GCSE Higher revision</title>
+<style>
+:root{--bg:#0d1020;--bg2:#131730;--panel:#181d3a;--panel2:#212750;--line:#2c3466;--text:#eef0fb;--muted:#9ba4cc;--accent:#2fd3c4;--accent2:#ffd166;--good:#3ddc97;--warn:#ffb84d;--bad:#ff6b81;--r:18px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+button,summary,input,select{touch-action:manipulation}
+html,body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,var(--bg2),var(--bg));color:var(--text);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;min-height:100%}
+body{padding:0 0 calc(60px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left)) 0 max(18px,env(safe-area-inset-right))}
+header.top{padding-top:env(safe-area-inset-top);position:sticky;top:0;z-index:20;background:rgba(13,16,32,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;cursor:pointer;background:none;border:0;padding:0}
+.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center}
+.pill{padding:4px 10px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+.spacer{flex:1}
+.xpbox{min-width:170px}
+.xpbox .l{display:flex;justify-content:space-between;gap:10px;white-space:nowrap;font-size:.75rem;color:var(--muted);margin-bottom:4px}
+.bar{height:8px;border-radius:99px;background:var(--panel2);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s}
+.nav{display:flex;gap:6px}
+.nav button{background:none;border:1px solid transparent;padding:8px 12px;border-radius:10px;color:var(--muted)}
+.nav button.on,.nav button:hover{background:var(--panel2);color:var(--text);border-color:var(--line)}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin:26px 0 6px;line-height:1.1}
+h2{font-size:1.15rem;margin:30px 0 12px;letter-spacing:.2px}
+.sub{color:var(--muted);margin:0 0 18px}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid{display:grid;gap:14px}
+.stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.stat b{display:block;font-size:1.7rem}
+.stat span{color:var(--muted);font-size:.82rem}
+.ringwrap{display:flex;align-items:center;gap:14px}
+.modes{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.mode{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;transition:transform .15s,border-color .15s;position:relative;overflow:hidden}
+@media(hover:hover){.mode:hover{transform:translateY(-3px);border-color:var(--accent)}.tile:hover{transform:translateY(-3px)}.pt:hover{border-color:var(--accent)}.btn:hover{filter:brightness(1.08)}}
+.mode:active,.tile:active{transform:scale(.985)}
+.mode.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));border:0;color:#10122a}
+.mode.primary small{color:rgba(16,18,42,.75)}
+.mode b{display:block;font-size:1.05rem;margin-bottom:4px}
+.mode small{color:var(--muted)}
+.topics{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.tile{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:16px;position:relative;overflow:hidden;transition:transform .15s}
+.tile:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c)}
+.tile .n{font-size:.75rem;color:var(--muted)}
+.tile b{display:block;margin:2px 0 10px;font-size:1.02rem}
+.tile .bar>i{background:var(--c)}
+.tile .meta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-top:8px}
+.badges{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.badge{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+.badge .ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--panel2);color:var(--muted);flex:none}
+.badge.got .ic{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10122a}
+.badge.locked{opacity:.55}
+.badge b{font-size:.9rem;display:block}.badge small{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.chip{min-height:40px;border:1px solid var(--line);background:var(--panel);padding:8px 14px;border-radius:999px;font-size:.85rem;color:var(--muted)}
+.chip.on{background:var(--accent);color:#10122a;border-color:transparent;font-weight:600}
+.toggle{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:.9rem;margin-top:10px}
+/* round */
+.rhead{display:flex;align-items:center;gap:14px;margin:22px 0 14px;flex-wrap:wrap}
+.rhead .bar{flex:1;min-width:140px}
+.hearts{display:flex;gap:4px}
+.heart{width:20px;height:20px;color:var(--bad)}.heart.off{color:var(--line)}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--c)}
+.ctop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 16px}
+.id{font-weight:700;font-size:.95rem}
+.tag{padding:3px 10px;border-radius:999px;font-size:.75rem;border:1px solid var(--line);color:var(--muted)}
+.tag.c{background:var(--c);color:#10122a;border-color:transparent;font-weight:600}
+.tag.ht{background:#fff;color:#10122a;border-color:#fff;font-weight:700}
+.tag.m{color:var(--text)}
+.q{font-size:clamp(1.2rem,3.2vw,1.55rem);line-height:1.45;margin:0 0 6px}
+.q b{color:var(--accent)}
+.ans{margin-top:22px;border-top:1px dashed var(--line);padding-top:18px;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ans h3{margin:0 0 4px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+.hint{color:var(--muted);font-size:.88rem;margin:0 0 12px}
+.pt{min-height:52px;display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:8px 0;line-height:1.45;font-size:1.02rem}
+.pt .box{flex:none;width:24px;height:24px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;margin-top:1px;color:transparent;transition:.15s}
+.pt.on{border-color:var(--good);background:rgba(61,220,151,.1)}
+.pt.on .box{background:var(--good);border-color:var(--good);color:#06281a}
+.pt b{color:#fff}
+.note{margin:10px 2px;color:var(--muted);font-size:.95rem}
+.score{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;flex-wrap:wrap}
+.score .big{font-size:1.3rem;font-weight:700}
+.btn{min-height:50px;border:0;border-radius:14px;padding:13px 22px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10122a;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.btn.ghost{background:var(--panel2);color:var(--text);border:1px solid var(--line);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:default}
+.kbd{display:inline-block;padding:0 6px;border:1px solid var(--line);border-radius:6px;font-size:.72rem;color:var(--muted);margin-left:8px}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+/* result */
+.result{text-align:center;padding:34px 20px;margin-top:22px}
+.stars{display:flex;justify-content:center;gap:10px;margin:10px 0}
+.star{width:54px;height:54px;color:var(--line)}.star.on{color:var(--warn);filter:drop-shadow(0 0 12px rgba(255,184,77,.6));animation:pop .5s}
+.rstats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0}
+.rstats .stat{min-width:130px}
+.newb{margin:12px auto;max-width:460px}
+/* library */
+.lib input[type=search],.lib select{min-height:44px;font-size:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:10px 12px;font:inherit}
+.lib input[type=search]{flex:1;min-width:200px}
+details.item{background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:14px;margin:10px 0;padding:0}
+details.item summary{cursor:pointer;min-height:48px;padding:14px 16px;list-style:none;display:flex;gap:10px;align-items:flex-start}
+details.item summary::-webkit-details-marker{display:none}
+details.item .qs{flex:1}
+details.item .body{padding:0 16px 14px}
+details.item .a{border-top:1px dashed var(--line);padding-top:10px}
+details.item .a p{margin:6px 0}
+.small{font-size:.85rem;color:var(--muted)}
+footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--panel2);border:1px solid var(--accent);padding:12px 18px;border-radius:14px;z-index:50;animation:pop .3s}
+@media(max-width:820px){.xpbox{min-width:120px}.modes{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+@media(max-width:640px){
+ .top .wrap{height:auto;min-height:56px;padding-top:8px;padding-bottom:8px;gap:10px;flex-wrap:wrap}
+ .xpbox{display:block;order:5;flex:1 0 100%;min-width:0}
+ .top .pill{font-size:.72rem}
+ .nav button{padding:8px 10px;min-height:40px}
+ .logo{width:30px;height:30px}.brand span:last-child{display:none}
+ h1{margin-top:18px}
+ .stats{grid-template-columns:1fr 1fr}
+ .stat b{font-size:1.45rem}
+ .modes,.topics,.badges{grid-template-columns:1fr}
+ .card{padding:18px;border-radius:20px}
+ .rhead{gap:8px;margin-top:14px}.rhead .bar{order:9;flex:1 0 100%}
+ .score{flex-direction:column;align-items:stretch}.score .btn{width:100%}
+ .score .big{text-align:center}
+ .kbd{display:none}
+ .pt{font-size:1rem;padding:12px}
+ .ans{margin-top:16px}
+ .result{padding:22px 12px}.rstats .stat{min-width:100px;flex:1}
+ .star{width:46px;height:46px}
+ .lib .chips{gap:6px}
+ .toast{width:calc(100% - 32px);text-align:center;bottom:calc(20px + env(safe-area-inset-bottom))}
+}
+@media(min-width:641px) and (max-width:1100px){.q{font-size:1.45rem}.pt{font-size:1.1rem}.btn{font-size:1.05rem}}
+@media(orientation:landscape) and (max-height:500px){header.top{position:static}}
+
+.pt:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled{opacity:.4;cursor:not-allowed;filter:grayscale(.5)}
+.pt.opt{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pt.opt.done{cursor:default}
+.pt.opt.on{border-color:var(--accent);background:rgba(255,255,255,.06)}
+.pt.opt.on .box{background:var(--accent);border-color:var(--accent);color:#10122a}
+.pt.right{border-color:var(--good);background:rgba(61,220,151,.12)}
+.pt.right .box{background:var(--good);border-color:var(--good);color:#06281a}
+.pt.wrong{border-color:#ff6b7a;background:rgba(255,107,122,.12)}
+.pt.wrong .box{background:#ff6b7a;border-color:#ff6b7a;color:#2a0509}
+.pt.missed{border-color:#f5b94a;border-style:dashed;background:rgba(245,185,74,.08)}
+.pt.missed .box{border-color:#f5b94a;color:#f5b94a}
+.olab{display:block;margin-top:3px;font-size:.78rem;letter-spacing:.3px;color:var(--muted)}
+.opts{margin-top:14px}
+.ans .a p{margin:6px 0}
+
+/* v3 engagement */
+.hello{margin:22px 0 4px;color:var(--muted);font-size:.95rem}
+.hero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.02)),var(--panel);border:1px solid var(--line);border-radius:24px;padding:22px 24px;position:relative;overflow:hidden;margin:14px 0 8px}
+.hero:before{content:"";position:absolute;right:-70px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,var(--accent) 0,transparent 68%);opacity:.28;pointer-events:none}
+.hero .k{font-size:.74rem;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted)}
+.hero h2{margin:4px 0 6px;font-size:1.35rem;line-height:1.25}
+.hero p{margin:0 0 14px;color:var(--muted);max-width:56ch}
+.hero .btn{position:relative}
+.kpis{grid-template-columns:repeat(4,1fr);margin-top:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;gap:12px;align-items:center;min-width:0}
+.kpi b{display:block;font-size:1.55rem;line-height:1.1}
+.kpi span{color:var(--muted);font-size:.8rem}
+.kpi .fl{color:var(--warn);flex:none}
+.kpi .fl svg{width:34px;height:34px;filter:drop-shadow(0 0 10px rgba(255,184,77,.5))}
+.kpi .fl.off{color:var(--line);filter:none}.kpi .fl.off svg{filter:none}
+.mini{height:6px;margin-top:6px}
+.banner{display:flex;gap:12px;align-items:center;justify-content:space-between;background:rgba(255,184,77,.1);border:1px solid rgba(255,184,77,.4);border-radius:14px;padding:12px 14px;margin:14px 0;font-size:.92rem}
+.banner button{background:none;border:1px solid var(--line);border-radius:10px;padding:6px 12px;color:var(--text);flex:none}
+.fb{display:flex;flex-direction:column;gap:2px;border-radius:14px;padding:12px 16px;margin:8px 0 4px;border:1px solid var(--line);animation:pop .3s ease}
+.fb b{font-size:1.1rem}.fb span{color:var(--muted);font-size:.9rem}
+.fb.full{background:rgba(61,220,151,.12);border-color:var(--good)}.fb.full b{color:var(--good)}
+.fb.part{background:rgba(255,184,77,.1);border-color:var(--warn)}.fb.part b{color:var(--warn)}
+.fb.none{background:rgba(255,107,129,.1);border-color:var(--bad)}.fb.none b{color:var(--bad)}
+.pt.single .box{border-radius:50%}
+.pill.combo{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10122a;border:0;font-weight:700}
+.seg{display:flex;gap:4px;flex:1;min-width:140px}.seg i{flex:1;height:8px;border-radius:99px;background:var(--panel2)}.seg i.d{background:var(--accent)}.seg i.n{background:var(--text);opacity:.8}
+.bar.two{position:relative}.bar.two>i{position:absolute;left:0;top:0}.bar.two>i.s{opacity:.32}
+/* progress page */
+.pgrid{grid-template-columns:repeat(4,1fr)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px 20px}
+.panel h3{margin:0 0 12px;font-size:1rem}
+.trow{display:grid;grid-template-columns:minmax(120px,1.3fr) 2fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.trow:first-of-type{border-top:0}
+.trow b{font-size:.95rem}.trow small{color:var(--muted);display:block}
+.trow .bar{height:10px}.trow .bar>i{background:var(--c)}
+.pctl{font-weight:700;min-width:48px;text-align:right}
+.btn.sm{min-height:38px;padding:8px 14px;font-size:.85rem;border-radius:10px;box-shadow:none}
+.kbars{display:grid;gap:10px}
+.kb{display:grid;grid-template-columns:110px 1fr 44px;gap:10px;align-items:center;font-size:.88rem}
+.kb .bar{height:10px}
+.rrow{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:.92rem}
+.rrow:first-of-type{border-top:0}
+.rrow .st{color:var(--warn);letter-spacing:2px}
+.legend{color:var(--muted);font-size:.8rem;margin-top:6px}
+.conf{position:fixed;top:-12px;width:10px;height:14px;z-index:60;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(720deg);opacity:.9}}
+@media(prefers-reduced-motion:reduce){.conf{display:none}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.badge .ic svg{width:22px;height:22px}
+@media(max-width:700px){.hero{grid-template-columns:1fr}}@media(max-width:600px){.kpis,.pgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.trow{grid-template-columns:1fr auto}.trow .bar{grid-column:1/-1;order:3}.kb{grid-template-columns:90px 1fr 40px}.hero{padding:18px}.hero h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <button class="brand" onclick="go('home')" aria-label="Home"><span class="logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10122a" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v3M12 17v3M5 12h14"/><circle cx="12" cy="7" r="0.5"/><circle cx="12" cy="17" r="0.5"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span><span>Drama Lab</span></button>
+  <span class="pill">Amelie | Higher</span>
+  <span class="spacer"></span>
+  <div class="xpbox" id="xpbox"></div>
+  <nav class="nav"><button id="nav-home" onclick="go('home')">Home</button><button id="nav-progress" onclick="go('progress')">Progress</button><button id="nav-library" onclick="go('library')">Cards</button></nav>
+</div></header>
+<main class="wrap" id="app"></main>
+<div class="wrap"><footer>Based on the <span id="specline"></span> specification. Your answers are sent to a private progress sheet so your parents can see how revision is going, and your progress comes back from it on any device. Original questions written in GCSE mark-scheme style.</footer></div>
+<script>
+const DATA=[{"id": "DRA-01-001", "t": 1, "s": "Spec", "k": "Recall", "m": 4, "ht": false, "q": "What are the <b>three components<\/b> of Edexcel GCSE Drama?", "a": ["<b>Component 1<\/b>: Devising, 40% (1)", "<b>Component 2<\/b>: Performance from text, 20% (1)", "<b>Component 3<\/b>: Theatre makers in practice, written exam, 40% (1)", "Components 1 and 2 are <b>marked in school<\/b> and moderated (1)"], "cp": ["Component 1: Devising, 40%", "Component 2: Performance from text, 20%", "Component 3: Theatre makers in practice, written exam, 40%", "Components 1 and 2 are marked in school and moderated"], "dp": ["Two written papers", "One practical only", "Coursework only"], "mand": 0}, {"id": "DRA-01-002", "t": 1, "s": "Spec", "k": "Recall", "m": 3, "ht": false, "q": "What is <b>Component 3<\/b> (the written exam)?", "a": ["<b>1 hour 30 minutes<\/b>, 60 marks (1)", "<b>Section A<\/b>: Bringing texts to life, 45 marks, on your set text (1)", "<b>Section B<\/b>: Live theatre evaluation, 15 marks (1)"], "cp": ["1 hour 30 minutes, 60 marks", "Section A: Bringing texts to life, 45 marks, on your set text", "Section B: Live theatre evaluation, 15 marks"], "dp": ["Three hours, 100 marks", "Only a practical", "No written exam"], "mand": 0}, {"id": "DRA-01-003", "t": 1, "s": "Spec", "k": "Recall", "m": 3, "ht": false, "q": "What are the <b>rules for notes<\/b> in the exam?", "a": ["<b>Section A<\/b>: an extract is provided, but not the full text (1)", "<b>Section B<\/b>: up to <b>500 words<\/b> of evaluation notes allowed (1)", "Notes must be <b>your own<\/b> and follow the board's rules (1)"], "cp": ["Section A: an extract is provided, but not the full text", "Section B: up to 500 words of evaluation notes allowed", "Notes must be your own and follow the board's rules"], "dp": ["You can bring the full play", "No notes at all", "Notes of any length"], "mand": 0}, {"id": "DRA-01-004", "t": 1, "s": "Spec", "k": "Process", "m": 4, "ht": false, "q": "How do you answer a <b>6-part Section A question<\/b> on a set text extract?", "a": ["Read the <b>extract and each part<\/b> carefully (1)", "Answer from the <b>perspective required<\/b> (actor, director, designer) (1)", "Give <b>specific ideas<\/b> with reasons (1)", "Link to <b>the effect on the audience<\/b> (1)"], "cp": ["Read the extract and each part carefully", "Answer from the perspective required (actor, director, designer)", "Give specific ideas with reasons", "Link to the effect on the audience"], "dp": ["Write the plot", "Ignore the extract", "Use general ideas only"], "mand": 0}, {"id": "DRA-01-005", "t": 1, "s": "Spec", "k": "Process", "m": 3, "ht": false, "q": "What is a good <b>structure for a drama paragraph<\/b>?", "a": ["<b>Idea<\/b>: what you would do or saw (1)", "<b>Detail<\/b>: how, using vocabulary (1)", "<b>Effect<\/b> on audience and meaning (1)"], "cp": ["Idea: what you would do or saw", "Detail: how, using vocabulary", "Effect on audience and meaning"], "dp": ["Only an opinion", "A list of terms", "A retelling of the plot"], "mand": 0}, {"id": "DRA-01-006", "t": 1, "s": "Spec", "k": "Exam trap", "m": 2, "ht": false, "q": "Why is <b>'it was good'<\/b> a weak evaluation?", "a": ["It gives <b>no detail or evidence<\/b> (1)", "Marks need a <b>specific moment, technique and effect<\/b> (1)"], "cp": ["It gives no detail or evidence", "Marks need a specific moment, technique and effect"], "dp": ["It is full marks", "It is detailed", "It is a performance term"], "mand": 0}, {"id": "DRA-01-007", "t": 1, "s": "Spec", "k": "Recall", "m": 3, "ht": false, "q": "What does <b>Component 1 (Devising)<\/b> involve?", "a": ["A <b>portfolio<\/b> of 1,500 to 2,000 words (1)", "A <b>devised performance<\/b> (1)", "You document <b>creating, developing and evaluating<\/b> (1)"], "cp": ["A portfolio of 1,500 to 2,000 words", "A devised performance", "You document creating, developing and evaluating"], "dp": ["A single essay", "A written exam", "A script analysis"], "mand": 0}, {"id": "DRA-01-008", "t": 1, "s": "Spec", "k": "Recall", "m": 3, "ht": false, "q": "What does <b>Component 2 (Performance from text)<\/b> involve?", "a": ["Perform or design <b>two key extracts<\/b> from a play (1)", "<b>Each extract<\/b> is marked (1)", "<b>Externally assessed<\/b> by a visiting examiner (1)"], "cp": ["Perform or design two key extracts from a play", "Each extract is marked", "Externally assessed by a visiting examiner"], "dp": ["A written exam", "A devised piece", "An essay"], "mand": 0}, {"id": "DRA-01-009", "t": 1, "s": "Spec", "k": "Process", "m": 3, "ht": false, "q": "How do you <b>use drama vocabulary<\/b> well?", "a": ["<b>Name the term<\/b>, e.g. proxemics (1)", "<b>Say how it was used<\/b> (1)", "<b>Explain the effect<\/b> (1)"], "cp": ["Name the term, e.g. proxemics", "Say how it was used", "Explain the effect"], "dp": ["Use terms with no explanation", "Avoid terms", "Repeat the same word"], "mand": 0}, {"id": "DRA-02-001", "t": 2, "s": "Voice", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four vocal skills<\/b> in drama.", "a": ["<b>Pitch<\/b> (1)", "<b>Pace<\/b> (1)", "<b>Pause<\/b> (1)", "<b>Volume or tone<\/b> (1)"], "cp": ["Pitch", "Pace", "Pause", "Volume or tone"], "dp": ["Cost, price, tax, fees", "Colour, shape, weight, size", "Light, dark, hot, cold"], "mand": 0}, {"id": "DRA-02-002", "t": 2, "s": "Voice", "k": "Explain", "m": 3, "ht": false, "q": "What is the <b>effect of pace<\/b> in a performance?", "a": ["<b>Fast pace<\/b> shows panic or excitement (1)", "<b>Slow pace<\/b> shows thought or menace (1)", "<b>Variation<\/b> keeps the audience engaged (1)"], "cp": ["Fast pace shows panic or excitement", "Slow pace shows thought or menace", "Variation keeps the audience engaged"], "dp": ["Pace has no effect", "Fast always means calm", "Slow always means joy"], "mand": 0}, {"id": "DRA-02-003", "t": 2, "s": "Voice", "k": "Explain", "m": 3, "ht": false, "q": "What is the <b>effect of pause and silence<\/b>?", "a": ["Creates <b>tension<\/b> (1)", "Lets the audience <b>absorb a moment<\/b> (1)", "Shows a <b>character's emotion<\/b> (1)"], "cp": ["Creates tension", "Lets the audience absorb a moment", "Shows a character's emotion"], "dp": ["Silence has no effect", "It shows nothing", "It is a mistake"], "mand": 0}, {"id": "DRA-02-004", "t": 2, "s": "Physical", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four physical skills<\/b> in drama.", "a": ["<b>Gesture<\/b> (1)", "<b>Posture<\/b> (1)", "<b>Facial expression<\/b> (1)", "<b>Eye contact<\/b> and movement (1)"], "cp": ["Gesture", "Posture", "Facial expression", "Eye contact and movement"], "dp": ["Pitch, pace, pause, tone", "Light, set, costume, sound", "Script, pen, paper, desk"], "mand": 0}, {"id": "DRA-02-005", "t": 2, "s": "Physical", "k": "Explain", "m": 3, "ht": false, "q": "What is <b>proxemics<\/b> and what can it show?", "a": ["<b>Distance between characters<\/b> (1)", "<b>Status and relationship<\/b> (1)", "<b>Tension or intimacy<\/b> (1)"], "cp": ["Distance between characters", "Status and relationship", "Tension or intimacy"], "dp": ["A type of lighting", "A type of costume", "A type of script"], "mand": 0}, {"id": "DRA-02-006", "t": 2, "s": "Physical", "k": "Explain", "m": 3, "ht": false, "q": "What is <b>spatial awareness<\/b> and <b>stage positioning<\/b>?", "a": ["Knowing <b>where you are on stage<\/b> (1)", "Using <b>levels and areas<\/b> (1)", "Choosing positions to show <b>meaning<\/b> (1)"], "cp": ["Knowing where you are on stage", "Using levels and areas", "Choosing positions to show meaning"], "dp": ["A seating plan", "A type of lighting", "A set of lines"], "mand": 0}, {"id": "DRA-02-007", "t": 2, "s": "Physical", "k": "Explain", "m": 3, "ht": false, "q": "What is <b>body language<\/b> for a character such as an arrogant businessman?", "a": ["<b>Upright and open posture<\/b> (1)", "<b>Broad gestures<\/b> and a puffed chest (1)", "<b>Direct eye contact<\/b> and space-taking (1)"], "cp": ["Upright and open posture", "Broad gestures and a puffed chest", "Direct eye contact and space-taking"], "dp": ["Slumped and shy", "Hiding the face", "Staying still all the time"], "mand": 0}, {"id": "DRA-02-008", "t": 2, "s": "Voice", "k": "Explain", "m": 3, "ht": false, "q": "How can an actor show <b>different emotions with voice<\/b>?", "a": ["<b>Pitch and volume<\/b> changes (1)", "<b>Pace<\/b> and pause (1)", "<b>Tone<\/b>, e.g. sarcastic, gentle (1)"], "cp": ["Pitch and volume changes", "Pace and pause", "Tone, e.g. sarcastic, gentle"], "dp": ["One tone always", "Speaking in a whisper only", "Shouting only"], "mand": 0}, {"id": "DRA-02-009", "t": 2, "s": "Performance", "k": "Recall", "m": 3, "ht": false, "q": "What is <b>naturalism<\/b> and <b>realism<\/b> in performance?", "a": ["Showing <b>life as it is<\/b> (1)", "<b>Believable<\/b> characters and settings (1)", "Contrasts with <b>stylised or physical theatre<\/b> (1)"], "cp": ["Showing life as it is", "Believable characters and settings", "Contrasts with stylised or physical theatre"], "dp": ["A type of lighting", "A type of audience", "Only comedy"], "mand": 0}, {"id": "DRA-02-010", "t": 2, "s": "Performance", "k": "Recall", "m": 3, "ht": false, "q": "What is <b>stylised or physical theatre<\/b>?", "a": ["<b>Movement-based<\/b> storytelling (1)", "Uses <b>exaggeration and symbolism<\/b> (1)", "Often with <b>minimal sets<\/b> (1)"], "cp": ["Movement-based storytelling", "Uses exaggeration and symbolism", "Often with minimal sets"], "dp": ["Strict naturalism", "Silent reading", "A set design only"], "mand": 0}, {"id": "DRA-02-011", "t": 2, "s": "Performance", "k": "Recall", "m": 3, "ht": false, "q": "What is <b>characterisation<\/b> and <b>motivation<\/b>?", "a": ["<b>Characterisation<\/b>: building a believable character (1)", "<b>Motivation<\/b>: why a character acts (1)", "Actors use <b>objectives and context<\/b> (1)"], "cp": ["Characterisation: building a believable character", "Motivation: why a character acts", "Actors use objectives and context"], "dp": ["A set of props", "A lighting plan", "A costume list"], "mand": 0}, {"id": "DRA-02-012", "t": 2, "s": "Performance", "k": "Recall", "m": 3, "ht": false, "q": "What are <b>blocking and levels<\/b>?", "a": ["<b>Blocking<\/b>: planned movement on stage (1)", "<b>Levels<\/b>: height differences (1)", "They show <b>status and relationships<\/b> (1)"], "cp": ["Blocking: planned movement on stage", "Levels: height differences", "They show status and relationships"], "dp": ["A type of audience", "A type of script", "A sound effect"], "mand": 0}, {"id": "DRA-02-013", "t": 2, "s": "Performance", "k": "Recall", "m": 3, "ht": false, "q": "What are <b>stage directions<\/b> used for?", "a": ["Tell actors <b>how to move or speak<\/b> (1)", "Describe <b>settings and props<\/b> (1)", "Guide <b>mood and lighting<\/b> (1)"], "cp": ["Tell actors how to move or speak", "Describe settings and props", "Guide mood and lighting"], "dp": ["Dialogue only", "The audience's reactions", "Ticket prices"], "mand": 0}, {"id": "DRA-03-001", "t": 3, "s": "Staging", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four types of staging<\/b>.", "a": ["<b>Proscenium arch<\/b> (1)", "<b>Thrust<\/b> (1)", "<b>In the round<\/b> (1)", "<b>Traverse<\/b> or <b>end on<\/b> or <b>promenade<\/b> (1)"], "cp": ["Proscenium arch", "Thrust", "In the round", "Traverse or end on or promenade"], "dp": ["Large, medium, small, tiny", "Pitch, pace, pause, tone", "Light, dark, sound, silence"], "mand": 0}, {"id": "DRA-03-002", "t": 3, "s": "Staging", "k": "Explain", "m": 3, "ht": false, "q": "What are the <b>features of a proscenium arch<\/b> stage?", "a": ["A <b>picture-frame<\/b> view of the stage (1)", "The audience sits <b>in front<\/b> (1)", "Allows <b>large sets and lighting<\/b> (1)"], "cp": ["A picture-frame view of the stage", "The audience sits in front", "Allows large sets and lighting"], "dp": ["The audience surrounds the stage", "The stage is a corridor", "There is no stage"], "mand": 0}, {"id": "DRA-03-003", "t": 3, "s": "Staging", "k": "Explain", "m": 3, "ht": false, "q": "What are the <b>features of staging in the round<\/b>?", "a": ["<b>Audience on all sides<\/b> (1)", "<b>Intimate<\/b> and close to actors (1)", "<b>Sets must be low<\/b> to keep sightlines (1)"], "cp": ["Audience on all sides", "Intimate and close to actors", "Sets must be low to keep sightlines"], "dp": ["Audience on one side only", "A picture frame", "No audience"], "mand": 0}, {"id": "DRA-03-004", "t": 3, "s": "Staging", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four stage areas<\/b>.", "a": ["<b>Upstage<\/b> (1)", "<b>Downstage<\/b> (1)", "<b>Centre stage<\/b> (1)", "<b>Stage left and right<\/b> (1)"], "cp": ["Upstage", "Downstage", "Centre stage", "Stage left and right"], "dp": ["Front, back, left, right of the audience", "Light, sound, set, costume", "Act, scene, line, cue"], "mand": 0}, {"id": "DRA-03-005", "t": 3, "s": "Lighting", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four lighting terms<\/b>.", "a": ["<b>Spotlight<\/b> (1)", "<b>Wash<\/b> (1)", "<b>Gel or colour filter<\/b> (1)", "<b>Blackout<\/b> or <b>cross-fade<\/b> (1)"], "cp": ["Spotlight", "Wash", "Gel or colour filter", "Blackout or cross-fade"], "dp": ["Pitch, pace, pause, tone", "Prop, script, rehearsal, cue", "Wig, make-up, costume, cape"], "mand": 0}, {"id": "DRA-03-006", "t": 3, "s": "Lighting", "k": "Explain", "m": 3, "ht": false, "q": "What can <b>lighting<\/b> do for a scene?", "a": ["Create <b>mood and atmosphere<\/b> (1)", "Show <b>time or place<\/b> (1)", "<b>Focus attention<\/b> on a character (1)"], "cp": ["Create mood and atmosphere", "Show time or place", "Focus attention on a character"], "dp": ["Nothing", "Only make things brighter", "Control sound"], "mand": 0}, {"id": "DRA-03-007", "t": 3, "s": "Sound", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four sound terms<\/b>.", "a": ["<b>Underscore<\/b> (1)", "<b>Sound effect<\/b> (1)", "<b>Diegetic<\/b> (1)", "<b>Non-diegetic<\/b> sound (1)"], "cp": ["Underscore", "Sound effect", "Diegetic", "Non-diegetic sound"], "dp": ["Gel, wash, spot, cross-fade", "Upstage, downstage, centre, wings", "Hat, cape, boots, belt"], "mand": 0}, {"id": "DRA-03-008", "t": 3, "s": "Sound", "k": "Explain", "m": 3, "ht": false, "q": "What is the difference between <b>diegetic and non-diegetic sound<\/b>?", "a": ["<b>Diegetic<\/b> comes from the world of the play (1)", "<b>Non-diegetic<\/b> does not, e.g. underscore (1)", "Both <b>shape audience feelings<\/b> (1)"], "cp": ["Diegetic comes from the world of the play", "Non-diegetic does not, e.g. underscore", "Both shape audience feelings"], "dp": ["They are the same", "Diegetic is music only", "Non-diegetic is dialogue"], "mand": 0}, {"id": "DRA-03-009", "t": 3, "s": "Set", "k": "Recall", "m": 3, "ht": false, "q": "What are <b>naturalistic, symbolic and minimalist<\/b> sets?", "a": ["<b>Naturalistic<\/b>: realistic place (1)", "<b>Symbolic<\/b>: objects represent ideas (1)", "<b>Minimalist<\/b>: few items suggest the setting (1)"], "cp": ["Naturalistic: realistic place", "Symbolic: objects represent ideas", "Minimalist: few items suggest the setting"], "dp": ["All the same", "Only for musicals", "Only for outdoor shows"], "mand": 0}, {"id": "DRA-03-010", "t": 3, "s": "Costume", "k": "Explain", "m": 3, "ht": false, "q": "What can <b>costume<\/b> communicate?", "a": ["<b>Period and place<\/b> (1)", "<b>Status and character<\/b> (1)", "<b>Mood through colour and fabric<\/b> (1)"], "cp": ["Period and place", "Status and character", "Mood through colour and fabric"], "dp": ["Nothing", "Only the price", "Only the weather"], "mand": 0}, {"id": "DRA-03-011", "t": 3, "s": "Props", "k": "Recall", "m": 3, "ht": false, "q": "What are <b>props and set dressing<\/b> used for?", "a": ["<b>Props<\/b>: handled by actors (1)", "<b>Set dressing<\/b>: decorates the set (1)", "Both add <b>realism or symbolism<\/b> (1)"], "cp": ["Props: handled by actors", "Set dressing: decorates the set", "Both add realism or symbolism"], "dp": ["Props are lights", "They create sound", "They are tickets"], "mand": 0}, {"id": "DRA-03-012", "t": 3, "s": "Staging", "k": "Recall", "m": 3, "ht": false, "q": "What is the <b>role of a director<\/b>?", "a": ["Has the <b>overall vision<\/b> (1)", "Works with <b>actors and designers<\/b> (1)", "Shapes <b>staging and rhythm<\/b> (1)"], "cp": ["Has the overall vision", "Works with actors and designers", "Shapes staging and rhythm"], "dp": ["Writes every line", "Only sells tickets", "Only cleans the theatre"], "mand": 0}, {"id": "DRA-03-013", "t": 3, "s": "Staging", "k": "Recall", "m": 3, "ht": false, "q": "What are the <b>roles of designers<\/b>?", "a": ["<b>Set designer<\/b> creates the world (1)", "<b>Lighting and sound designers<\/b> shape atmosphere (1)", "<b>Costume and make-up designers<\/b> shape character (1)"], "cp": ["Set designer creates the world", "Lighting and sound designers shape atmosphere", "Costume and make-up designers shape character"], "dp": ["They write the script", "They sell tickets", "They act"], "mand": 0}, {"id": "DRA-04-001", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "What is the <b>setting of An Inspector Calls<\/b> and why does it matter for design?", "a": ["<b>The Birlings' dining room<\/b> in 1912 (1)", "<b>Continuous action<\/b> in one place (1)", "Design can show <b>wealth, class and confinement<\/b> (1)"], "cp": ["The Birlings' dining room in 1912", "Continuous action in one place", "Design can show wealth, class and confinement"], "dp": ["A forest", "A battlefield", "A beach"], "mand": 0}, {"id": "DRA-04-002", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How can <b>costume<\/b> show the Birlings' wealth?", "a": ["<b>Formal evening dress<\/b> (1)", "<b>Quality fabrics<\/b> and jewellery (1)", "<b>Contrast with the plainer Inspector<\/b> (1)"], "cp": ["Formal evening dress", "Quality fabrics and jewellery", "Contrast with the plainer Inspector"], "dp": ["Rags", "Sports kit", "Uniforms for all"], "mand": 0}, {"id": "DRA-04-003", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How can <b>lighting<\/b> work in An Inspector Calls?", "a": ["<b>Warm, intimate<\/b> light before the Inspector arrives (1)", "<b>Brighter, harder<\/b> light as he questions them (1)", "Shows <b>exposure<\/b> of secrets (1)"], "cp": ["Warm, intimate light before the Inspector arrives", "Brighter, harder light as he questions them", "Shows exposure of secrets"], "dp": ["No lighting is used", "The set is always dark", "Light is only red"], "mand": 0}, {"id": "DRA-04-004", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How would you <b>perform Mr Birling<\/b>?", "a": ["<b>Upright posture and booming voice<\/b> (1)", "<b>Pompous tone<\/b> and long speeches (1)", "<b>Broad gestures<\/b> showing self-importance (1)"], "cp": ["Upright posture and booming voice", "Pompous tone and long speeches", "Broad gestures showing self-importance"], "dp": ["Quiet and shy", "Mumbling", "Moving constantly"], "mand": 0}, {"id": "DRA-04-005", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How would you <b>perform Inspector Goole<\/b>?", "a": ["<b>Calm, controlled voice<\/b> (1)", "<b>Direct eye contact<\/b> and stillness (1)", "<b>Authority<\/b> through pauses (1)"], "cp": ["Calm, controlled voice", "Direct eye contact and stillness", "Authority through pauses"], "dp": ["Loud and silly", "Hesitant", "Playful"], "mand": 0}, {"id": "DRA-04-006", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How would you <b>perform Sheila<\/b> across the play?", "a": ["<b>Playful and light<\/b> at the start (1)", "<b>More serious and distressed<\/b> as she learns more (1)", "<b>Stronger, clear voice<\/b> when she challenges her parents (1)"], "cp": ["Playful and light at the start", "More serious and distressed as she learns more", "Stronger, clear voice when she challenges her parents"], "dp": ["The same throughout", "Shy then silly", "Silent"], "mand": 0}, {"id": "DRA-04-007", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How would you <b>perform Mrs Birling<\/b>?", "a": ["<b>Cold, upright posture<\/b> (1)", "<b>Clipped, superior tone<\/b> (1)", "<b>Little emotion<\/b> about Eva (1)"], "cp": ["Cold, upright posture", "Clipped, superior tone", "Little emotion about Eva"], "dp": ["Warm and gentle", "Loud and silly", "Sobbing"], "mand": 0}, {"id": "DRA-04-008", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How would you <b>perform Eric<\/b>?", "a": ["<b>Nervous movement<\/b> and avoiding eye contact (1)", "<b>Faster pace<\/b> when guilty (1)", "<b>Breaks down<\/b> in Act 3 (1)"], "cp": ["Nervous movement and avoiding eye contact", "Faster pace when guilty", "Breaks down in Act 3"], "dp": ["Confident and calm", "Cold and controlled", "Always laughing"], "mand": 0}, {"id": "DRA-04-009", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How could <b>set design<\/b> show social class?", "a": ["<b>Heavy furniture<\/b> and a large dining table (1)", "<b>A grand house<\/b> shown in the set (1)", "<b>Contrasts<\/b> with the outside world (1)"], "cp": ["Heavy furniture and a large dining table", "A grand house shown in the set", "Contrasts with the outside world"], "dp": ["A bare stage", "A forest", "A beach"], "mand": 0}, {"id": "DRA-04-010", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How could <b>sound<\/b> support An Inspector Calls?", "a": ["<b>Doorbell<\/b> as the Inspector arrives (1)", "<b>Underscore<\/b> to build tension (1)", "<b>Silence<\/b> after revelations (1)"], "cp": ["Doorbell as the Inspector arrives", "Underscore to build tension", "Silence after revelations"], "dp": ["Constant loud music", "No sound at all", "Only birdsong"], "mand": 0}, {"id": "DRA-04-011", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How can an <b>actor show the Birlings' change<\/b> in Act 3?", "a": ["<b>Older Birlings<\/b> remain upright and dismissive (1)", "<b>Sheila and Eric<\/b> slump and show distress (1)", "<b>Voices and pace<\/b> show conflict (1)"], "cp": ["Older Birlings remain upright and dismissive", "Sheila and Eric slump and show distress", "Voices and pace show conflict"], "dp": ["Everyone stays the same", "Everyone changes the same", "There is no change"], "mand": 0}, {"id": "DRA-04-012", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How would you <b>stage the final phone call<\/b>?", "a": ["<b>Sudden sound<\/b> of the phone (1)", "<b>Freeze or stillness<\/b> on stage (1)", "<b>Light change<\/b> to highlight shock (1)"], "cp": ["Sudden sound of the phone", "Freeze or stillness on stage", "Light change to highlight shock"], "dp": ["Blackout and no sound", "Have the Inspector return", "End with a song"], "mand": 0}, {"id": "DRA-04-013", "t": 4, "s": "Inspector", "k": "Recall", "m": 3, "ht": false, "q": "What was <b>Stephen Daldry's 1992 production<\/b> famous for?", "a": ["A <b>National Theatre revival<\/b> (1)", "<b>Ian MacNeil's design<\/b>: a house on stilts (1)", "<b>A dramatic, expressionist style<\/b> with a street setting (1)"], "cp": ["A National Theatre revival", "Ian MacNeil's design: a house on stilts", "A dramatic, expressionist style with a street setting"], "dp": ["A silent film", "A musical", "A puppet show"], "mand": 0}, {"id": "DRA-04-014", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "What is <b>dramatic tension<\/b> and how is it created in the play?", "a": ["<b>Secrets revealed gradually<\/b> (1)", "<b>Cliffhangers<\/b> at act ends (1)", "<b>Quick pace<\/b> of questioning (1)"], "cp": ["Secrets revealed gradually", "Cliffhangers at act ends", "Quick pace of questioning"], "dp": ["Constant humour", "Slow description", "No tension"], "mand": 0}, {"id": "DRA-04-015", "t": 4, "s": "Inspector", "k": "Explain", "m": 3, "ht": false, "q": "How would a <b>director<\/b> use <b>levels<\/b> in An Inspector Calls?", "a": ["<b>Inspector higher<\/b> to show authority (1)", "<b>Birlings lower<\/b> as they lose control (1)", "<b>Sheila and Eric<\/b> change position as they gain insight (1)"], "cp": ["Inspector higher to show authority", "Birlings lower as they lose control", "Sheila and Eric change position as they gain insight"], "dp": ["No levels", "All actors on the floor", "Levels are not used"], "mand": 0}, {"id": "DRA-04-016", "t": 4, "s": "Inspector", "k": "Exam trap", "m": 2, "ht": false, "q": "Why is <b>'I would do it like the play'<\/b> not enough in Section A?", "a": ["You must give <b>your own specific ideas<\/b> (1)", "And explain the <b>effect on the audience<\/b> (1)"], "cp": ["You must give your own specific ideas", "And explain the effect on the audience"], "dp": ["It is full marks", "Examiners prefer no ideas", "It is a design term"], "mand": 0}, {"id": "DRA-05-001", "t": 5, "s": "Production", "k": "Recall", "m": 4, "ht": false, "q": "Which <b>live production<\/b> did Amelie see, and where was it staged?", "a": ["<b>Stranger Things: The First Shadow<\/b> (1)", "A <b>stage play<\/b> prequel to the TV series (1)", "Staged at the <b>Phoenix Theatre<\/b>, London (1)", "Set in <b>Hawkins, Indiana, in 1959<\/b> (1)"], "cp": ["Stranger Things: The First Shadow", "A stage play prequel to the TV series", "Staged at the Phoenix Theatre, London", "Set in Hawkins, Indiana, in 1959"], "dp": ["A musical at the Globe", "A film screening", "An outdoor festival show"], "mand": 0}, {"id": "DRA-05-002", "t": 5, "s": "Production", "k": "Recall", "m": 3, "ht": false, "q": "Who was the <b>director<\/b> of Stranger Things: The First Shadow?", "a": ["<b>Stephen Daldry<\/b> (1)", "Working with <b>Justin Martin<\/b> (1)", "The director shapes the <b>overall vision<\/b> of the production (1)"], "cp": ["Stephen Daldry", "Working with Justin Martin", "The director shapes the overall vision of the production"], "dp": ["Miriam Buether", "Paul Arditti", "Jon Clark"], "mand": 0}, {"id": "DRA-05-003", "t": 5, "s": "Production", "k": "Recall", "m": 3, "ht": false, "q": "Who <b>wrote<\/b> Stranger Things: The First Shadow?", "a": ["<b>Kate Trefry<\/b> wrote the play (1)", "From a story by <b>the Duffer Brothers, Jack Thorne and Kate Trefry<\/b> (1)", "It is a <b>prequel<\/b> to the TV series (1)"], "cp": ["Kate Trefry wrote the play", "From a story by the Duffer Brothers, Jack Thorne and Kate Trefry", "It is a prequel to the TV series"], "dp": ["Willy Russell", "J B Priestley", "Lin Coghlan"], "mand": 0}, {"id": "DRA-05-004", "t": 5, "s": "Production", "k": "Recall", "m": 4, "ht": false, "q": "Name <b>four members of the design team<\/b> and their roles.", "a": ["<b>Miriam Buether<\/b>: set (1)", "<b>Brigitte Reiffenstuel<\/b>: costume (1)", "<b>Jon Clark<\/b>: lighting (1)", "<b>Paul Arditti<\/b>: sound (1)"], "cp": ["Miriam Buether: set", "Brigitte Reiffenstuel: costume", "Jon Clark: lighting", "Paul Arditti: sound"], "dp": ["Stephen Daldry: costume", "Jon Clark: sound", "Paul Arditti: set"], "mand": 0}, {"id": "DRA-05-005", "t": 5, "s": "Production", "k": "Recall", "m": 3, "ht": false, "q": "Who created the <b>illusions and video<\/b> for the production?", "a": ["<b>Jamie Harrison and Chris Fisher<\/b>: illusions (1)", "<b>59 Studio<\/b>: video (1)", "These effects create the <b>supernatural world<\/b> (1)"], "cp": ["Jamie Harrison and Chris Fisher: illusions", "59 Studio: video", "These effects create the supernatural world"], "dp": ["Brigitte Reiffenstuel: video", "Miriam Buether: illusions", "Jon Clark: video"], "mand": 0}, {"id": "DRA-05-006", "t": 5, "s": "Production", "k": "Explain", "m": 3, "ht": false, "q": "Why does the production use <b>illusions and special effects<\/b>?", "a": ["To show the <b>supernatural<\/b> elements of the story (1)", "To create <b>surprise and tension<\/b> for the audience (1)", "To match the <b>look of the TV series<\/b> on stage (1)"], "cp": ["To show the supernatural elements of the story", "To create surprise and tension for the audience", "To match the look of the TV series on stage"], "dp": ["To save money", "To hide the actors", "To make the show shorter"], "mand": 0}, {"id": "DRA-05-007", "t": 5, "s": "Production", "k": "Explain", "m": 3, "ht": false, "q": "How can <b>lighting<\/b> create atmosphere in a supernatural thriller?", "a": ["<b>Dark, low light<\/b> builds tension (1)", "<b>Sudden changes<\/b> create shock (1)", "<b>Colour<\/b> separates the real world from the unnatural (1)"], "cp": ["Dark, low light builds tension", "Sudden changes create shock", "Colour separates the real world from the unnatural"], "dp": ["Constant bright light", "No lighting", "Lighting that never changes"], "mand": 0}, {"id": "DRA-05-008", "t": 5, "s": "Production", "k": "Explain", "m": 3, "ht": false, "q": "How can <b>sound<\/b> create tension in a production like this?", "a": ["<b>Low background sounds<\/b> build unease (1)", "<b>Sudden loud effects<\/b> cause shock (1)", "<b>Silence<\/b> before key moments (1)"], "cp": ["Low background sounds build unease", "Sudden loud effects cause shock", "Silence before key moments"], "dp": ["Constant cheerful music", "No sound", "Applause throughout"], "mand": 0}, {"id": "DRA-05-009", "t": 5, "s": "Production", "k": "Explain", "m": 3, "ht": false, "q": "How can <b>set design<\/b> show the 1950s setting of Hawkins?", "a": ["<b>Period furniture and props<\/b> (1)", "<b>Domestic spaces<\/b> shown on stage (1)", "A <b>town-like world<\/b> that feels real before it turns strange (1)"], "cp": ["Period furniture and props", "Domestic spaces shown on stage", "A town-like world that feels real before it turns strange"], "dp": ["Modern office equipment", "A bare stage with no clues", "Futuristic machinery"], "mand": 0}, {"id": "DRA-05-010", "t": 5, "s": "Production", "k": "Explain", "m": 3, "ht": false, "q": "How can <b>costume<\/b> show the 1950s period?", "a": ["<b>Period clothing styles<\/b> (1)", "<b>Everyday, realistic costume<\/b> for the community (1)", "Costume helps show <b>character and status<\/b> (1)"], "cp": ["Period clothing styles", "Everyday, realistic costume for the community", "Costume helps show character and status"], "dp": ["Modern sportswear", "Space suits", "Identical costumes for everyone"], "mand": 0}, {"id": "DRA-05-011", "t": 5, "s": "Production", "k": "Explain", "m": 3, "ht": false, "q": "How can <b>actors<\/b> show a character is <b>troubled or different<\/b>?", "a": ["<b>Posture and gesture<\/b> that set them apart (1)", "<b>Voice<\/b> that changes in tone or pace (1)", "<b>Distance or contact<\/b> with other characters (1)"], "cp": ["Posture and gesture that set them apart", "Voice that changes in tone or pace", "Distance or contact with other characters"], "dp": ["Standing perfectly still always", "Speaking in the same way as everyone", "Leaving the stage"], "mand": 0}, {"id": "DRA-05-012", "t": 5, "s": "Production", "k": "Exam trap", "m": 3, "ht": false, "q": "A question asks about <b>one moment<\/b> from the live production. How do you <b>use your notes<\/b>?", "a": ["Pick <b>one specific moment<\/b> (1)", "Describe <b>what you saw and heard<\/b> clearly (1)", "Say <b>why it worked<\/b> for the audience (1)"], "cp": ["Pick one specific moment", "Describe what you saw and heard clearly", "Say why it worked for the audience"], "dp": ["Write everything you remember", "Copy the notes word for word", "Write about a different show"], "mand": 0}, {"id": "DRA-06-001", "t": 6, "s": "Method", "k": "Process", "m": 3, "ht": false, "q": "How should you <b>structure a Section B answer<\/b>?", "a": ["<b>Point<\/b>: name the skill or element you are evaluating (1)", "<b>Evidence<\/b>: the specific moment you saw (1)", "<b>Effect<\/b>: why it worked for the audience (1)"], "cp": ["Point: name the skill or element you are evaluating", "Evidence: the specific moment you saw", "Effect: why it worked for the audience"], "dp": ["Retell the story", "List every actor", "Write one sentence"], "mand": 0}, {"id": "DRA-06-002", "t": 6, "s": "Method", "k": "Recall", "m": 3, "ht": false, "q": "What is the difference between <b>analysis and evaluation<\/b>?", "a": ["<b>Analysis<\/b>: describe and explain how it was done (1)", "<b>Evaluation<\/b>: judge how successful it was (1)", "Strong answers <b>do both<\/b> with evidence (1)"], "cp": ["Analysis: describe and explain how it was done", "Evaluation: judge how successful it was", "Strong answers do both with evidence"], "dp": ["They mean the same thing", "Analysis is only opinion", "Evaluation is only description"], "mand": 0}, {"id": "DRA-06-003", "t": 6, "s": "Method", "k": "Recall", "m": 3, "ht": false, "q": "What are good <b>evaluation words<\/b> to use?", "a": ["<b>Effective<\/b> or <b>ineffective<\/b> (1)", "<b>Successfully<\/b> or <b>less successfully<\/b> (1)", "<b>Impact on the audience<\/b> (1)"], "cp": ["Effective or ineffective", "Successfully or less successfully", "Impact on the audience"], "dp": ["Nice", "Cool", "I liked it"], "mand": 0}, {"id": "DRA-06-004", "t": 6, "s": "Method", "k": "Explain", "m": 3, "ht": false, "q": "What should be in your <b>500-word notes<\/b>?", "a": ["<b>Key moments<\/b> with short descriptions (1)", "<b>Design and performance choices<\/b> (1)", "<b>Why they worked<\/b> and the audience reaction (1)"], "cp": ["Key moments with short descriptions", "Design and performance choices", "Why they worked and the audience reaction"], "dp": ["A full script", "Plot summary only", "A drawing"], "mand": 0}, {"id": "DRA-06-005", "t": 6, "s": "Method", "k": "Exam trap", "m": 2, "ht": false, "q": "What is a <b>common mistake<\/b> in the live theatre question?", "a": ["<b>Retelling the plot<\/b> instead of evaluating (1)", "<b>No specific examples<\/b> from the performance (1)"], "cp": ["Retelling the plot instead of evaluating", "No specific examples from the performance"], "dp": ["Writing too much evidence", "Using subject vocabulary", "Including specific examples"], "mand": 0}, {"id": "DRA-06-006", "t": 6, "s": "Method", "k": "Explain", "m": 3, "ht": false, "q": "How can you <b>evaluate acting<\/b> in a live performance?", "a": ["Name a <b>moment<\/b> (1)", "Explain <b>voice, movement or facial expression<\/b> used (1)", "Judge the <b>effect on the audience<\/b> (1)"], "cp": ["Name a moment", "Explain voice, movement or facial expression used", "Judge the effect on the audience"], "dp": ["Say the actor was good", "Say it was long", "Describe the ticket price"], "mand": 0}, {"id": "DRA-06-007", "t": 6, "s": "Method", "k": "Explain", "m": 3, "ht": false, "q": "How can you <b>evaluate a design element<\/b> such as lighting, sound, set or costume?", "a": ["Name the <b>element<\/b> and a specific moment (1)", "Explain <b>what it created<\/b>: mood, place or tension (1)", "Judge how <b>successful<\/b> it was (1)"], "cp": ["Name the element and a specific moment", "Explain what it created: mood, place or tension", "Judge how successful it was"], "dp": ["Say it looked nice", "List the equipment", "Describe the building"], "mand": 0}, {"id": "DRA-06-008", "t": 6, "s": "Method", "k": "Recall", "m": 3, "ht": false, "q": "Which <b>drama vocabulary<\/b> should you use in the evaluation?", "a": ["<b>Proxemics<\/b>, <b>pace<\/b> and <b>pitch<\/b> for performance (1)", "<b>Levels<\/b>, <b>staging<\/b> and <b>blocking<\/b> for use of space (1)", "<b>Atmosphere<\/b> and <b>mood<\/b> for design (1)"], "cp": ["Proxemics, pace and pitch for performance", "Levels, staging and blocking for use of space", "Atmosphere and mood for design"], "dp": ["Everyday words only", "Film terms only", "No vocabulary is needed"], "mand": 0}, {"id": "DRA-06-009", "t": 6, "s": "Method", "k": "Process", "m": 3, "ht": false, "q": "How do you <b>plan your time<\/b> for Section B?", "a": ["Read the <b>question<\/b> carefully first (1)", "Pick the <b>best examples from your notes<\/b> (1)", "Leave time to <b>check<\/b> your answer (1)"], "cp": ["Read the question carefully first", "Pick the best examples from your notes", "Leave time to check your answer"], "dp": ["Start writing straight away", "Ignore the question", "Copy your notes"], "mand": 0}];
+const CFG={"name": "Amelie", "tier": "Higher", "key": "drama_amelie_v1", "accent": "#2fd3c4", "accent2": "#ffd166", "ht": false, "subject": "Drama", "spec": "Edexcel GCSE Drama (1PE0)", "topics": [{"n": 1, "name": "Exam structure and skills", "c": "#5b9bff"}, {"n": 2, "name": "Performance skills and vocabulary", "c": "#ff9f43"}, {"n": 3, "name": "Design and staging vocabulary", "c": "#3ddc97"}, {"n": 4, "name": "An Inspector Calls in performance", "c": "#ff6b81"}, {"n": 5, "name": "Stranger Things: The First Shadow", "c": "#b58cff"}, {"n": 6, "name": "Evaluating live theatre", "c": "#38d0f0"}], "gate": "3b7ddff644610abe0d69acd881e063a48ad048be64549c41c2bb9b3943570883", "res": {"title": "About these cards", "intro": "Edexcel GCSE Drama, per the school's Year 11 exam board list. Cards cover the written exam (Component 3): performance and design vocabulary, An Inspector Calls in performance, the live production Stranger Things: The First Shadow, and how to evaluate live theatre. Devising and the performance from text are assessed in school.", "modeText": "x", "modes": [], "given": ["Exam structure, performance skills, design and staging vocabulary, set text and live theatre evaluation"], "tips": ["Play a Quick round most days, then a topic round on anything in Weak spots.", "Use specific moments from the play and the live show as evidence.", "Always say what the audience would think or feel."], "links": [{"u": "https://qualifications.pearson.com/en/qualifications/edexcel-gcses/drama-2016.html", "t": "Pearson Edexcel GCSE Drama", "d": "specification, past papers and mark schemes"}], "note": ""}};
+const LOGURL="https://script.google.com/macros/s/AKfycby17HD6voBTQOBC6yI4hlqeOS_kPINyHKXfXaxLomzcTqIC8sYMeOVgdH9I7zX8a8Ziow/exec",LOGKEY="zF0988a6v6_5vE_R";
+const plain=s=>String(s).replace(/<[^>]+>/g,"").replace(/\s+/g," ").trim();
+const DEV=/iPhone/.test(navigator.userAgent)?"iPhone":(/iPad/.test(navigator.userAgent)||(/Mac/.test(navigator.userAgent)&&navigator.maxTouchPoints>1))?"iPad":"Other";
+function qGet(){try{return JSON.parse(localStorage.getItem(CFG.key+"_q")||"[]")}catch(e){return[]}}
+function qSet(a){try{localStorage.setItem(CFG.key+"_q",JSON.stringify(a.slice(-500)))}catch(e){}}
+let flushing=false;
+function logEvent(rec){if(!LOGURL)return;rec.u=Date.now().toString(36)+Math.random().toString(36).slice(2,7);rec.child=CFG.name;rec.subject=CFG.subject;rec.dev=DEV;rec.ts=new Date().toISOString();const q=qGet();q.push(rec);qSet(q);flush()}
+function flush(){
+  if(!LOGURL||flushing)return;const q=qGet();if(!q.length)return;flushing=true;
+  try{fetch(LOGURL,{method:"POST",mode:"no-cors",keepalive:q.length<20,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({key:LOGKEY,rows:q})})
+   .then(()=>{qSet(qGet().slice(q.length));flushing=false;if(qGet().length)setTimeout(flush,300)}).catch(()=>{flushing=false;setTimeout(flush,20000)})}catch(e){flushing=false}
+}
+window.addEventListener("online",flush);document.addEventListener("visibilitychange",()=>{if(document.hidden)flush()});
+setTimeout(flush,1500);
+const TOPICS=[null].concat(CFG.topics);const TN=CFG.topics.map(x=>x.n);
+const RANKS=[[0,"Observer"],[200,"Technician"],[500,"Analyst"],[1000,"Researcher"],[1800,"Specialist"],[3000,"Consultant"],[5000,"Professor"]];
+const GOAL=30;
+const ICON={star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.1 4.9 1.3 7L12 17.8 5.8 21.3l1.3-7L2 9.4l7-.9z"/></svg>',
+ heart:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.7A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg>',
+ cross:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+ tick:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>',
+ medal:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="14" r="6"/><path d="M8 3l4 6 4-6"/></svg>',
+ flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5.500 6 5.500 11a5.500 5.500 0 01-11 0c0-2.200 1-3.500 2.200-4.500.1 2 1 3 2 3C10.500 7 10.500 4.500 12 2z"/></svg>',
+ bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>',
+ trophy:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v5a5 5 0 01-10 0zM4 4h3v2a2 2 0 01-2 2H4zM17 4h3v4h-1a2 2 0 01-2-2zM11 13h2v4h3v3H8v-3h3z"/></svg>',
+ target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.500" fill="currentColor"/></svg>',
+ shield:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 3v6c0 5-3.500 9-8 11-4.500-2-8-6-8-11V5z"/></svg>',
+ crown:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4.500 4L12 4l4.500 7L21 7l-2 12H5z"/></svg>',
+ flag:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 22V3h13l-2.500 4.500L18 12H7v10z"/></svg>'};
+/* ---------- state ---------- */
+function fresh(){return {cards:{},xp:0,marks:0,perfect:0,rounds:0,streak:0,best:0,last:"",day:{d:"",m:0},badges:[],traps:0,survWins:0,incHT:true,tp:{},kp:{},hist:{},recent:[]}}
+let S=load();
+let STORE_OK=true;try{localStorage.setItem('_t','1');localStorage.removeItem('_t')}catch(e){STORE_OK=false}
+function load(){try{const s=localStorage.getItem(CFG.key);if(s)return Object.assign(fresh(),JSON.parse(s))}catch(e){}return fresh()}
+function save(){try{localStorage.setItem(CFG.key,JSON.stringify(S))}catch(e){}}
+const todayStr=()=>new Date().toLocaleDateString("en-CA");
+function marksToday(){return S.day.d===todayStr()?S.day.m:0}
+function rank(xp){let i=0;for(let k=0;k<RANKS.length;k++)if(xp>=RANKS[k][0])i=k;const lo=RANKS[i][0],hi=RANKS[i+1]?RANKS[i+1][0]:null;return {i,name:RANKS[i][1],lo,hi,next:RANKS[i+1]?RANKS[i+1][1]:null}}
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const pool=()=>DATA.filter(c=>S.incHT||!c.ht);
+const tc=t=>TOPICS[t].c;
+function mastered(id){const c=S.cards[id];return c&&c.box>=2}
+function topicStats(t){const p=pool().filter(c=>c.t===t);const m=p.filter(c=>mastered(c.id)).length;const seen=p.filter(c=>S.cards[c.id]).length;return {n:p.length,m,seen}}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+let view="home",R=null,LIB={t:0,k:"",q:""};
+function go(v){view=v;R=null;render();window.scrollTo(0,0)}
+function ring(p,size=84){const r=size/2-8,c=2*Math.PI*r;return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--panel2)" stroke-width="8"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="url(#g)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-Math.min(1,p))}" transform="rotate(-90 ${size/2} ${size/2})"/><defs><linearGradient id="g"><stop offset="0" stop-color="${CFG.accent}"/><stop offset="1" stop-color="${CFG.accent2}"/></linearGradient></defs><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" fill="#eef0fb" font-size="${size/4.2}" font-weight="700">${Math.round(Math.min(1,p)*100)}%</text></svg>`}
+/* ---------- badges ---------- */
+const BADGES=[
+ {id:"first",n:"First round",d:"Finish a round",i:"flag",t:()=>S.rounds>=1},
+ {id:"c100",n:"Century",d:"Earn 100 marks",i:"bolt",t:()=>S.marks>=100},
+ {id:"c500",n:"Five hundred",d:"Earn 500 marks",i:"trophy",t:()=>S.marks>=500},
+ {id:"p10",n:"Full marks x10",d:"10 cards with full marks",i:"star",t:()=>S.perfect>=10},
+ {id:"s3",n:"On a roll",d:"3 day streak",i:"flame",t:()=>S.streak>=3},
+ {id:"s7",n:"Week warrior",d:"7 day streak",i:"flame",t:()=>S.streak>=7},
+ {id:"trap",n:"Trap spotter",d:"10 exam traps with full marks",i:"target",t:()=>S.traps>=10},
+ {id:"surv",n:"Survivor",d:"Finish a Survival round",i:"shield",t:()=>S.survWins>=1},
+ ...TN.map(t=>({id:"m"+t,n:TOPICS[t].name+" master",d:"Master 80% of the topic",i:"crown",t:()=>{const s=topicStats(t);return s.n>0&&s.m/s.n>=.8}}))];
+function checkBadges(){const got=[];BADGES.forEach(b=>{if(!S.badges.includes(b.id)&&b.t()){S.badges.push(b.id);got.push(b)}});return got}
+/* ---------- render ---------- */
+function render(){
+  $("#nav-home").classList.toggle("on",view!=="library"&&view!=="progress");$("#nav-library").classList.toggle("on",view==="library");$("#nav-progress").classList.toggle("on",view==="progress");$("#specline").textContent=CFG.spec;
+  const r=rank(S.xp);$("#xpbox").innerHTML=`<div class="l"><span>${r.name}</span><span>${S.xp} pts${r.hi?" / "+r.hi:""}</span></div><div class="bar"><i style="width:${r.hi?Math.round((S.xp-r.lo)/(r.hi-r.lo)*100):100}%"></i></div>`;
+  if(view==="home")home();else if(view==="round")roundView();else if(view==="result")resultView();else if(view==="progress")progressView();else library();
+}
+function greet(){const h=new Date().getHours();return h<12?"Good morning":h<18?"Good afternoon":"Good evening"}
+function accOf(o){return o&&o.m?o.e/o.m:null}
+function focusPick(){
+  const arr=TN.map(t=>({t,acc:accOf(S.tp[t]),seen:topicStats(t).seen,n:topicStats(t).n}));
+  if(!S.rounds)return {h:"Start with a Quick round",p:"Ten mixed questions to find out where you stand. It takes about five minutes.",act:"start({n:10,label:'Quick round'})",btn:"Start now"};
+  const weak=arr.filter(a=>a.acc!==null&&a.acc<.7).sort((a,b)=>a.acc-b.acc)[0];
+  if(weak)return {h:"Focus on "+TOPICS[weak.t].name,p:"You are scoring "+Math.round(weak.acc*100)+"% here. A short round now is the quickest way to lift your overall score.",act:"start({n:10,topic:"+weak.t+",label:'"+TOPICS[weak.t].name.replace(/'/g,"")+"'})",btn:"Practise this topic"};
+  const un=arr.filter(a=>a.seen<a.n*.25).sort((a,b)=>a.seen-b.seen)[0];
+  if(un)return {h:"Explore "+TOPICS[un.t].name,p:"You have barely started this topic. Try ten questions to see what you already know.",act:"start({n:10,topic:"+un.t+",label:'"+TOPICS[un.t].name.replace(/'/g,"")+"'})",btn:"Try this topic"};
+  return {h:"Keep the streak going",p:"Your topics are looking strong. A quick round keeps everything fresh.",act:"start({n:10,label:'Quick round'})",btn:"Quick round"};
+}
+function dayMarks(n){const out=[];for(let i=n-1;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const k=d.toLocaleDateString("en-CA");out.push({k,d,m:(S.hist&&S.hist[k])||(S.day.d===k?S.day.m:0)})}return out}
+function barChart(days,goal){
+  const W=640,H=190,pl=30,pb=24,pt=12,bw=(W-pl)/days.length,max=Math.max(goal*1.25,...days.map(x=>x.m),10);
+  const y=v=>pt+(H-pt-pb)*(1-v/max);
+  const bars=days.map((x,i)=>{const h=(H-pt-pb)*(x.m/max),bx=pl+i*bw+bw*.18,w=bw*.64;const on=x.m>=goal;return `<rect x="${bx}" y="${H-pb-h}" width="${w}" height="${Math.max(h,x.m?3:0)}" rx="5" fill="${on?'var(--good)':'url(#bg)'}"/><text x="${bx+w/2}" y="${H-6}" text-anchor="middle" font-size="10" fill="#9ba4cc">${"SMTWTFS"[x.d.getDay()]}</text>${x.m?`<text x="${bx+w/2}" y="${H-pb-h-4}" text-anchor="middle" font-size="10" fill="#eef0fb">${x.m}</text>`:""}`}).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Marks per day for the last ${days.length} days"><defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${CFG.accent}"/><stop offset="1" stop-color="${CFG.accent2}"/></linearGradient></defs><line x1="${pl}" x2="${W}" y1="${y(goal)}" y2="${y(goal)}" stroke="#ffb84d" stroke-dasharray="5 5" stroke-width="1.500"/><text x="2" y="${y(goal)+4}" font-size="10" fill="#ffb84d">${goal}</text>${bars}</svg>`}
+function resPanel(){
+  const R=CFG.res; if(!R) return "";
+  const esc=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const li=R.links.map(l=>`<li><a style="color:var(--accent2);text-decoration:underline" href="${l.u}" target="_blank" rel="noopener noreferrer">${esc(l.t)}</a> <span class="small">${esc(l.d)}</span></li>`).join("");
+  const gi=R.given.map(x=>`<li>${esc(x)}</li>`).join("");
+  const ti=R.tips.map(x=>`<li>${esc(x)}</li>`).join("");
+  return `<h2>${esc(R.title)}</h2><div class="panel"><p class="small" style="margin-top:0">${esc(R.intro)}</p><h3 style="margin:14px 0 6px;font-size:1rem">What you have been given</h3><ul class="small" style="margin:0 0 8px 18px;line-height:1.6">${gi}</ul><h3 style="margin:14px 0 6px;font-size:1rem">How to use it with this dashboard</h3><ul class="small" style="margin:0 0 8px 18px;line-height:1.6">${ti}</ul><h3 style="margin:14px 0 6px;font-size:1rem">Websites and revision guides</h3><ul class="small" style="margin:0 0 4px 18px;line-height:1.7">${li}</ul>${R.note?`<p class="small" style="margin:10px 0 0">${esc(R.note)}</p>`:""}</div>`;
+}
+function home(){
+  const r=rank(S.xp),p=pool(),mastN=p.filter(c=>mastered(c.id)).length;
+  const hasWeak=p.filter(c=>S.cards[c.id]&&S.cards[c.id].box<=1).length;
+  const htN=DATA.filter(c=>c.ht).length,f=focusPick();
+  const xpPct=r.hi?Math.round((S.xp-r.lo)/(r.hi-r.lo)*100):100;
+  let hintOff=false;try{hintOff=localStorage.getItem(CFG.key+"_hint")==="1"}catch(e){}
+  const iosBrowser=(/iPhone|iPad/.test(navigator.userAgent)||(/Mac/.test(navigator.userAgent)&&navigator.maxTouchPoints>1)),standalone=navigator.standalone||(window.matchMedia&&matchMedia("(display-mode: standalone)").matches);
+  const banners=(!STORE_OK?`<div class="banner"><span>Progress cannot be saved in this browser (private browsing is on, or storage is blocked). Your answers are still sent to your parents' progress sheet.</span></div>`:"")+
+    (iosBrowser&&!standalone&&!hintOff&&location.protocol!=="file:"?`<div class="banner"><span>Tip: tap the Share button, then <b>Add to Home Screen</b>, to open this like an app.</span><button onclick="try{localStorage.setItem(CFG.key+'_hint','1')}catch(e){};this.parentNode.remove()">Got it</button></div>`:"");
+  $("#app").innerHTML=`
+  <p class="hello">${greet()}, ${CFG.name}.</p>
+  <h1 style="margin-top:0">${CFG.name}'s <span class="grad">${CFG.subject} Lab</span></h1>
+  ${banners}
+  <div class="hero"><div><div class="k">Your next best step</div><h2>${f.h}</h2><p>${f.p}</p><button class="btn" onclick="${f.act}">${f.btn}</button></div><div class="ringwrap">${ring(marksToday()/GOAL,104)}<div><b style="font-size:1rem">Today</b><br><span class="small">${marksToday()} of ${GOAL} marks</span></div></div></div>
+  <div class="grid kpis">
+    <div class="kpi"><span class="fl ${S.streak?"":"off"}">${ICON.flame}</span><div><b>${S.streak}</b><span>day streak${S.best>S.streak?" | best "+S.best:""}</span></div></div>
+    <div class="kpi"><div style="flex:1"><b>${r.name}</b><span>${S.xp} pts${r.next?" | next: "+r.next:" | top rank"}</span><div class="bar mini"><i style="width:${xpPct}%"></i></div></div></div>
+    <div class="kpi"><div><b>${S.marks}</b><span>marks earned</span></div></div>
+    <div class="kpi"><div style="flex:1"><b>${mastN}<small style="font-size:.9rem;color:var(--muted)"> / ${p.length}</small></b><span>cards mastered</span><div class="bar mini"><i style="width:${p.length?Math.round(mastN/p.length*100):0}%"></i></div></div></div>
+  </div>
+  <h2>Choose your challenge</h2>
+  <div class="grid modes">
+    <button class="mode primary" onclick="start({n:10,label:'Quick round'})"><b>Quick round</b><small>10 mixed questions, chosen to focus on what you know least.</small></button>
+    <button class="mode" onclick="start({n:15,survival:true,label:'Survival'})"><b>Survival</b><small>15 questions, 3 lives. Score under half marks and you lose one.</small></button>
+    <button class="mode" onclick="start({n:10,kind:'Exam trap',label:'Exam traps'})"><b>Exam traps</b><small>The mistakes examiners see again and again.</small></button>
+    <button class="mode" onclick="start({n:10,kind:'Practical',label:'Required practicals'})"><b>Required practicals</b><small>Methods, variables and results for all ten practicals.</small></button>
+    <button class="mode" onclick="start({n:10,kind:'Calculation',label:'Calculations'})"><b>Calculations</b><small>Pick the right method and the right answer.</small></button>
+    ${CFG.res?(CFG.res.modes||[{t:8,l:'Mock pack',s:CFG.res.modeText}]).map(m=>`<button class="mode" onclick="start({n:10,topic:${m.t},label:'${m.l}'})"><b>${m.l}</b><small>${m.s}</small></button>`).join(""):""}
+    <button class="mode" onclick="start({n:10,weak:true,label:'Weak spots'})" ${hasWeak?"":"disabled style='opacity:.5'"}><b>Weak spots</b><small>${hasWeak?hasWeak+" cards need another go.":"Appears once you have played a round."}</small></button>
+    ${CFG.ht?`<button class="mode" onclick="start({n:10,ht:true,label:'Higher-only'})" ${S.incHT?"":"disabled style='opacity:.5'"}><b>Higher-only</b><small>${htN} questions that only appear on the Higher paper.</small></button>`:""}
+  </div>
+  ${CFG.ht?`<label class="toggle"><input type="checkbox" ${S.incHT?"checked":""} onchange="S.incHT=this.checked;save();render()"> Include Higher-only cards in rounds</label>`:""}
+  <h2>Topics</h2>
+  <div class="grid topics">${TN.map(t=>{const s=topicStats(t),a=accOf(S.tp[t]);return `<button class="tile" style="--c:${tc(t)}" onclick="start({n:10,topic:${t},label:'${TOPICS[t].name.replace(/'/g,"")}'})"><span class="n">Topic ${t}${a!==null?" | scoring "+Math.round(a*100)+"%":""}</span><b>${TOPICS[t].name}</b><div class="bar two"><i class="s" style="width:${s.n?Math.round(s.seen/s.n*100):0}%"></i><i style="width:${s.n?Math.round(s.m/s.n*100):0}%"></i></div><div class="meta"><span>${s.seen} seen | ${s.m} mastered</span><span>${s.n} cards</span></div></button>`}).join("")}</div>
+  ${resPanel()}
+  <h2>Badges <span class="small">${S.badges.length} of ${BADGES.length}</span></h2>
+  <div class="grid badges">${BADGES.map(b=>{const g=S.badges.includes(b.id);return `<div class="badge ${g?"got":"locked"}"><span class="ic">${ICON[b.i]||ICON.medal}</span><div><b>${b.n}</b><small>${b.d}</small></div></div>`}).join("")}</div>
+  <p class="small" style="margin-top:26px"><button class="chip" onclick="if(confirm('Reset all progress on this device? Your parents keep the history in the progress sheet.')){S=fresh();save();render()}">Reset progress on this device</button></p>`;
+}
+function progressView(){
+  const p=pool(),seenN=p.filter(c=>S.cards[c.id]).length,mastN=p.filter(c=>mastered(c.id)).length;
+  const tm=Object.values(S.tp).reduce((a,x)=>a+x.m,0),te=Object.values(S.tp).reduce((a,x)=>a+x.e,0),acc=tm?Math.round(te/tm*100):0;
+  const days=dayMarks(14),active=days.filter(d=>d.m>0).length,total14=days.reduce((a,d)=>a+d.m,0);
+  const rows=TN.map(t=>{const s=topicStats(t),a=accOf(S.tp[t]);return `<div class="trow" style="--c:${tc(t)}"><div><b>${TOPICS[t].name}</b><small>${s.seen} of ${s.n} seen | ${s.m} mastered</small></div><div class="bar two"><i class="s" style="width:${s.n?Math.round(s.seen/s.n*100):0}%"></i><i style="width:${s.n?Math.round(s.m/s.n*100):0}%"></i></div><div style="display:flex;gap:10px;align-items:center"><span class="pctl">${a===null?"-":Math.round(a*100)+"%"}</span><button class="btn sm" onclick="start({n:10,topic:${t},label:'${TOPICS[t].name.replace(/'/g,"")}'})">Practise</button></div></div>`}).join("");
+  const kinds=Object.entries(S.kp).filter(([k,v])=>v.m>0).sort((a,b)=>a[1].e/a[1].m-b[1].e/b[1].m);
+  const kb=kinds.length?kinds.map(([k,v])=>{const a=v.e/v.m;return `<div class="kb"><span>${k}</span><div class="bar"><i style="width:${Math.round(a*100)}%;background:${a>=.8?'var(--good)':a>=.5?'var(--warn)':'var(--bad)'}"></i></div><b>${Math.round(a*100)}%</b></div>`}).join(""):`<p class="small">Play a round to see which question types you find hardest.</p>`;
+  const rec=S.recent.length?S.recent.map(x=>{const pc=x.m?x.e/x.m:0,st=pc>=.9?3:pc>=.7?2:pc>=.4?1:0;return `<div class="rrow"><span>${x.l} <span class="small">| ${x.d}</span></span><span><span class="st">${"*".repeat(st)||"-"}</span> <b>${x.e}/${x.m}</b></span></div>`}).join(""):`<p class="small">No rounds yet.</p>`;
+  $("#app").innerHTML=`<h1>Your <span class="grad">progress</span></h1><p class="sub">Everything you do is saved here, and your answers are also sent to your parents' progress sheet.</p>
+  <div class="grid pgrid"><div class="kpi"><div><b>${acc}%</b><span>accuracy overall</span></div></div><div class="kpi"><div><b>${S.marks}</b><span>marks earned</span></div></div><div class="kpi"><div><b>${S.rounds}</b><span>rounds played</span></div></div><div class="kpi"><div><b>${seenN}<small style="font-size:.9rem;color:var(--muted)"> / ${p.length}</small></b><span>cards seen | ${mastN} mastered</span></div></div></div>
+  <h2>Last 14 days</h2><div class="panel">${barChart(days,GOAL)}<div class="legend">Marks per day. Green bars hit the daily goal of ${GOAL}. ${active} active ${active===1?"day":"days"}, ${total14} marks in total.</div></div>
+  <h2>Topic by topic</h2><div class="panel">${rows}</div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:14px"><div class="panel"><h3>Question types, weakest first</h3><div class="kbars">${kb}</div></div><div class="panel"><h3>Recent rounds</h3>${rec}</div></div>
+  <h2>Badges <span class="small">${S.badges.length} of ${BADGES.length}</span></h2>
+  <div class="grid badges">${BADGES.map(b=>{const g=S.badges.includes(b.id);return `<div class="badge ${g?"got":"locked"}"><span class="ic">${ICON[b.i]||ICON.medal}</span><div><b>${b.n}</b><small>${b.d}</small></div></div>`}).join("")}</div>`;
+}
+/* ---------- rounds ---------- */
+function start(o){
+  let p=pool();
+  if(o.topic)p=p.filter(c=>c.t===o.topic);
+  if(o.kind)p=p.filter(c=>c.k===o.kind);
+  if(o.ht)p=p.filter(c=>c.ht);
+  if(o.weak)p=p.filter(c=>S.cards[c.id]&&S.cards[c.id].box<=1);
+  if(!p.length){toast("No cards match that choice yet.");return}
+  p=p.map(c=>({c,w:(S.cards[c.id]?S.cards[c.id].box:-1)+Math.random()*1.6})).sort((a,b)=>a.w-b.w).slice(0,o.n).map(x=>x.c);
+  R={cards:shuffle(p),i:0,earned:0,max:0,hearts:o.survival?3:null,survival:!!o.survival,label:o.label||"Round",rev:false,sel:[],log:[],over:false,lastFull:0};prep();
+  view="round";render();window.scrollTo(0,0);
+}
+function buildOpts(c){
+  const cor=c.cp.map(h=>({h,ok:1})),mand=c.mand||0;
+  const chosen=cor.slice(0,mand).concat(shuffle(cor.slice(mand)).slice(0,Math.max(0,c.m-mand)));
+  const wr=shuffle(c.dp.slice()).slice(0,c.m>=4?2:3).map(h=>({h,ok:0}));
+  return shuffle(chosen.concat(wr));
+}
+function prep(){R.rev=false;R.sel=[];R.opts=buildOpts(R.cards[R.i])}
+function roundView(){
+  const c=R.cards[R.i];const col=tc(c.t);const n=c.m;
+  const hearts=R.survival?`<div class="hearts" aria-label="Lives">${[0,1,2].map(i=>`<span class="heart ${i<R.hearts?"":"off"}">${ICON.heart}</span>`).join("")}</div>`:"";
+  let body="";
+  if(!R.rev){
+    body=`<p class="hint">${n===1?"Choose <b>one</b> answer.":"Choose <b>"+n+"</b> answers, like a tick-box question in the exam."}</p>
+    <div class="opts">${R.opts.map((o,i)=>`<button class="pt opt ${n===1?"single":""} ${R.sel.includes(i)?"on":""}" onclick="pick(${i})" aria-pressed="${R.sel.includes(i)}"><span class="box">${ICON.tick}</span><span>${o.h}</span></button>`).join("")}</div>
+    <div class="score"><span class="small">${R.sel.length} of ${n} chosen</span><button class="btn" ${R.sel.length?"":"disabled"} onclick="reveal()">Check my answer${n>1?"s":""}</button></div>`;
+  }else{
+    const earned=curScore(c);
+    body=`${fbBanner(c,earned)}<div class="opts">${R.opts.map((o,i)=>{const p=R.sel.includes(i);const st=p?(o.ok?"right":"wrong"):(o.ok?"missed":"");const ic=st==="right"?ICON.tick:st==="wrong"?ICON.cross:st==="missed"?ICON.tick:"";const lab=st==="right"?"Correct":st==="wrong"?"Not quite":st==="missed"?"You missed this one":"";return `<div class="pt opt done ${n===1?"single":""} ${st}"><span class="box">${ic}</span><span>${o.h}${lab?`<small class="olab">${lab}</small>`:""}</span></div>`}).join("")}</div>
+    <div class="ans"><h3>Full mark scheme</h3><div class="a">${c.a.map(x=>`<p>${x}</p>`).join("")}</div>
+    <div class="score"><div class="big">${earned} / ${c.m} ${c.m===1?"mark":"marks"}</div><button class="btn" id="nextbtn" onclick="next()">${R.i+1===R.cards.length?"Finish":"Next question"}</button></div></div>`;
+  }
+  $("#app").innerHTML=`
+  <div class="rhead"><button class="chip" onclick="if(confirm('Leave this round?'))go('home')">Quit</button><b>${R.label}</b><div class="seg">${R.cards.map((x,k)=>`<i class="${k<R.i?"d":k===R.i?"n":""}"></i>`).join("")}</div><span class="pill">${R.i+1} / ${R.cards.length}</span>${hearts}${R.combo>=2?`<span class="pill combo">${R.combo} in a row</span>`:""}<span class="pill">${R.earned} marks</span></div>
+  <div class="card" style="--c:${col}" id="card">
+    <div class="ctop"><span class="id">${c.id}</span><span class="tag c">${TOPICS[c.t].name}</span><span class="tag">${c.k}</span><span class="tag m">${c.m} ${c.m===1?"mark":"marks"}</span>${c.ht?'<span class="tag ht">Higher only</span>':""}<span class="tag">Spec ${c.s}</span></div>
+    <p class="q">${c.q}</p>
+    ${body}
+  </div>`;
+}
+function fbBanner(c,e){
+  const m=c.m,full=e===m,none=e===0;
+  const T=full?["Full marks.","Spot on.","Brilliant."]:none?["Not this time."]:["Nearly there."];
+  const h=T[(R.i+c.id.length)%T.length];
+  const s=full?(m>1?"Every mark secured.":"Correct."):none?"Read the mark scheme below and it will stick next time.":e+" of "+m+" marks. Check what you missed below.";
+  return `<div class="fb ${full?"full":none?"none":"part"}"><b>${h}</b><span>${s}</span></div>`}
+function curScore(c){let s=0;R.sel.forEach(i=>{if(R.opts[i]&&R.opts[i].ok)s++});return Math.min(s,c.m)}
+function reveal(){if(!R.sel.length||R.rev)return;R.rev=true;
+  {const c=R.cards[R.i];logEvent({t:"answer",id:c.id,topic:TOPICS[c.t].name,kind:c.k,marks:curScore(c),max:c.m,sel:R.sel.map(i=>plain(R.opts[i].h)).join(" | "),miss:R.opts.filter((o,i)=>o.ok&&!R.sel.includes(i)).map(o=>plain(o.h)).join(" | "),round:R.label})}
+  roundView();const a=document.querySelector(".opts");if(a)a.scrollIntoView({behavior:"smooth",block:"start"})}
+function pick(i){const n=R.cards[R.i].m;const k=R.sel.indexOf(i);
+  if(k>=0)R.sel.splice(k,1);else if(n===1)R.sel=[i];else if(R.sel.length<n)R.sel.push(i);else{toast("You have chosen "+n+". Untick one to change.");return}
+  const y=window.scrollY;roundView();window.scrollTo(0,y)}
+function next(){
+  const c=R.cards[R.i],e=curScore(c);
+  R.earned+=e;R.max+=c.m;R.log.push({c,e});R.combo=(e===c.m)?(R.combo||0)+1:0;
+  const st=S.cards[c.id]||(S.cards[c.id]={box:0,seen:0,best:0});
+  const ratio=e/c.m;st.seen++;st.best=Math.max(st.best,e);
+  if(ratio>=.8)st.box=Math.min(3,st.box+1);else if(ratio<.5)st.box=0;else st.box=Math.max(1,st.box);
+  let xp=e*10+(e===c.m?5:0);S.xp+=xp;S.marks+=e;
+  {const a=S.tp[c.t]||(S.tp[c.t]={e:0,m:0});a.e+=e;a.m+=c.m;const k=S.kp[c.k]||(S.kp[c.k]={e:0,m:0});k.e+=e;k.m+=c.m;S.hist[todayStr()]=(S.hist[todayStr()]||0)+e;const ks=Object.keys(S.hist).sort();while(ks.length>60)delete S.hist[ks.shift()]}
+  if(S.day.d!==todayStr())S.day={d:todayStr(),m:0};S.day.m+=e;
+  if(e===c.m){S.perfect++;if(c.k==="Exam trap")S.traps++}
+  let lost=false;
+  if(R.survival&&e<Math.ceil(c.m/2)){R.hearts--;lost=true;if(R.hearts<=0)R.over=true}
+  save();
+  if(R.over||R.i+1>=R.cards.length){finish();return}
+  R.i++;prep();roundView();window.scrollTo(0,0);
+  if(lost){const el=$("#card");el.classList.add("shake")}
+}
+function finish(){
+  S.rounds++;
+  const t=todayStr();
+  if(S.last!==t){const y=new Date();y.setDate(y.getDate()-1);S.streak=(S.last===y.toLocaleDateString("en-CA"))?S.streak+1:1;S.last=t}
+  if(S.streak>(S.best||0))S.best=S.streak;
+  if(R.survival&&!R.over)S.survWins++;
+  S.recent.unshift({d:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short'}),l:R.label,e:R.earned,m:R.max});S.recent=S.recent.slice(0,10);
+  logEvent({t:"round",round:R.label,marks:R.earned,max:R.max,xp:R.log.reduce((a,x)=>a+x.e*10+(x.e===x.c.m?5:0),0),totalxp:S.xp+0,cards:R.log.length,over:R.over?1:0});
+  R.newBadges=checkBadges();save();view="result";render();window.scrollTo(0,0);if(!R.over&&R.max&&R.earned/R.max>=.7)confetti();
+}
+function resultView(){
+  const pct=R.max?R.earned/R.max:0,stars=pct>=.9?3:pct>=.7?2:pct>=.4?1:0;
+  const msg=R.over?"Out of lives. Review the cards you missed and go again.":pct>=.9?"Outstanding. That is top-grade recall.":pct>=.7?"Strong round. A few marks to tidy up.":pct>=.4?"Good effort. The missed cards will come round again.":"Tough one. Read the mark schemes and try again.";
+  const missed=R.log.filter(x=>x.e<x.c.m).map(x=>x.c);
+  $("#app").innerHTML=`<div class="card result" style="--c:${CFG.accent}">
+   <h1 style="margin-top:0">${R.over?"Game over":"Round complete"}</h1><p class="sub">${msg}</p>
+   <div class="stars">${[0,1,2].map(i=>`<span class="star ${i<stars?"on":""}">${ICON.star}</span>`).join("")}</div>
+   <div class="rstats"><div class="stat"><b>${R.earned}/${R.max}</b><span>marks</span></div><div class="stat"><b>${Math.round(pct*100)}%</b><span>score</span></div><div class="stat"><b>+${R.log.reduce((a,x)=>a+x.e*10+(x.e===x.c.m?5:0),0)}</b><span>points</span></div></div>
+   ${R.newBadges&&R.newBadges.length?`<div class="newb">${R.newBadges.map(b=>`<div class="badge got" style="margin:8px 0"><span class="ic">${ICON.medal}</span><div><b>New badge: ${b.n}</b><small>${b.d}</small></div></div>`).join("")}</div>`:""}
+   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px">
+    ${missed.length?`<button class="btn" onclick="replay()">Retry ${missed.length} missed</button>`:""}
+    <button class="btn ghost" onclick="go('home')">Back to home</button></div>
+   ${missed.length?`<h2>Review</h2><div style="text-align:left">${missed.map(c=>`<details class="item" style="--c:${tc(c.t)}"><summary><span class="id">${c.id}</span><span class="qs">${c.q}</span></summary><div class="body"><div class="a">${c.a.map(x=>`<p>${x}</p>`).join("")}</div></div></details>`).join("")}</div>`:""}
+  </div>`;
+  R.missed=missed;
+}
+function confetti(){if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;const cols=[CFG.accent,CFG.accent2,"#ffb84d","#3ddc97","#ffffff"];for(let i=0;i<46;i++){const s=document.createElement("i");s.className="conf";s.style.left=Math.random()*100+"vw";s.style.background=cols[i%cols.length];s.style.setProperty("--dx",(Math.random()*160-80)+"px");s.style.animationDuration=(1.8+Math.random()*1.6)+"s";s.style.animationDelay=(Math.random()*.5)+"s";s.style.borderRadius=i%3?"2px":"50%";document.body.appendChild(s);setTimeout(()=>s.remove(),4200)}}
+function replay(){const m=R.missed;R={cards:shuffle(m.slice()),i:0,earned:0,max:0,hearts:null,survival:false,label:"Retry",rev:false,sel:[],log:[],over:false};prep();view="round";render();window.scrollTo(0,0)}
+function toast(t){const d=document.createElement("div");d.className="toast";d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+/* ---------- library ---------- */
+function library(){
+  const kinds=[...new Set(DATA.map(c=>c.k))].sort();
+  $("#app").innerHTML=`<div class="lib"><h1>Card <span class="grad">library</span></h1><p class="sub">Every question with its full mark scheme. Tap a card to open it.</p>
+  <div class="chips">${[0].concat(TN).map(t=>`<button class="chip ${LIB.t===t?"on":""}" onclick="LIB.t=${t};library()">${t?"Topic "+t:"All topics"}</button>`).join("")}</div>
+  <div class="chips"><input type="search" id="lq" placeholder="Search questions and answers" value="${LIB.q.replace(/"/g,"&quot;")}"><select id="lk"><option value="">All question types</option>${kinds.map(k=>`<option ${LIB.k===k?"selected":""}>${k}</option>`).join("")}</select><button class="chip" id="lo">Open all</button></div>
+  <div id="lres"></div></div>`;
+  const draw=()=>{
+    const q=LIB.q.toLowerCase();
+    const list=pool().filter(c=>(!LIB.t||c.t===LIB.t)&&(!LIB.k||c.k===LIB.k)&&(!q||(c.q+c.a.join(" ")+c.id).toLowerCase().includes(q)));
+    $("#lres").innerHTML=`<p class="small">${list.length} cards</p>`+list.map(c=>{const st=S.cards[c.id];return `<details class="item" style="--c:${tc(c.t)}"><summary><span class="id">${c.id}</span><span class="qs">${c.q}</span><span class="tag m">${c.m}m</span>${c.ht?'<span class="tag ht">H</span>':""}${st&&st.box>=2?'<span class="tag" style="color:var(--good)">mastered</span>':""}</summary><div class="body"><div class="small" style="margin-bottom:8px">${TOPICS[c.t].name} | ${c.k} | Spec ${c.s}</div><div class="a">${c.a.map(x=>`<p>${x}</p>`).join("")}</div></div></details>`}).join("");
+  };
+  $("#lq").oninput=e=>{LIB.q=e.target.value;draw()};$("#lk").onchange=e=>{LIB.k=e.target.value;draw()};
+  $("#lo").onclick=()=>{const ds=[...document.querySelectorAll("details.item")];const open=ds.some(d=>!d.open);ds.forEach(d=>d.open=open)};
+  draw();
+}
+/* ---------- keyboard ---------- */
+document.addEventListener("keydown",e=>{
+  if(view!=="round"||!R||/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName))return;
+  if(e.code==="Space"||e.key==="Enter"){e.preventDefault();if(!R.rev)reveal();else next()}
+  else if(!R.rev&&/^[1-9]$/.test(e.key)){const i=+e.key-1;if(R.opts[i])pick(i)}
+});
+/* ---------- restore progress from the sheet (any device) ---------- */
+let SYNCING=false;
+async function restore(){
+  if(!LOGURL||SYNCING||(view==="round"&&R&&!R.done))return;
+  SYNCING=true;
+  try{
+    if(qGet().length){flush();await new Promise(r=>setTimeout(r,2500));if(qGet().length)return}
+    const res=await fetch(LOGURL+"?action=state&key="+encodeURIComponent(LOGKEY)+"&child="+encodeURIComponent(CFG.name)+"&subject="+encodeURIComponent(CFG.subject),{cache:"no-store"});
+    const j=await res.json();
+    if(!j||!j.ok||!j.state)return;
+    const rs=j.state;
+    if(!(rs.xp>S.xp))return;
+    const tp={};Object.keys(rs.tpN).forEach(nm=>{const t=CFG.topics.find(x=>x.name===nm);if(t)tp[t.n]=rs.tpN[nm]});
+    const keep=S.incHT;
+    S=Object.assign(fresh(),{cards:rs.cards,xp:rs.xp,marks:rs.marks,perfect:rs.perfect,traps:rs.traps,rounds:rs.rounds,survWins:rs.survWins,streak:rs.streak,best:rs.best,last:rs.last,hist:rs.hist,recent:rs.recent,tp:tp,kp:rs.kp,badges:[],incHT:keep});
+    S.day={d:todayStr(),m:rs.hist[todayStr()]||0};
+    checkBadges();save();
+    if(view==="home"||view==="progress")render();
+  }catch(e){}finally{SYNCING=false}
+}
+setTimeout(restore,900);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)restore()});
+/* ---------- light passcode gate (only active when a hash is set) ---------- */
+async function gateHash(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function gateRun(who,hash,acc,acc2,go){
+  if(!hash){go();return}
+  const K="gcse_gate_"+who.toLowerCase();
+  try{if(localStorage.getItem(K)===hash){go();return}}catch(e){}
+  const o=document.createElement("div");
+  o.style.cssText="position:fixed;inset:0;z-index:99999;background:#0b0e1c;color:#f4f6ff;display:flex;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif";
+  o.innerHTML='<form style="width:100%;max-width:340px;text-align:center"><h1 style="margin:0 0 6px;font-size:1.6rem">Hi '+who+'</h1><p style="margin:0 0 18px;color:#aab0cc;font-size:.95rem">Enter your passcode to open your revision dashboard.</p><input id="gp" type="password" inputmode="numeric" autocomplete="off" placeholder="Passcode" style="width:100%;box-sizing:border-box;padding:14px 16px;border-radius:12px;border:2px solid #2b3050;background:#141831;color:#fff;font-size:1.1rem;text-align:center;outline:none"><button type="submit" style="margin-top:12px;width:100%;padding:14px;border:0;border-radius:12px;font-weight:800;font-size:1rem;color:#10132a;background:linear-gradient(90deg,'+acc+','+acc2+');cursor:pointer">Open</button><p id="gm" style="min-height:1.4em;margin:12px 0 0;color:#ff8a8a;font-size:.9rem"></p></form>';
+  document.body.appendChild(o);
+  const f=o.querySelector("form"),i=o.querySelector("#gp"),m=o.querySelector("#gm");
+  setTimeout(()=>{try{i.focus()}catch(e){}},50);
+  f.addEventListener("submit",async ev=>{ev.preventDefault();
+    const h=await gateHash(who.toLowerCase()+"|"+i.value.trim());
+    if(h===hash){try{localStorage.setItem(K,hash)}catch(e){}o.remove();go()}
+    else{m.textContent="That passcode is not right. Try again.";i.value="";i.focus()}});
+}
+gateRun(CFG.name,CFG.gate,CFG.accent,CFG.accent2,()=>render());
+</script>
+<style>#hubback{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:center;gap:9px;min-height:calc(46px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 16px 0;background:linear-gradient(90deg,var(--accent,#8b7bff),var(--accent2,#38d0f0));color:#10132a;font:800 1rem "Segoe UI",system-ui,-apple-system,sans-serif;text-decoration:none;letter-spacing:.2px}#hubback:active{filter:brightness(.92)}#hubback svg{flex:none}header.top{top:44px!important;padding-top:0!important}@supports(top:env(safe-area-inset-top)){header.top{top:calc(44px + env(safe-area-inset-top))!important}}@media print{#hubback{display:none}}</style>
+<script>(function(){var a=document.createElement("a");a.id="hubback";a.setAttribute("aria-label","Back to my dashboard");a.href=CFG.name.toLowerCase()+".html";a.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Back to dashboard';document.body.insertBefore(a,document.body.firstChild)})();</script>
+</body>
+</html>
